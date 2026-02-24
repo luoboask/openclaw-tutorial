@@ -1,0 +1,86 @@
+---
+title: 'OpenClaw 完全指南：从零搭建你的 AI 助手'
+date: '2026-02-14'
+category: '完全指南'
+readTime: '25 分钟'
+---
+
+# OpenClaw 完全指南
+
+OpenClaw 是一个开源的自托管 AI 网关，让你可以通过 WhatsApp、Telegram、Discord 等聊天应用与 AI 助手对话。本文将带你从零开始搭建完整的 AI 助手系统。
+
+## 什么是 OpenClaw？
+
+OpenClaw 充当了 AI 模型和聊天应用之间的桥梁，核心功能包括：
+
+- **多频道接入** - 同时连接 WhatsApp、Telegram、Discord 等
+- **工具系统** - 浏览器控制、代码执行、网页搜索等
+- **多 Agent 支持** - 多个 AI 角色协同工作
+- **完全自托管** - 数据掌控在自己手中
+
+## 安装部署
+
+### 系统要求
+
+- macOS / Linux / Windows (WSL)
+- Node.js 18+
+- 2GB+ 内存
+
+### 安装步骤
+
+```bash
+# 全局安装
+npm install -g openclaw@latest
+
+# 运行配置向导
+openclaw wizard
+
+# 启动网关
+openclaw gateway start
+```
+
+## 配置 AI 提供商
+
+OpenClaw 支持多种模型：
+
+```json
+{
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  }
+}
+```
+
+## 接入聊天频道
+
+### Telegram（最简单）
+
+1. 找 @BotFather 创建 Bot
+2. 获取 Bot Token
+3. 配置到 OpenClaw
+
+### WhatsApp
+
+1. 配对 QR 码
+2. 设置访问控制
+3. 开始对话
+
+## 工具使用
+
+- **Browser** - 访问网页、截图
+- **Exec** - 执行命令
+- **Search** - 网络搜索
+- **Canvas** - 图像处理
+
+## 进阶配置
+
+- 自定义工具开发
+- 多 Agent 协作
+- 定时任务设置
+
+开始你的 OpenClaw 之旅！

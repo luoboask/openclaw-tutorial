@@ -1,0 +1,50 @@
+---
+title: '5分钟上手：Telegram Bot 配置指南'
+date: '2026-02-13'
+category: '实战教程'
+readTime: '5 分钟'
+---
+
+# Telegram Bot 配置指南
+
+Telegram 是 OpenClaw 中最容易配置的频道，只需 5 分钟即可完成。
+
+## 创建 Bot
+
+1. 在 Telegram 搜索 `@BotFather`
+2. 发送 `/newbot`
+3. 设置名称和用户名
+4. 保存 Token
+
+## 配置 OpenClaw
+
+编辑 `~/.openclaw/openclaw.json`：
+
+```json
+{
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "YOUR_BOT_TOKEN"
+    }
+  }
+}
+```
+
+## 启动测试
+
+```bash
+openclaw gateway start
+```
+
+看到 `Telegram bot started` 即表示成功！
+
+## 开始使用
+
+搜索你的 Bot 用户名，点击 `/start`，开始对话。
+
+## 群组使用
+
+将 Bot 添加到群组，即可在群中与 AI 对话。
+
+完成！🎉

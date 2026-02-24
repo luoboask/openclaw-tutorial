@@ -1,0 +1,67 @@
+---
+title: 'AI Agent 工具系统详解'
+date: '2026-02-12'
+category: '技术解析'
+readTime: '15 分钟'
+---
+
+# AI Agent 工具系统详解
+
+工具是 OpenClaw 的核心能力，让 AI 能够与外部世界交互。
+
+## 核心工具
+
+### Browser 工具
+
+让 AI 浏览网页：
+
+```
+用户：查看 example.com
+AI：我来访问... [使用 browser:open]
+```
+
+### Exec 工具
+
+执行本地命令：
+
+```
+用户：查看当前目录
+AI：好的 [执行 ls -la]
+```
+
+### Web Search 工具
+
+搜索互联网：
+
+```
+用户：搜索最新新闻
+AI：正在搜索... [使用 web_search]
+```
+
+## 安全配置
+
+```json
+{
+  "tools": {
+    "exec": {
+      "enabled": true,
+      "allowlist": ["ls", "cat"]
+    }
+  }
+}
+```
+
+## 自定义工具
+
+创建 `tools/my-tool.js`：
+
+```javascript
+module.exports = {
+  name: 'weather',
+  execute: async ({ city }) => {
+    return await fetchWeather(city);
+  }
+};
+```
+
+工具让 AI 更强大！

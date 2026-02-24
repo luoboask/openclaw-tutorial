@@ -1,0 +1,201 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
+      "destination": "/:file",
+      "internal": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+    },
+    {
+      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
+      "destination": "/:notfile/",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/changelog",
+      "regex": "^/changelog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/changelog(?:/)?$"
+    },
+    {
+      "page": "/docs",
+      "regex": "^/docs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs(?:/)?$"
+    },
+    {
+      "page": "/docs/advanced",
+      "regex": "^/docs/advanced(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/advanced(?:/)?$"
+    },
+    {
+      "page": "/docs/channels",
+      "regex": "^/docs/channels(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/channels(?:/)?$"
+    },
+    {
+      "page": "/docs/channels/discord",
+      "regex": "^/docs/channels/discord(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/channels/discord(?:/)?$"
+    },
+    {
+      "page": "/docs/channels/imessage",
+      "regex": "^/docs/channels/imessage(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/channels/imessage(?:/)?$"
+    },
+    {
+      "page": "/docs/channels/signal",
+      "regex": "^/docs/channels/signal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/channels/signal(?:/)?$"
+    },
+    {
+      "page": "/docs/channels/slack",
+      "regex": "^/docs/channels/slack(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/channels/slack(?:/)?$"
+    },
+    {
+      "page": "/docs/channels/telegram",
+      "regex": "^/docs/channels/telegram(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/channels/telegram(?:/)?$"
+    },
+    {
+      "page": "/docs/channels/whatsapp",
+      "regex": "^/docs/channels/whatsapp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/channels/whatsapp(?:/)?$"
+    },
+    {
+      "page": "/docs/config",
+      "regex": "^/docs/config(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/config(?:/)?$"
+    },
+    {
+      "page": "/docs/config/providers",
+      "regex": "^/docs/config/providers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/config/providers(?:/)?$"
+    },
+    {
+      "page": "/docs/config/sessions",
+      "regex": "^/docs/config/sessions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/config/sessions(?:/)?$"
+    },
+    {
+      "page": "/docs/install",
+      "regex": "^/docs/install(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/install(?:/)?$"
+    },
+    {
+      "page": "/docs/intro",
+      "regex": "^/docs/intro(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/intro(?:/)?$"
+    },
+    {
+      "page": "/docs/quickstart",
+      "regex": "^/docs/quickstart(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/quickstart(?:/)?$"
+    },
+    {
+      "page": "/docs/security",
+      "regex": "^/docs/security(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/security(?:/)?$"
+    },
+    {
+      "page": "/docs/tools",
+      "regex": "^/docs/tools(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/tools(?:/)?$"
+    },
+    {
+      "page": "/docs/troubleshooting",
+      "regex": "^/docs/troubleshooting(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/troubleshooting(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

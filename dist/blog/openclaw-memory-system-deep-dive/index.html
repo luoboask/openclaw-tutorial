@@ -1,0 +1,219 @@
+<!DOCTYPE html><!--kf3c0GpMIXhLjU6mThM2t--><html lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/aa32b0b675e4c200.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-3844d017889aa547.js"/><script src="/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/_next/static/chunks/255-102f2e5b2e3dc2ef.js" async=""></script><script src="/_next/static/chunks/main-app-10eacd1d09204dfa.js" async=""></script><script src="/_next/static/chunks/app/layout-46f5ac64a413e030.js" async=""></script><script src="/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/_next/static/chunks/84-3f02a199564964c0.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-a88c1b847078254e.js" async=""></script><title>OpenClaw 中文教程 - 自托管 AI 网关</title><meta name="description" content="OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用"/><meta name="author" content="OpenClaw 中文社区"/><meta name="keywords" content="OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程"/><meta property="og:title" content="OpenClaw 中文教程"/><meta property="og:description" content="自托管 AI 网关，连接你的所有聊天应用"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="OpenClaw 中文教程"/><meta name="twitter:description" content="自托管 AI 网关，连接你的所有聊天应用"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="antialiased bg-white text-gray-900"><div hidden=""><!--$--><!--/$--></div><div class="min-h-screen bg-gradient-to-b from-slate-50 to-white"><div class="max-w-4xl mx-auto px-4 py-12"><a class="text-gray-600 hover:text-orange-600 mb-8 block" href="/blog/">返回博客</a><article class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"><div class="bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white"><div class="flex items-center gap-4 mb-4 text-sm opacity-90"><span>2026-02-24</span><span>30 分钟</span></div><h1 class="text-3xl font-bold">OpenClaw 记忆系统技术详解</h1></div><div class="p-8 md:p-12"><h1 class="text-3xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-200">OpenClaw 记忆系统技术详解</h1>
+<p class="text-gray-700 mb-4 leading-relaxed">本文深入解析 OpenClaw AI 助手的记忆系统架构、工作原理和实现细节。</p>
+<p class="text-gray-700 mb-4 leading-relaxed">适用版本：OpenClaw 2026.2.x</p>
+<hr class="my-8 border-gray-200"/>
+<h2 class="text-2xl font-semibold text-gray-900 mt-10 mb-4 pb-3 border-b border-gray-200">概述</h2>
+<p class="text-gray-700 mb-4 leading-relaxed">OpenClaw 采用混合架构设计，结合文件系统存储和向量语义搜索，实现高效、隐私友好的长期记忆功能。</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">核心设计理念</h3>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">双轨记忆系统</strong></p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700"><strong class="font-semibold text-gray-900">长期记忆</strong> (MEMORY.md)：精心维护的核心知识，持久化存储，跨会话共享</li>
+<li class="text-gray-700"><strong class="font-semibold text-gray-900">短期记忆</strong> (memory/*.md)：每日自动追加的日志，按日期分片</li>
+</ul>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">混合检索引擎</strong></p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">向量搜索（语义相似度）—— 权重 70%</li>
+<li class="text-gray-700">BM25 全文（关键词）—— 权重 30%</li>
+<li class="text-gray-700">FTS5（SQLite）—— 辅助索引</li>
+</ul>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">设计哲学</strong></p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">文件优先：纯 Markdown，人类可读可编辑</li>
+<li class="text-gray-700">隐私优先：本地存储，不依赖云服务</li>
+<li class="text-gray-700">渐进式记忆：长期记忆精选 + 短期记忆全量</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">文件系统结构</h3>
+<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono my-4"><code class="bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">~/.openclaw/workspace/
+├── MEMORY.md                    # 长期记忆
+├── memory/                      # 短期记忆目录
+│   ├── 2026-02-14.md
+│   ├── 2026-02-17.md
+│   └── 2026-02-18.md
+└── agents/{id}/memory/          # Agent 专属记忆
+</code></pre>
+<hr class="my-8 border-gray-200"/>
+<h2 class="text-2xl font-semibold text-gray-900 mt-10 mb-4 pb-3 border-b border-gray-200">向量搜索原理</h2>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">文本向量化</h3>
+<p class="text-gray-700 mb-4 leading-relaxed">将文本转换为高维向量（768-4096 维）。</p>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">示例</strong></p>
+<blockquote class="border-l-4 border-orange-500 bg-orange-50 pl-5 pr-4 py-3 my-4 rounded-r text-orange-900">
+<p class="text-gray-700 mb-4 leading-relaxed">&quot;OpenClaw Agent 工作机制&quot;</p>
+<p class="text-gray-700 mb-4 leading-relaxed">经过嵌入模型处理后 → 768 维向量数组</p>
+</blockquote>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">语义特性</strong></p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">相似的文本在向量空间中距离近</li>
+<li class="text-gray-700">&quot;苹果&quot;和&quot;水果&quot;向量接近</li>
+<li class="text-gray-700">&quot;苹果&quot;和&quot;iPhone&quot;在特定语境下也接近</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">相似度计算</h3>
+<p class="text-gray-700 mb-4 leading-relaxed">使用<strong class="font-semibold text-gray-900">余弦相似度</strong>：</p>
+<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono my-4"><code class="bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">similarity = (A·B) / (||A|| × ||B||)
+
+范围: -1 ~ 1
+阈值: &gt;0.5 认为相关
+</code></pre>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">分块策略</h3>
+<div class="overflow-x-auto my-4"><table class="w-full border-collapse border border-gray-300 bg-white"><thead class="bg-gray-100"><tr class="border-t border-gray-300 even:bg-gray-50"><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">参数</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">值</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">说明</th></tr></thead><tbody class="bg-white"><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">chunkSize</td><td class="text-gray-700 p-3 border border-gray-300">400 tokens</td><td class="text-gray-700 p-3 border border-gray-300">每块大小</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">overlap</td><td class="text-gray-700 p-3 border border-gray-300">80 tokens</td><td class="text-gray-700 p-3 border border-gray-300">重叠保持上下文</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">strategy</td><td class="text-gray-700 p-3 border border-gray-300">tokens</td><td class="text-gray-700 p-3 border border-gray-300">按 token 分割</td></tr></tbody></table></div>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">分块目的</strong></p>
+<ol class="list-decimal list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">控制向量粒度（太长会稀释语义）</li>
+<li class="text-gray-700">支持精确检索（找到具体段落）</li>
+<li class="text-gray-700">避免上下文窗口溢出</li>
+</ol>
+<hr class="my-8 border-gray-200"/>
+<h2 class="text-2xl font-semibold text-gray-900 mt-10 mb-4 pb-3 border-b border-gray-200">混合搜索策略</h2>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">向量搜索 vs 关键词搜索</h3>
+<div class="overflow-x-auto my-4"><table class="w-full border-collapse border border-gray-300 bg-white"><thead class="bg-gray-100"><tr class="border-t border-gray-300 even:bg-gray-50"><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">方式</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">优势</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">劣势</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">适用场景</th></tr></thead><tbody class="bg-white"><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">向量搜索</td><td class="text-gray-700 p-3 border border-gray-300">语义理解、同义词</td><td class="text-gray-700 p-3 border border-gray-300">精确术语匹配差</td><td class="text-gray-700 p-3 border border-gray-300">概念搜索</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">BM25/FTS</td><td class="text-gray-700 p-3 border border-gray-300">精确匹配、速度快</td><td class="text-gray-700 p-3 border border-gray-300">无法理解语义</td><td class="text-gray-700 p-3 border border-gray-300">代码、ID、错误信息</td></tr></tbody></table></div>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">BM25 算法</h3>
+<p class="text-gray-700 mb-4 leading-relaxed">BM25（Best Match 25）比简单的&quot;出现次数&quot;更智能，考虑三个因素：</p>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">1. 词频（TF）</strong></p>
+<p class="text-gray-700 mb-4 leading-relaxed">不是线性增长：</p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">出现 1 次 → 基础分</li>
+<li class="text-gray-700">出现 2 次 → 分数增加，但不如 2 倍</li>
+<li class="text-gray-700">出现 10 次 → 分数饱和（防止关键词堆砌）</li>
+</ul>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">公式</strong></p>
+<p class="text-gray-700 mb-4 leading-relaxed">``
+score = (TF × (k1 + 1)) / (TF + k1 × (1 - b + b × (doc_len / avg_len)))</p>
+<p class="text-gray-700 mb-4 leading-relaxed">k1 = 1.2（控制词频饱和度）
+b = 0.75（控制文档长度惩罚）
+``</p>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">2. 逆文档频率（IDF）</strong></p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">常见词（如&quot;的&quot;）→ 出现在 99% 文档 → IDF 很低</li>
+<li class="text-gray-700">专业词（如&quot;OpenClaw&quot;）→ 只出现在 5% 文档 → IDF 很高</li>
+</ul>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">3. 文档长度归一化</strong></p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">100字文档出现1次&quot;Agent&quot; → 密度 1%</li>
+<li class="text-gray-700">10000字文档出现10次&quot;Agent&quot; → 密度 0.1%（实际相关性更低）</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">FTS 全文搜索</h3>
+<p class="text-gray-700 mb-4 leading-relaxed">FTS 使用<strong class="font-semibold text-gray-900">倒排索引</strong>，比传统搜索快 100-1000 倍。</p>
+<div class="overflow-x-auto my-4"><table class="w-full border-collapse border border-gray-300 bg-white"><thead class="bg-gray-100"><tr class="border-t border-gray-300 even:bg-gray-50"><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">搜索方式</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">原理</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">速度</th></tr></thead><tbody class="bg-white"><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">传统搜索</td><td class="text-gray-700 p-3 border border-gray-300">线性扫描每个文档</td><td class="text-gray-700 p-3 border border-gray-300">O(n)</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">FTS 搜索</td><td class="text-gray-700 p-3 border border-gray-300">直接查倒排索引</td><td class="text-gray-700 p-3 border border-gray-300">O(1)</td></tr></tbody></table></div>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">FTS5 优势</strong></p>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">比 LIKE &#x27;%关键词%&#x27; 快 100-1000 倍</li>
+<li class="text-gray-700">自动按匹配度排序</li>
+<li class="text-gray-700">支持布尔查询（AND / OR / NOT）</li>
+</ul>
+<hr class="my-8 border-gray-200"/>
+<h2 class="text-2xl font-semibold text-gray-900 mt-10 mb-4 pb-3 border-b border-gray-200">数据库存储</h2>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">SQLite + 扩展</h3>
+<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700">标准表：files, chunks, meta</li>
+<li class="text-gray-700">FTS5 虚拟表：全文检索</li>
+<li class="text-gray-700">sqlite-vec 扩展：向量相似度计算</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">核心数据表</h3>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">files 表</strong> —— 文件元数据</p>
+<div class="overflow-x-auto my-4"><table class="w-full border-collapse border border-gray-300 bg-white"><thead class="bg-gray-100"><tr class="border-t border-gray-300 even:bg-gray-50"><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">字段</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">说明</th></tr></thead><tbody class="bg-white"><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">path</td><td class="text-gray-700 p-3 border border-gray-300">文件路径</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">source</td><td class="text-gray-700 p-3 border border-gray-300">来源（memory/sessions）</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">hash</td><td class="text-gray-700 p-3 border border-gray-300">内容哈希（检测变化）</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">mtime</td><td class="text-gray-700 p-3 border border-gray-300">修改时间</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">size</td><td class="text-gray-700 p-3 border border-gray-300">文件大小</td></tr></tbody></table></div>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">chunks 表</strong> —— 核心数据</p>
+<div class="overflow-x-auto my-4"><table class="w-full border-collapse border border-gray-300 bg-white"><thead class="bg-gray-100"><tr class="border-t border-gray-300 even:bg-gray-50"><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">字段</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">说明</th></tr></thead><tbody class="bg-white"><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">id</td><td class="text-gray-700 p-3 border border-gray-300">唯一标识</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">path</td><td class="text-gray-700 p-3 border border-gray-300">所属文件</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">source</td><td class="text-gray-700 p-3 border border-gray-300">来源</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">start_line / end_line</td><td class="text-gray-700 p-3 border border-gray-300">行号范围</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">hash</td><td class="text-gray-700 p-3 border border-gray-300">内容哈希</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">model</td><td class="text-gray-700 p-3 border border-gray-300">使用的嵌入模型</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">text</td><td class="text-gray-700 p-3 border border-gray-300">原始文本</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">embedding</td><td class="text-gray-700 p-3 border border-gray-300">序列化向量</td></tr></tbody></table></div>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Agent 隔离</h3>
+<p class="text-gray-700 mb-4 leading-relaxed">每个 Agent 拥有独立的数据库，保证数据安全和隐私。</p>
+<hr class="my-8 border-gray-200"/>
+<h2 class="text-2xl font-semibold text-gray-900 mt-10 mb-4 pb-3 border-b border-gray-200">写入时机</h2>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">四种触发时机</h3>
+<ol class="list-decimal list-inside text-gray-700 mb-4 space-y-2">
+<li class="text-gray-700"><strong class="font-semibold text-gray-900">会话启动时</strong> —— 检查记忆文件变化，同步到 SQLite</li>
+<li class="text-gray-700"><strong class="font-semibold text-gray-900">搜索前</strong> —— 确保搜索结果是最新的</li>
+<li class="text-gray-700"><strong class="font-semibold text-gray-900">文件变化时</strong> —— 1.5秒防抖后触发同步</li>
+<li class="text-gray-700"><strong class="font-semibold text-gray-900">定时同步</strong> —— 每30分钟自动同步一次</li>
+</ol>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">批量处理机制</h3>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">非批量的问题</strong></p>
+<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono my-4"><code class="bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">100 个 chunks
+→ 100 次 API 调用
+→ 100 次数据库写入
+→ 非常慢！
+``
+
+**批量的优化**
+
+</code></pre>
+<p class="text-gray-700 mb-4 leading-relaxed">100 个 chunks
+→ 1 次 API 调用
+→ 1 次事务写入
+→ 快 10-100 倍！
+``</p>
+<p class="text-gray-700 mb-4 leading-relaxed"><strong class="font-semibold text-gray-900">配置参数</strong></p>
+<div class="overflow-x-auto my-4"><table class="w-full border-collapse border border-gray-300 bg-white"><thead class="bg-gray-100"><tr class="border-t border-gray-300 even:bg-gray-50"><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">参数</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">值</th><th class="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">说明</th></tr></thead><tbody class="bg-white"><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">enabled</td><td class="text-gray-700 p-3 border border-gray-300">true</td><td class="text-gray-700 p-3 border border-gray-300">启用批量</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">maxSize</td><td class="text-gray-700 p-3 border border-gray-300">100</td><td class="text-gray-700 p-3 border border-gray-300">每批最多 chunks</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">concurrency</td><td class="text-gray-700 p-3 border border-gray-300">4</td><td class="text-gray-700 p-3 border border-gray-300">并发批数</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">intervalMs</td><td class="text-gray-700 p-3 border border-gray-300">1000</td><td class="text-gray-700 p-3 border border-gray-300">批次间隔</td></tr><tr class="border-t border-gray-300 even:bg-gray-50"><td class="text-gray-700 p-3 border border-gray-300">timeoutMs</td><td class="text-gray-700 p-3 border border-gray-300">120000</td><td class="text-gray-700 p-3 border border-gray-300">超时时间</td></tr></tbody></table></div>
+<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">索引流程</h3>
+<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono my-4"><code class="bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">1. 触发条件满足
+2. 扫描文件系统，计算哈希
+3. 对比数据库，识别变化
+4. 批量处理变化
+5. 更新 files 表
+6. 提交事务
+``
+
+---
+
+## 配置选项
+
+### 嵌入提供商
+
+支持三种方式：
+
+1. **远程 API** —— OpenAI / Gemini
+2. **Ollama 本地** —— 推荐，免费
+3. **本地 GGUF** —— 完全离线
+
+### 搜索配置
+
+| 参数 | 说明 |
+|------|------|
+| hybrid.enabled | 启用混合搜索 |
+| vectorWeight | 向量权重（默认 70%）|
+| textWeight | 文本权重（默认 30%）|
+| minScore | 最低相似度阈值 |
+| maxResults | 最大返回结果数 |
+
+---
+
+## 性能优化
+
+| 优化项 | 效果 |
+|--------|------|
+| sqlite-vec 扩展 | 向量计算加速 |
+| 嵌入缓存 | 避免重复计算 |
+| 批量索引 | 减少 I/O |
+| 调整 chunkSize | 默认 400，可增大减少块数 |
+| 定期清理旧日志 | 控制索引规模 |
+
+---
+
+## 常见问题
+
+| 问题 | 原因 | 解决方案 |
+|------|------|---------|
+| 搜索无结果 | 相似度低于阈值 | 降低 minScore |
+| 结果不相关 | 向量/文本权重不当 | 调整 vectorWeight |
+| 索引慢 | 嵌入模型慢 | 换更快的模型或使用缓存 |
+| GGUF 加载失败 | 兼容性问题 | 使用 Ollama 替代 |
+
+---
+
+## 总结
+
+OpenClaw 记忆系统的核心技术：
+
+1. **文件系统存储** —— 纯 Markdown，人类可读
+2. **向量语义搜索** —— 理解同义词和上下文
+3. **BM25 + FTS** —— 精确关键词匹配
+4. **混合融合算法** —— 综合语义和关键词优势
+5. **批量处理机制** —— 优化性能和资源使用
+6. **Agent 隔离** —— 保证数据安全和隐私
+
+这套架构平衡了搜索质量、隐私保护和性能效率，是 OpenClaw 成为优秀 AI 助手的关键基础设施。
+
+---
+
+*文档版本: 1.0*  
+*最后更新: 2026-02-24*  
+*作者: OpenClaw Assistant*
+    
+</code></pre></div></article></div></div><!--$--><!--/$--><script src="/_next/static/chunks/webpack-3844d017889aa547.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[9113,[\"177\",\"static/chunks/app/layout-46f5ac64a413e030.js\"],\"GoogleAnalytics\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/_next/static/css/aa32b0b675e4c200.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"kf3c0GpMIXhLjU6mThM2t\",\"p\":\"\",\"c\":[\"\",\"blog\",\"openclaw-memory-system-deep-dive\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"openclaw-memory-system-deep-dive\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/aa32b0b675e4c200.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"children\":[[\"$\",\"head\",null,{\"children\":[\"$\",\"$L2\",null,{}]}],[\"$\",\"body\",null,{\"className\":\"antialiased bg-white text-gray-900\",\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"openclaw-memory-system-deep-dive\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"10:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"84\",\"static/chunks/84-3f02a199564964c0.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-a88c1b847078254e.js\"],\"\"]\n11:I[3874,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"84\",\"static/chunks/84-3f02a199564964c0.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-a88c1b847078254e.js\"],\"ArticleContent\"]\n12:T1b42,"])</script><script>self.__next_f.push([1,"\n# OpenClaw 记忆系统技术详解\n\n本文深入解析 OpenClaw AI 助手的记忆系统架构、工作原理和实现细节。\n\n适用版本：OpenClaw 2026.2.x\n\n---\n\n## 概述\n\nOpenClaw 采用混合架构设计，结合文件系统存储和向量语义搜索，实现高效、隐私友好的长期记忆功能。\n\n### 核心设计理念\n\n**双轨记忆系统**\n\n- **长期记忆** (MEMORY.md)：精心维护的核心知识，持久化存储，跨会话共享\n- **短期记忆** (memory/*.md)：每日自动追加的日志，按日期分片\n\n**混合检索引擎**\n\n- 向量搜索（语义相似度）—— 权重 70%\n- BM25 全文（关键词）—— 权重 30%\n- FTS5（SQLite）—— 辅助索引\n\n**设计哲学**\n\n- 文件优先：纯 Markdown，人类可读可编辑\n- 隐私优先：本地存储，不依赖云服务\n- 渐进式记忆：长期记忆精选 + 短期记忆全量\n\n### 文件系统结构\n\n```\n~/.openclaw/workspace/\n├── MEMORY.md                    # 长期记忆\n├── memory/                      # 短期记忆目录\n│   ├── 2026-02-14.md\n│   ├── 2026-02-17.md\n│   └── 2026-02-18.md\n└── agents/{id}/memory/          # Agent 专属记忆\n```\n\n---\n\n## 向量搜索原理\n\n### 文本向量化\n\n将文本转换为高维向量（768-4096 维）。\n\n**示例**\n\n\u003e \"OpenClaw Agent 工作机制\"\n\u003e\n\u003e 经过嵌入模型处理后 → 768 维向量数组\n\n**语义特性**\n\n- 相似的文本在向量空间中距离近\n- \"苹果\"和\"水果\"向量接近\n- \"苹果\"和\"iPhone\"在特定语境下也接近\n\n### 相似度计算\n\n使用**余弦相似度**：\n\n```\nsimilarity = (A·B) / (||A|| × ||B||)\n\n范围: -1 ~ 1\n阈值: \u003e0.5 认为相关\n```\n\n### 分块策略\n\n| 参数 | 值 | 说明 |\n|------|-----|------|\n| chunkSize | 400 tokens | 每块大小 |\n| overlap | 80 tokens | 重叠保持上下文 |\n| strategy | tokens | 按 token 分割 |\n\n**分块目的**\n\n1. 控制向量粒度（太长会稀释语义）\n2. 支持精确检索（找到具体段落）\n3. 避免上下文窗口溢出\n\n---\n\n## 混合搜索策略\n\n### 向量搜索 vs 关键词搜索\n\n| 方式 | 优势 | 劣势 | 适用场景 |\n|------|------|------|---------|\n| 向量搜索 | 语义理解、同义词 | 精确术语匹配差 | 概念搜索 |\n| BM25/FTS | 精确匹配、速度快 | 无法理解语义 | 代码、ID、错误信息 |\n\n### BM25 算法\n\nBM25（Best Match 25）比简单的\"出现次数\"更智能，考虑三个因素：\n\n**1. 词频（TF）**\n\n不是线性增长：\n- 出现 1 次 → 基础分\n- 出现 2 次 → 分数增加，但不如 2 倍\n- 出现 10 次 → 分数饱和（防止关键词堆砌）\n\n**公式**\n\n``\nscore = (TF × (k1 + 1)) / (TF + k1 × (1 - b + b × (doc_len / avg_len)))\n\nk1 = 1.2（控制词频饱和度）\nb = 0.75（控制文档长度惩罚）\n``\n\n**2. 逆文档频率（IDF）**\n\n- 常见词（如\"的\"）→ 出现在 99% 文档 → IDF 很低\n- 专业词（如\"OpenClaw\"）→ 只出现在 5% 文档 → IDF 很高\n\n**3. 文档长度归一化**\n\n- 100字文档出现1次\"Agent\" → 密度 1%\n- 10000字文档出现10次\"Agent\" → 密度 0.1%（实际相关性更低）\n\n### FTS 全文搜索\n\nFTS 使用**倒排索引**，比传统搜索快 100-1000 倍。\n\n| 搜索方式 | 原理 | 速度 |\n|---------|------|------|\n| 传统搜索 | 线性扫描每个文档 | O(n) |\n| FTS 搜索 | 直接查倒排索引 | O(1) |\n\n**FTS5 优势**\n\n- 比 LIKE '%关键词%' 快 100-1000 倍\n- 自动按匹配度排序\n- 支持布尔查询（AND / OR / NOT）\n\n---\n\n## 数据库存储\n\n### SQLite + 扩展\n\n- 标准表：files, chunks, meta\n- FTS5 虚拟表：全文检索\n- sqlite-vec 扩展：向量相似度计算\n\n### 核心数据表\n\n**files 表** —— 文件元数据\n\n| 字段 | 说明 |\n|------|------|\n| path | 文件路径 |\n| source | 来源（memory/sessions）|\n| hash | 内容哈希（检测变化）|\n| mtime | 修改时间 |\n| size | 文件大小 |\n\n**chunks 表** —— 核心数据\n\n| 字段 | 说明 |\n|------|------|\n| id | 唯一标识 |\n| path | 所属文件 |\n| source | 来源 |\n| start_line / end_line | 行号范围 |\n| hash | 内容哈希 |\n| model | 使用的嵌入模型 |\n| text | 原始文本 |\n| embedding | 序列化向量 |\n\n### Agent 隔离\n\n每个 Agent 拥有独立的数据库，保证数据安全和隐私。\n\n---\n\n## 写入时机\n\n### 四种触发时机\n\n1. **会话启动时** —— 检查记忆文件变化，同步到 SQLite\n2. **搜索前** —— 确保搜索结果是最新的\n3. **文件变化时** —— 1.5秒防抖后触发同步\n4. **定时同步** —— 每30分钟自动同步一次\n\n### 批量处理机制\n\n**非批量的问题**\n\n```\n100 个 chunks\n→ 100 次 API 调用\n→ 100 次数据库写入\n→ 非常慢！\n``\n\n**批量的优化**\n\n```\n100 个 chunks\n→ 1 次 API 调用\n→ 1 次事务写入\n→ 快 10-100 倍！\n``\n\n**配置参数**\n\n| 参数 | 值 | 说明 |\n|------|-----|------|\n| enabled | true | 启用批量 |\n| maxSize | 100 | 每批最多 chunks |\n| concurrency | 4 | 并发批数 |\n| intervalMs | 1000 | 批次间隔 |\n| timeoutMs | 120000 | 超时时间 |\n\n### 索引流程\n\n```\n1. 触发条件满足\n2. 扫描文件系统，计算哈希\n3. 对比数据库，识别变化\n4. 批量处理变化\n5. 更新 files 表\n6. 提交事务\n``\n\n---\n\n## 配置选项\n\n### 嵌入提供商\n\n支持三种方式：\n\n1. **远程 API** —— OpenAI / Gemini\n2. **Ollama 本地** —— 推荐，免费\n3. **本地 GGUF** —— 完全离线\n\n### 搜索配置\n\n| 参数 | 说明 |\n|------|------|\n| hybrid.enabled | 启用混合搜索 |\n| vectorWeight | 向量权重（默认 70%）|\n| textWeight | 文本权重（默认 30%）|\n| minScore | 最低相似度阈值 |\n| maxResults | 最大返回结果数 |\n\n---\n\n## 性能优化\n\n| 优化项 | 效果 |\n|--------|------|\n| sqlite-vec 扩展 | 向量计算加速 |\n| 嵌入缓存 | 避免重复计算 |\n| 批量索引 | 减少 I/O |\n| 调整 chunkSize | 默认 400，可增大减少块数 |\n| 定期清理旧日志 | 控制索引规模 |\n\n---\n\n## 常见问题\n\n| 问题 | 原因 | 解决方案 |\n|------|------|---------|\n| 搜索无结果 | 相似度低于阈值 | 降低 minScore |\n| 结果不相关 | 向量/文本权重不当 | 调整 vectorWeight |\n| 索引慢 | 嵌入模型慢 | 换更快的模型或使用缓存 |\n| GGUF 加载失败 | 兼容性问题 | 使用 Ollama 替代 |\n\n---\n\n## 总结\n\nOpenClaw 记忆系统的核心技术：\n\n1. **文件系统存储** —— 纯 Markdown，人类可读\n2. **向量语义搜索** —— 理解同义词和上下文\n3. **BM25 + FTS** —— 精确关键词匹配\n4. **混合融合算法** —— 综合语义和关键词优势\n5. **批量处理机制** —— 优化性能和资源使用\n6. **Agent 隔离** —— 保证数据安全和隐私\n\n这套架构平衡了搜索质量、隐私保护和性能效率，是 OpenClaw 成为优秀 AI 助手的关键基础设施。\n\n---\n\n*文档版本: 1.0*  \n*最后更新: 2026-02-24*  \n*作者: OpenClaw Assistant*\n    "])</script><script>self.__next_f.push([1,"5:[\"$\",\"div\",null,{\"className\":\"min-h-screen bg-gradient-to-b from-slate-50 to-white\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-4xl mx-auto px-4 py-12\",\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/blog\",\"className\":\"text-gray-600 hover:text-orange-600 mb-8 block\",\"children\":\"返回博客\"}],[\"$\",\"article\",null,{\"className\":\"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden\",\"children\":[[\"$\",\"div\",null,{\"className\":\"bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center gap-4 mb-4 text-sm opacity-90\",\"children\":[[\"$\",\"span\",null,{\"children\":\"2026-02-24\"}],[\"$\",\"span\",null,{\"children\":\"30 分钟\"}]]}],[\"$\",\"h1\",null,{\"className\":\"text-3xl font-bold\",\"children\":\"OpenClaw 记忆系统技术详解\"}]]}],[\"$\",\"$L11\",null,{\"content\":\"$12\"}]]}]]}]}]\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"OpenClaw 中文教程 - 自托管 AI 网关\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"OpenClaw 中文社区\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:title\",\"content\":\"OpenClaw 中文教程\"}],[\"$\",\"meta\",\"5\",{\"property\":\"og:description\",\"content\":\"自托管 AI 网关，连接你的所有聊天应用\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:card\",\"content\":\"summary\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:title\",\"content\":\"OpenClaw 中文教程\"}],[\"$\",\"meta\",\"9\",{\"name\":\"twitter:description\",\"content\":\"自托管 AI 网关，连接你的所有聊天应用\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script></body></html>
