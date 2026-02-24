@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "/Users/openmilo/clawall/claw-team/claw-admin/scripts/deploy.sh"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
