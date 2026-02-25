@@ -9,7 +9,7 @@ c:I[4431,[],"MetadataBoundary"]
 d:"$Sreact.suspense"
 f:I[7150,[],""]
 :HL["/_next/static/css/0d6fcd825e447727.css","style"]
-0:{"P":null,"b":"QWlEvMVWvC7lS0YxRQeSa","p":"","c":["","blog","telegram-bot-complete-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","telegram-bot-complete-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/0d6fcd825e447727.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":["$","$L2",null,{}]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","telegram-bot-complete-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+0:{"P":null,"b":"vPx0mfVaolhp0tbB2o5KP","p":"","c":["","blog","telegram-bot-complete-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","telegram-bot-complete-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/0d6fcd825e447727.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":["$","$L2",null,{}]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","telegram-bot-complete-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
 10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-7164898cb9c00029.js"],""]
 11:T80e,p-8 md:p-12 
   prose prose-lg max-w-none
@@ -40,18 +40,38 @@ f:I[7150,[],""]
   prose-td:text-gray-700 prose-td:p-3 prose-td:border prose-td:border-gray-300
   prose-tr:border-t prose-tr:border-gray-300 even:prose-tr:bg-gray-50
   prose-hr:my-8 prose-hr:border-gray-200
-12:T17c1,<h1>Telegram Bot 详细配置指南</h1>
+12:T1989,<h1>Telegram Bot 详细配置指南</h1>
 <blockquote>
 <p>本教程将带你从零开始，完成 Telegram Bot 的创建和 OpenClaw 接入配置。</p>
 </blockquote>
 <hr>
 <h2>📋 概述</h2>
-<p>| 项目 | 内容 |
-|------|------|
-| <strong>难度</strong> | ⭐ 简单 |
-| <strong>预计时间</strong> | 5-10 分钟 |
-| <strong>前提条件</strong> | Telegram 账号 |
-| <strong>适用版本</strong> | OpenClaw 2026.2.x |</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>难度</strong></td>
+<td>⭐ 简单</td>
+</tr>
+<tr>
+<td><strong>预计时间</strong></td>
+<td>5-10 分钟</td>
+</tr>
+<tr>
+<td><strong>前提条件</strong></td>
+<td>Telegram 账号</td>
+</tr>
+<tr>
+<td><strong>适用版本</strong></td>
+<td>OpenClaw 2026.2.x</td>
+</tr>
+</tbody>
+</table>
 <p><strong>你将学到:</strong></p>
 <ul>
 <li>如何在 Telegram 中创建 Bot</li>
@@ -212,11 +232,11 @@ f:I[7150,[],""]
 <hr>
 <h2>✅ 验证清单</h2>
 <p>配置完成后，检查以下项目：</p>
-<ul>
-<li>[ ] 能在 Telegram 中搜索到 Bot</li>
-<li>[ ] 发送消息后能收到回复</li>
-<li>[ ] <code>/help</code> 命令正常工作</li>
-<li>[ ] 重启 Gateway 后依然有效</li>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> 能在 Telegram 中搜索到 Bot</li>
+<li class="task-list-item"><input type="checkbox" disabled> 发送消息后能收到回复</li>
+<li class="task-list-item"><input type="checkbox" disabled> <code>/help</code> 命令正常工作</li>
+<li class="task-list-item"><input type="checkbox" disabled> 重启 Gateway 后依然有效</li>
 </ul>
 <hr>
 <h2>📝 总结</h2>
@@ -229,8 +249,8 @@ f:I[7150,[],""]
 </ul>
 <p><strong>需要帮助?</strong></p>
 <ul>
-<li>查看官方文档: https://docs.openclaw.ai</li>
-<li>加入社区 Discord: https://discord.gg/clawd</li>
+<li>查看官方文档: <a href="https://docs.openclaw.ai">https://docs.openclaw.ai</a></li>
+<li>加入社区 Discord: <a href="https://discord.gg/clawd">https://discord.gg/clawd</a></li>
 </ul>
 <hr>
 <p><em>最后更新: 2026-02-24</em><br>

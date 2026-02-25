@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { remark } from 'remark'
 import html from 'remark-html'
+import remarkGfm from 'remark-gfm'
 
 interface Article {
   title: string
@@ -729,6 +730,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   // 服务端渲染 markdown
   const processedContent = await remark()
+    .use(remarkGfm)
     .use(html)
     .process(article.content)
   

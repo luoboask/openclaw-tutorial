@@ -9,7 +9,7 @@ c:I[4431,[],"MetadataBoundary"]
 d:"$Sreact.suspense"
 f:I[7150,[],""]
 :HL["/_next/static/css/0d6fcd825e447727.css","style"]
-0:{"P":null,"b":"QWlEvMVWvC7lS0YxRQeSa","p":"","c":["","blog","openclaw-memory-system-deep-dive",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","openclaw-memory-system-deep-dive","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/0d6fcd825e447727.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":["$","$L2",null,{}]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","openclaw-memory-system-deep-dive","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+0:{"P":null,"b":"vPx0mfVaolhp0tbB2o5KP","p":"","c":["","blog","openclaw-memory-system-deep-dive",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","openclaw-memory-system-deep-dive","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/0d6fcd825e447727.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":["$","$L2",null,{}]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","openclaw-memory-system-deep-dive","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
 10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-7164898cb9c00029.js"],""]
 11:T80e,p-8 md:p-12 
   prose prose-lg max-w-none
@@ -40,7 +40,7 @@ f:I[7150,[],""]
   prose-td:text-gray-700 prose-td:p-3 prose-td:border prose-td:border-gray-300
   prose-tr:border-t prose-tr:border-gray-300 even:prose-tr:bg-gray-50
   prose-hr:my-8 prose-hr:border-gray-200
-12:T206d,<h1>OpenClaw 记忆系统技术详解</h1>
+12:T2632,<h1>OpenClaw 记忆系统技术详解</h1>
 <p>本文深入解析 OpenClaw AI 助手的记忆系统架构、工作原理和实现细节。</p>
 <p>适用版本：OpenClaw 2026.2.x</p>
 <hr>
@@ -96,11 +96,32 @@ f:I[7150,[],""]
 阈值: >0.5 认为相关
 </code></pre>
 <h3>分块策略</h3>
-<p>| 参数 | 值 | 说明 |
-|------|-----|------|
-| chunkSize | 400 tokens | 每块大小 |
-| overlap | 80 tokens | 重叠保持上下文 |
-| strategy | tokens | 按 token 分割 |</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chunkSize</td>
+<td>400 tokens</td>
+<td>每块大小</td>
+</tr>
+<tr>
+<td>overlap</td>
+<td>80 tokens</td>
+<td>重叠保持上下文</td>
+</tr>
+<tr>
+<td>strategy</td>
+<td>tokens</td>
+<td>按 token 分割</td>
+</tr>
+</tbody>
+</table>
 <p><strong>分块目的</strong></p>
 <ol>
 <li>控制向量粒度（太长会稀释语义）</li>
@@ -110,10 +131,30 @@ f:I[7150,[],""]
 <hr>
 <h2>混合搜索策略</h2>
 <h3>向量搜索 vs 关键词搜索</h3>
-<p>| 方式 | 优势 | 劣势 | 适用场景 |
-|------|------|------|---------|
-| 向量搜索 | 语义理解、同义词 | 精确术语匹配差 | 概念搜索 |
-| BM25/FTS | 精确匹配、速度快 | 无法理解语义 | 代码、ID、错误信息 |</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>优势</th>
+<th>劣势</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向量搜索</td>
+<td>语义理解、同义词</td>
+<td>精确术语匹配差</td>
+<td>概念搜索</td>
+</tr>
+<tr>
+<td>BM25/FTS</td>
+<td>精确匹配、速度快</td>
+<td>无法理解语义</td>
+<td>代码、ID、错误信息</td>
+</tr>
+</tbody>
+</table>
 <h3>BM25 算法</h3>
 <p>BM25（Best Match 25）比简单的"出现次数"更智能，考虑三个因素：</p>
 <p><strong>1. 词频（TF）</strong></p>
@@ -141,10 +182,27 @@ b = 0.75（控制文档长度惩罚）
 </ul>
 <h3>FTS 全文搜索</h3>
 <p>FTS 使用<strong>倒排索引</strong>，比传统搜索快 100-1000 倍。</p>
-<p>| 搜索方式 | 原理 | 速度 |
-|---------|------|------|
-| 传统搜索 | 线性扫描每个文档 | O(n) |
-| FTS 搜索 | 直接查倒排索引 | O(1) |</p>
+<table>
+<thead>
+<tr>
+<th>搜索方式</th>
+<th>原理</th>
+<th>速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传统搜索</td>
+<td>线性扫描每个文档</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>FTS 搜索</td>
+<td>直接查倒排索引</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
 <p><strong>FTS5 优势</strong></p>
 <ul>
 <li>比 LIKE '%关键词%' 快 100-1000 倍</li>
@@ -161,24 +219,79 @@ b = 0.75（控制文档长度惩罚）
 </ul>
 <h3>核心数据表</h3>
 <p><strong>files 表</strong> —— 文件元数据</p>
-<p>| 字段 | 说明 |
-|------|------|
-| path | 文件路径 |
-| source | 来源（memory/sessions）|
-| hash | 内容哈希（检测变化）|
-| mtime | 修改时间 |
-| size | 文件大小 |</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>文件路径</td>
+</tr>
+<tr>
+<td>source</td>
+<td>来源（memory/sessions）</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>内容哈希（检测变化）</td>
+</tr>
+<tr>
+<td>mtime</td>
+<td>修改时间</td>
+</tr>
+<tr>
+<td>size</td>
+<td>文件大小</td>
+</tr>
+</tbody>
+</table>
 <p><strong>chunks 表</strong> —— 核心数据</p>
-<p>| 字段 | 说明 |
-|------|------|
-| id | 唯一标识 |
-| path | 所属文件 |
-| source | 来源 |
-| start_line / end_line | 行号范围 |
-| hash | 内容哈希 |
-| model | 使用的嵌入模型 |
-| text | 原始文本 |
-| embedding | 序列化向量 |</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>唯一标识</td>
+</tr>
+<tr>
+<td>path</td>
+<td>所属文件</td>
+</tr>
+<tr>
+<td>source</td>
+<td>来源</td>
+</tr>
+<tr>
+<td>start_line / end_line</td>
+<td>行号范围</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>内容哈希</td>
+</tr>
+<tr>
+<td>model</td>
+<td>使用的嵌入模型</td>
+</tr>
+<tr>
+<td>text</td>
+<td>原始文本</td>
+</tr>
+<tr>
+<td>embedding</td>
+<td>序列化向量</td>
+</tr>
+</tbody>
+</table>
 <h3>Agent 隔离</h3>
 <p>每个 Agent 拥有独立的数据库，保证数据安全和隐私。</p>
 <hr>
@@ -204,13 +317,42 @@ b = 0.75（控制文档长度惩罚）
 → 快 10-100 倍！
 </code></pre>
 <p><strong>配置参数</strong></p>
-<p>| 参数 | 值 | 说明 |
-|------|-----|------|
-| enabled | true | 启用批量 |
-| maxSize | 100 | 每批最多 chunks |
-| concurrency | 4 | 并发批数 |
-| intervalMs | 1000 | 批次间隔 |
-| timeoutMs | 120000 | 超时时间 |</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>true</td>
+<td>启用批量</td>
+</tr>
+<tr>
+<td>maxSize</td>
+<td>100</td>
+<td>每批最多 chunks</td>
+</tr>
+<tr>
+<td>concurrency</td>
+<td>4</td>
+<td>并发批数</td>
+</tr>
+<tr>
+<td>intervalMs</td>
+<td>1000</td>
+<td>批次间隔</td>
+</tr>
+<tr>
+<td>timeoutMs</td>
+<td>120000</td>
+<td>超时时间</td>
+</tr>
+</tbody>
+</table>
 <h3>索引流程</h3>
 <pre><code>1. 触发条件满足
 2. 扫描文件系统，计算哈希
@@ -229,30 +371,101 @@ b = 0.75（控制文档长度惩罚）
 <li><strong>本地 GGUF</strong> —— 完全离线</li>
 </ol>
 <h3>搜索配置</h3>
-<p>| 参数 | 说明 |
-|------|------|
-| hybrid.enabled | 启用混合搜索 |
-| vectorWeight | 向量权重（默认 70%）|
-| textWeight | 文本权重（默认 30%）|
-| minScore | 最低相似度阈值 |
-| maxResults | 最大返回结果数 |</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hybrid.enabled</td>
+<td>启用混合搜索</td>
+</tr>
+<tr>
+<td>vectorWeight</td>
+<td>向量权重（默认 70%）</td>
+</tr>
+<tr>
+<td>textWeight</td>
+<td>文本权重（默认 30%）</td>
+</tr>
+<tr>
+<td>minScore</td>
+<td>最低相似度阈值</td>
+</tr>
+<tr>
+<td>maxResults</td>
+<td>最大返回结果数</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2>性能优化</h2>
-<p>| 优化项 | 效果 |
-|--------|------|
-| sqlite-vec 扩展 | 向量计算加速 |
-| 嵌入缓存 | 避免重复计算 |
-| 批量索引 | 减少 I/O |
-| 调整 chunkSize | 默认 400，可增大减少块数 |
-| 定期清理旧日志 | 控制索引规模 |</p>
+<table>
+<thead>
+<tr>
+<th>优化项</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sqlite-vec 扩展</td>
+<td>向量计算加速</td>
+</tr>
+<tr>
+<td>嵌入缓存</td>
+<td>避免重复计算</td>
+</tr>
+<tr>
+<td>批量索引</td>
+<td>减少 I/O</td>
+</tr>
+<tr>
+<td>调整 chunkSize</td>
+<td>默认 400，可增大减少块数</td>
+</tr>
+<tr>
+<td>定期清理旧日志</td>
+<td>控制索引规模</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2>常见问题</h2>
-<p>| 问题 | 原因 | 解决方案 |
-|------|------|---------|
-| 搜索无结果 | 相似度低于阈值 | 降低 minScore |
-| 结果不相关 | 向量/文本权重不当 | 调整 vectorWeight |
-| 索引慢 | 嵌入模型慢 | 换更快的模型或使用缓存 |
-| GGUF 加载失败 | 兼容性问题 | 使用 Ollama 替代 |</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>原因</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>搜索无结果</td>
+<td>相似度低于阈值</td>
+<td>降低 minScore</td>
+</tr>
+<tr>
+<td>结果不相关</td>
+<td>向量/文本权重不当</td>
+<td>调整 vectorWeight</td>
+</tr>
+<tr>
+<td>索引慢</td>
+<td>嵌入模型慢</td>
+<td>换更快的模型或使用缓存</td>
+</tr>
+<tr>
+<td>GGUF 加载失败</td>
+<td>兼容性问题</td>
+<td>使用 Ollama 替代</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2>总结</h2>
 <p>OpenClaw 记忆系统的核心技术：</p>
