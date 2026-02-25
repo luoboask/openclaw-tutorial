@@ -1,0 +1,36 @@
+========================================
+OpenClaw 网站每日巡检维护
+日期: 2026-02-24 22:17:40
+执行者: claw-admin (自动化)
+========================================
+[0;32m[INFO][0m 检查 1/10: 网站服务状态
+[0;32m[INFO][0m ✅ 网站服务运行正常 (端口 3000)
+[0;32m[INFO][0m 检查 2/10: 关键页面访问
+[0;32m[INFO][0m ✅ http://localhost:3000/ - OK
+[0;31m[ERROR][0m ❌ http://localhost:3000/docs - HTTP 308
+[0;31m[ERROR][0m ❌ http://localhost:3000/blog - HTTP 308
+[0;31m[ERROR][0m ❌ http://localhost:3000/about - HTTP 308
+[0;31m[ERROR][0m ❌ http://localhost:3000/docs/quickstart - HTTP 308
+[0;31m[ERROR][0m ❌ http://localhost:3000/docs/install - HTTP 308
+[1;33m[WARN][0m 发现 5 个页面异常
+[0;32m[INFO][0m 检查 3/10: 网站构建测试
+[0;32m[INFO][0m ✅ 网站构建成功
+[0;32m[INFO][0m 检查 4/10: Git 仓库状态
+[1;33m[WARN][0m ⚠️  未找到 Git 仓库
+[0;32m[INFO][0m 检查 5/10: 依赖安全更新
+[1;33m[WARN][0m 发现 2 个高危漏洞
+[1;33m[WARN][0m 请手动运行: npm audit fix
+[0;32m[INFO][0m 检查 6/10: 日志文件清理
+[0;32m[INFO][0m ✅ 日志清理完成
+[0;32m[INFO][0m 检查 7/10: 磁盘空间检查
+[0;32m[INFO][0m ✅ 磁盘使用率 2%，正常
+[0;32m[INFO][0m 检查 8/10: 内容更新检查
+[1;33m[WARN][0m 发现        1 篇新文章待发布
+[1;33m[WARN][0m 请手动执行发布流程
+[0;32m[INFO][0m 检查 9/10: 生成巡检报告
+[0;32m[INFO][0m ✅ 报告已生成: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-02-24.md
+[0;32m[INFO][0m 检查 10/10: 发送巡检通知
+[0;31m[ERROR][0m ⚠️  巡检完成，发现异常需要处理
+========================================
+巡检维护完成时间: 22:17:59
+========================================
