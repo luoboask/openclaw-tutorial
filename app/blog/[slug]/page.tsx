@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArticleContent } from './article-content'
+import { remark } from 'remark'
+import html from 'remark-html'
 
 interface Article {
   title: string
@@ -490,11 +491,12 @@ BM25（Best Match 25）比简单的"出现次数"更智能，考虑三个因素�
 
 **公式**
 
-\`\`\nscore = (TF × (k1 + 1)) / (TF + k1 × (1 - b + b × (doc_len / avg_len)))
+\`\`\`
+score = (TF × (k1 + 1)) / (TF + k1 × (1 - b + b × (doc_len / avg_len)))
 
 k1 = 1.2（控制词频饱和度）
 b = 0.75（控制文档长度惩罚）
-\`\`
+\`\`\`
 
 **2. 逆文档频率（IDF）**
 
@@ -580,7 +582,7 @@ FTS 使用**倒排索引**，比传统搜索快 100-1000 倍。
 → 100 次 API 调用
 → 100 次数据库写入
 → 非常慢！
-\`\`
+\`\`\`
 
 **批量的优化**
 
@@ -589,7 +591,7 @@ FTS 使用**倒排索引**，比传统搜索快 100-1000 倍。
 → 1 次 API 调用
 → 1 次事务写入
 → 快 10-100 倍！
-\`\`
+\`\`\`
 
 **配置参数**
 
@@ -610,7 +612,7 @@ FTS 使用**倒排索引**，比传统搜索快 100-1000 倍。
 4. 批量处理变化
 5. 更新 files 表
 6. 提交事务
-\`\`
+\`\`\`
 
 ---
 
@@ -685,6 +687,38 @@ export function generateStaticParams() {
   return Object.keys(articles).map((slug) => ({ slug }))
 }
 
+// 自定义样式类名映射
+const proseClasses = `
+  prose prose-lg max-w-none
+  prose-headings:text-gray-900
+  prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-6 prose-h1:pb-4 prose-h1:border-b prose-h1:border-gray-200
+  prose-h2:text-2xl prose-h2:font-semibold prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200
+  prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3
+  prose-h4:text-lg prose-h4:font-semibold prose-h4:mt-6 prose-h4:mb-2
+  prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
+  prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+  prose-strong:text-gray-900 prose-strong:font-semibold
+  prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:bg-orange-50 
+  prose-blockquote:pl-5 prose-blockquote:pr-4 prose-blockquote:py-3 prose-blockquote:my-4 
+  prose-blockquote:rounded-r prose-blockquote:text-orange-900
+  prose-code:bg-gray-100 prose-code:text-gray-800 prose-code:px-1.5 prose-code:py-0.5 
+  prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:border prose-code:border-gray-200
+  prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg 
+  prose-pre:overflow-x-auto prose-pre:my-4
+  prose-pre:code:bg-transparent prose-pre:code:text-gray-100 prose-pre:code:p-0 prose-pre:code:border-0
+  prose-ul:list-disc prose-ul:list-inside prose-ul:text-gray-700 prose-ul:mb-4 prose-ul:space-y-2
+  prose-ol:list-decimal prose-ol:list-inside prose-ol:text-gray-700 prose-ol:mb-4 prose-ol:space-y-2
+  prose-li:text-gray-700
+  prose-table:w-full prose-table:border-collapse prose-table:border prose-table:border-gray-300 
+  prose-table:bg-white prose-table:rounded-lg prose-table:overflow-hidden prose-table:my-4
+  prose-thead:bg-gray-100
+  prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-th:p-3 
+  prose-th:border prose-th:border-gray-300
+  prose-td:text-gray-700 prose-td:p-3 prose-td:border prose-td:border-gray-300
+  prose-tr:border-t prose-tr:border-gray-300 even:prose-tr:bg-gray-50
+  prose-hr:my-8 prose-hr:border-gray-200
+`
+
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const article = articles[slug]
@@ -692,6 +726,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!article) {
     notFound()
   }
+
+  // 服务端渲染 markdown
+  const processedContent = await remark()
+    .use(html)
+    .process(article.content)
+  
+  const htmlContent = processedContent.toString()
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -709,7 +750,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <h1 className="text-3xl font-bold">{article.title}</h1>
           </div>
 
-          <ArticleContent content={article.content} />
+          <div 
+            className={`p-8 md:p-12 ${proseClasses}`}
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
         </article>
       </div>
     </div>
