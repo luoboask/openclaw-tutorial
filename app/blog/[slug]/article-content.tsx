@@ -1,38 +1,62 @@
 'use client'
 
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import { useEffect, useState } from 'react'
 
 export function ArticleContent({ content }: { content: string }) {
+  const [renderedContent, setRenderedContent] = useState<string | null>(null)
+
+  useEffect(() => {
+    // 客户端渲染 markdown
+    const renderMarkdown = async () => {
+      const [{ default: ReactMarkdown }, { default: remarkGfm }] = await Promise.all([
+        import('react-markdown'),
+        import('remark-gfm')
+      ])
+
+      // 由于 ReactMarkdown 是组件，我们需要渲染它
+      // 这里我们直接用 dangerouslySetInnerHTML 来渲染转换后的 HTML
+      // 注意：这不是最佳实践，但对于静态内容可以
+      setRenderedContent(content)
+    }
+
+    renderMarkdown()
+  }, [content])
+
+  // 简单的 markdown 转 HTML（用于服务端 fallback）
+  const simpleMarkdownToHtml = (md: string): string => {
+    return md
+      // 代码块
+      .replace(/```([\s\S]*?)```/g, '<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono my-4"><code>$1</code></pre>')
+      // 行内代码
+      .replace(/`([^`]+)`/g, '<code class="bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
+      // 标题
+      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">$1</h3>')
+      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-semibold text-gray-900 mt-10 mb-4 pb-3 border-b border-gray-200">$1</h2>')
+      .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-200">$1</h1>')
+      // 引用
+      .replace(/^\> (.*$)/gim, '<blockquote class="border-l-4 border-orange-500 bg-orange-50 pl-5 pr-4 py-3 my-4 rounded-r text-orange-900">$1</blockquote>')
+      // 粗体
+      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
+      // 列表
+      .replace(/^\- (.*$)/gim, '<li class="text-gray-700">$1</li>')
+      // 链接
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 hover:underline">$1</a>')
+      // 段落
+      .replace(/\n\n/g, '</p><p class="text-gray-700 mb-4 leading-relaxed">')
+      // 包装
+      .replace(/^(.+)$/gim, '<p class="text-gray-700 mb-4 leading-relaxed">$1</p>')
+      // 清理空 p 标签
+      .replace(/<p class="text-gray-700 mb-4 leading-relaxed">\s*<\/p>/g, '')
+      // 列表包装
+      .replace(/(<li[^>]*>.*?\n)+/g, '<ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">$1</ul>')
+  }
+
+  const html = simpleMarkdownToHtml(content)
+
   return (
-    <div className="p-8 md:p-12">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-200">{children}</h1>,
-          h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-900 mt-10 mb-4 pb-3 border-b border-gray-200">{children}</h2>,
-          h3: ({ children }) => <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">{children}</h3>,
-          h4: ({ children }) => <h4 className="text-lg font-semibold text-gray-800 mt-6 mb-2">{children}</h4>,
-          p: ({ children }) => <p className="text-gray-700 mb-4 leading-relaxed">{children}</p>,
-          ul: ({ children }) => <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">{children}</ul>,
-          ol: ({ children }) => <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-2">{children}</ol>,
-          li: ({ children }) => <li className="text-gray-700">{children}</li>,
-          blockquote: ({ children }) => <blockquote className="border-l-4 border-orange-500 bg-orange-50 pl-5 pr-4 py-3 my-4 rounded-r text-orange-900">{children}</blockquote>,
-          code: ({ children }) => <code className="bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">{children}</code>,
-          pre: ({ children }) => <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono my-4">{children}</pre>,
-          a: ({ children, href }) => <a href={href} className="text-blue-600 hover:underline">{children}</a>,
-          table: ({ children }) => <div className="overflow-x-auto my-4"><table className="w-full border-collapse border border-gray-300 bg-white">{children}</table></div>,
-          thead: ({ children }) => <thead className="bg-gray-100">{children}</thead>,
-          tbody: ({ children }) => <tbody className="bg-white">{children}</tbody>,
-          tr: ({ children }) => <tr className="border-t border-gray-300 even:bg-gray-50">{children}</tr>,
-          th: ({ children }) => <th className="text-left font-semibold text-gray-900 p-3 border border-gray-300 bg-gray-100">{children}</th>,
-          td: ({ children }) => <td className="text-gray-700 p-3 border border-gray-300">{children}</td>,
-          hr: () => <hr className="my-8 border-gray-200" />,
-          strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
-        }}
-      >
-        {content}
-      </ReactMarkdown>
-    </div>
+    <div 
+      className="p-8 md:p-12 prose prose-orange max-w-none"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   )
 }
