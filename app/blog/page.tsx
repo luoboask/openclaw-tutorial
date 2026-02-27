@@ -1,6 +1,6 @@
 export const metadata = {
-  title: '博客 - OpenClaw 中文教程',
-  description: 'OpenClaw 最新动态、使用技巧和深度文章',
+  title: '博客 - RedClaw',
+  description: 'RedClaw 博客 - 分享基于 OpenClaw 自建 AI 助手的实战经验与深度思考',
 }
 
 import Link from 'next/link'

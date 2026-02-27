@@ -4,27 +4,27 @@ import { GoogleAnalytics } from "@/components/analytics";
 import StructuredData from "@/components/structured-data";
 
 export const viewport: Viewport = {
-  themeColor: "#f97316",
+  themeColor: "#dc2626",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  title: "OpenClaw 中文教程 - 自托管 AI 网关",
-  description: "OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用",
-  keywords: "OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程",
-  authors: [{ name: "OpenClaw 中文社区" }],
+  title: "RedClaw - 基于OpenClaw自建设及自维护的知识型网站",
+  description: "RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程",
+  keywords: "RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill",
+  authors: [{ name: "RedClaw" }],
   openGraph: {
-    title: "OpenClaw 中文教程",
-    description: "自托管 AI 网关，连接你的所有聊天应用",
+    title: "RedClaw - 基于OpenClaw自建设及自维护的知识型网站",
+    description: "分享 AI 助手搭建、配置和使用的实战经验与深度教程",
     type: "website",
     locale: "zh_CN",
-    siteName: "OpenClaw 中文教程",
+    siteName: "RedClaw",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenClaw 中文教程",
-    description: "自托管 AI 网关，连接你的所有聊天应用",
+    title: "RedClaw - 基于OpenClaw自建设及自维护的知识型网站",
+    description: "分享 AI 助手搭建、配置和使用的实战经验与深度教程",
   },
   manifest: "/manifest.json",
   icons: {

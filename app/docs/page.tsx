@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { FolderOpen } from 'lucide-react'
 
 export const metadata = {
-  title: '文档中心 - OpenClaw 中文教程',
-  description: 'OpenClaw 完整中文文档，包含安装、配置、频道接入和工具开发指南',
+  title: '文档中心 - RedClaw',
+  description: 'RedClaw 完整文档，基于 OpenClaw 的实战经验分享',
 }
 
 const sections = [

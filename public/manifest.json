@@ -1,11 +1,11 @@
 {
-  "name": "OpenClaw 中文教程",
-  "short_name": "OpenClaw",
-  "description": "OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw",
+  "name": "RedClaw",
+  "short_name": "RedClaw",
+  "description": "基于 OpenClaw 自建设及自维护的知识型网站",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#f97316",
+  "theme_color": "#dc2626",
   "orientation": "portrait-primary",
   "icons": [
     {
