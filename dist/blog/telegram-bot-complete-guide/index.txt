@@ -8,12 +8,18 @@ a:I[4431,[],"ViewportBoundary"]
 c:I[4431,[],"MetadataBoundary"]
 d:"$Sreact.suspense"
 f:I[7150,[],""]
-:HL["/_next/static/css/1bfc8055b7071d26.css","style"]
-0:{"P":null,"b":"7cjoZDVi5dXYp92-_VApZ","p":"","c":["","blog","telegram-bot-complete-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","telegram-bot-complete-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/1bfc8055b7071d26.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":[["$","$L2",null,{}],[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验\",\"inLanguage\":\"zh-CN\",\"author\":{\"@type\":\"Organization\",\"name\":\"RedClaw\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"logo\":\"https://redclaw.cc/icon-192x192.png\",\"sameAs\":[\"https://github.com/openclaw/openclaw\",\"https://discord.com/invite/clawd\"],\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站\"}"}}]],["$","link",null,{"rel":"preload","href":"/pagefind/pagefind-ui.css","as":"style"}],["$","link",null,{"rel":"stylesheet","href":"/pagefind/pagefind-ui.css"}]]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","telegram-bot-complete-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+:HL["/_next/static/css/f2e9a695df47f024.css","style"]
+0:{"P":null,"b":"8cyFJF6gqPeoWACbNJ-Nv","p":"","c":["","blog","telegram-bot-complete-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","telegram-bot-complete-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f2e9a695df47f024.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":[["$","$L2",null,{}],[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验\",\"inLanguage\":\"zh-CN\",\"author\":{\"@type\":\"Organization\",\"name\":\"RedClaw\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"logo\":\"https://redclaw.cc/icon-192x192.png\",\"sameAs\":[\"https://github.com/openclaw/openclaw\",\"https://discord.com/invite/clawd\"],\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站\"}"}}]],["$","link",null,{"rel":"preload","href":"/pagefind/pagefind-ui.css","as":"style"}],["$","link",null,{"rel":"stylesheet","href":"/pagefind/pagefind-ui.css"}]]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","telegram-bot-complete-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
 10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-9ebb3b868ebb3594.js"],""]
-11:T1989,<h1>Telegram Bot 详细配置指南</h1>
+11:T15dd,<hr>
+<h2>title: 'Telegram Bot 详细配置指南'
+date: '2026-02-25'
+category: '频道配置'
+readTime: '10 分钟'
+featured: true</h2>
+<h1>🤖 Telegram Bot 详细配置指南</h1>
 <blockquote>
-<p>本教程将带你从零开始，完成 Telegram Bot 的创建和 OpenClaw 接入配置。</p>
+<p>完整教程：从创建 Bot 到接入 OpenClaw，全程只需 5 分钟</p>
 </blockquote>
 <hr>
 <h2>📋 概述</h2>
@@ -21,7 +27,7 @@ f:I[7150,[],""]
 <thead>
 <tr>
 <th>项目</th>
-<th>内容</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
@@ -35,198 +41,146 @@ f:I[7150,[],""]
 </tr>
 <tr>
 <td><strong>前提条件</strong></td>
-<td>Telegram 账号</td>
+<td>已有 Telegram 账号</td>
 </tr>
 <tr>
-<td><strong>适用版本</strong></td>
-<td>OpenClaw 2026.2.x</td>
+<td><strong>输出结果</strong></td>
+<td>可用的 Telegram AI 助手</td>
 </tr>
 </tbody>
 </table>
-<p><strong>你将学到:</strong></p>
-<ul>
-<li>如何在 Telegram 中创建 Bot</li>
-<li>如何获取 Bot Token</li>
-<li>如何配置 OpenClaw 连接 Telegram</li>
-<li>如何测试和故障排查</li>
-</ul>
 <hr>
-<h2>步骤 1: 在 Telegram 中创建 Bot</h2>
-<h3>1.1 打开 Telegram，搜索 @BotFather</h3>
-<p>BotFather 是 Telegram 官方的 Bot 管理机器人。</p>
-<p><strong>操作:</strong></p>
+<h2>步骤 1: 创建 Bot (1分钟)</h2>
+<h3>1.1 打开 BotFather</h3>
 <ol>
-<li>打开 Telegram 应用</li>
-<li>在搜索框输入 <code>BotFather</code></li>
-<li>点击带有蓝色认证勾的 <code>@BotFather</code></li>
+<li>在 Telegram 中搜索 <code>@BotFather</code></li>
+<li>点击「开始」或发送 <code>/start</code></li>
 </ol>
 <h3>1.2 创建新 Bot</h3>
-<p><strong>发送命令:</strong></p>
+<p>发送命令：</p>
 <pre><code>/newbot
 </code></pre>
-<p><strong>按提示操作:</strong></p>
+<p>BotFather 会要求你：</p>
 <ol>
-<li>
-<p>BotFather 会要求你输入 Bot 名称（显示名称）</p>
-<ul>
-<li>例如：<code>My OpenClaw Assistant</code></li>
-<li>可以包含空格，用户会看到这个名字</li>
-</ul>
-</li>
-<li>
-<p>然后要求输入 Bot 用户名（唯一标识）</p>
-<ul>
-<li>必须以 <code>bot</code> 结尾</li>
-<li>例如：<code>my_claw_bot</code> 或 <code>myclawassistant_bot</code></li>
-<li>不能包含空格</li>
-</ul>
-</li>
+<li><strong>输入 Bot 名称</strong> - 显示名称（如"我的AI助手"）</li>
+<li><strong>输入用户名</strong> - 必须以 <code>bot</code> 结尾（如 <code>myaihelper_bot</code>）</li>
 </ol>
-<h3>1.3 获取 Bot Token</h3>
-<p>创建成功后，BotFather 会发送一条消息包含 Token。</p>
-<p><strong>重要:</strong> 复制 Token 部分，例如：<code>123456789:ABCdefGHIjklMNOpqrsTUVwxyz</code></p>
-<blockquote>
-<p>⚠️ <strong>安全提示:</strong> Token 就像密码，不要泄露给他人！</p>
-</blockquote>
-<hr>
-<h2>步骤 2: 配置 OpenClaw</h2>
-<h3>2.1 打开配置文件</h3>
-<p>找到你的 OpenClaw 配置文件：</p>
-<pre><code class="language-bash">~/.openclaw/openclaw.json
+<p>✅ <strong>成功提示：</strong></p>
+<pre><code>Done! Congratulations on your new bot. 
+You will find it at t.me/myaihelper_bot
+Use this token to access the HTTP API:
+123456789:ABCdefGHIjklMNOpqrSTUvwxyz
 </code></pre>
-<h3>2.2 添加 Telegram 配置</h3>
-<p>在配置文件的 <code>channels</code> 部分添加：</p>
-<pre><code class="language-json">{
-  "channels": {
-    "telegram": {
-      "enabled": true,
-      "botToken": "123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
-    }
-  }
-}
-</code></pre>
-<h3>2.3 保存配置文件</h3>
-<p>保存后，验证 JSON 格式是否正确。</p>
+<p>⚠️ <strong>重要：</strong> 保存好你的 <strong>Token</strong>（上面那串字符），后面会用到！</p>
 <hr>
-<h2>步骤 3: 重启 OpenClaw Gateway</h2>
-<p>配置更改后需要重启 Gateway 才能生效：</p>
+<h2>步骤 2: 配置 Bot 功能 (2分钟)</h2>
+<h3>2.1 设置命令菜单</h3>
+<p>发送给 BotFather：</p>
+<pre><code>/setcommands
+</code></pre>
+<p>选择你的 Bot，然后发送命令列表：</p>
+<pre><code>start - 开始使用
+help - 查看帮助
+reset - 重置对话
+status - 查看状态
+</code></pre>
+<h3>2.2 设置 Bot 描述（可选）</h3>
+<pre><code>/setdescription
+</code></pre>
+<p>输入描述，例如：</p>
+<pre><code>我是你的私人 AI 助手，可以帮你回答问题、生成内容、处理任务。
+Powered by OpenClaw + Claude/GPT
+</code></pre>
+<h3>2.3 设置关于信息（可选）</h3>
+<pre><code>/setabouttext
+</code></pre>
+<p>输入简介，例如：</p>
+<pre><code>🤖 AI 智能助手
+📚 知识问答 | 📝 内容创作 | 💻 代码辅助
+🔒 端到端加密 | 🏠 自托管 | 🔓 隐私优先
+</code></pre>
+<hr>
+<h2>步骤 3: 配置 OpenClaw (2分钟)</h2>
+<h3>3.1 编辑配置文件</h3>
+<p>打开 OpenClaw 配置文件：</p>
+<pre><code class="language-bash"># 使用你喜欢的编辑器
+nano ~/.openclaw/config.yaml
+# 或
+vim ~/.openclaw/config.yaml
+</code></pre>
+<h3>3.2 添加 Telegram 频道配置</h3>
+<p>在 <code>channels.telegram</code> 部分添加：</p>
+<pre><code class="language-yaml">channels:
+  telegram:
+    enabled: true
+    bots:
+      - name: "my-ai-bot"           # 内部名称，自定义
+        token: "YOUR_BOT_TOKEN"     # 替换为你的 Token
+        allowed_chats: []           # 留空表示允许所有聊天
+</code></pre>
+<h3>3.3 保存并重启</h3>
+<p>保存文件后，重启 OpenClaw Gateway：</p>
 <pre><code class="language-bash">openclaw gateway restart
 </code></pre>
-<p>等待启动完成，看到以下输出表示成功：</p>
-<pre><code>✓ Gateway started on port 18789
-</code></pre>
 <hr>
-<h2>步骤 4: 测试连接</h2>
-<h3>4.1 在 Telegram 中找到你的 Bot</h3>
+<h2>步骤 4: 测试连接 (1分钟)</h2>
+<h3>4.1 在 Telegram 中测试</h3>
 <ol>
-<li>在 Telegram 搜索框输入你设置的 Bot 用户名</li>
-<li>例如：<code>@my_claw_bot</code></li>
-<li>点击进入聊天界面</li>
+<li>打开你的 Bot（搜索用户名如 <code>@myaihelper_bot</code>）</li>
+<li>点击「开始」或发送 <code>/start</code></li>
+<li>发送任意消息，如 "你好"</li>
 </ol>
-<h3>4.2 发送测试消息</h3>
-<p>发送任意消息，例如：</p>
-<pre><code>你好
-</code></pre>
-<p>如果配置正确，你的 AI 助手会回复你！</p>
-<h3>4.3 常用命令测试</h3>
-<p>尝试发送以下命令：</p>
-<pre><code>/help          # 查看帮助
-/session       # 查看会话信息
-/clear         # 清空当前会话
+<h3>4.2 验证响应</h3>
+<p>如果配置正确，Bot 会在几秒钟内回复 AI 生成的消息。</p>
+<p>查看日志排查问题：</p>
+<pre><code class="language-bash">openclaw logs --follow
 </code></pre>
 <hr>
 <h2>🔧 常见问题</h2>
 <h3>Q1: Bot 不回复消息</h3>
-<p><strong>可能原因:</strong></p>
-<ul>
-<li>Token 配置错误</li>
-<li>Gateway 未启动</li>
-<li>网络问题</li>
+<p><strong>检查清单：</strong></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Token 是否复制正确</li>
+<li class="task-list-item"><input type="checkbox" disabled> Gateway 是否已重启</li>
+<li class="task-list-item"><input type="checkbox" disabled> 网络是否能访问 Telegram API</li>
+<li class="task-list-item"><input type="checkbox" disabled> 查看日志是否有错误</li>
 </ul>
-<p><strong>解决方案:</strong></p>
-<ol>
-<li>检查配置文件中的 Token 是否正确</li>
-<li>检查 Gateway 状态：<code>openclaw gateway status</code></li>
-<li>查看日志：<code>openclaw logs</code></li>
-</ol>
-<h3>Q2: 提示 "Channel not enabled"</h3>
-<p><strong>原因:</strong> Telegram 频道未启用</p>
-<p><strong>解决:</strong> 确保配置文件中 <code>enabled: true</code></p>
-<h3>Q3: Token 泄露了怎么办？</h3>
-<p><strong>紧急处理:</strong></p>
-<ol>
-<li>立即在 BotFather 中发送 <code>/revoke</code></li>
-<li>获取新 Token</li>
-<li>更新配置文件</li>
-<li>重启 Gateway</li>
-</ol>
-<h3>Q4: 如何让 Bot 回复群组消息？</h3>
-<p><strong>步骤:</strong></p>
+<h3>Q2: 如何限制特定用户使用</h3>
+<p>在 <code>allowed_chats</code> 中添加用户 ID：</p>
+<pre><code class="language-yaml">allowed_chats: [123456789, 987654321]
+</code></pre>
+<h3>Q3: 如何让 Bot 支持群聊</h3>
 <ol>
 <li>将 Bot 添加到群组</li>
-<li>在群组中发送 <code>/start</code></li>
-<li>给 Bot 管理员权限（可选，但推荐）</li>
+<li>在群组中发送 <code>/start</code> 或 @Bot 提问</li>
 </ol>
-<h3>Q5: 支持哪些消息类型？</h3>
-<p><strong>支持:</strong></p>
-<ul>
-<li>文字消息</li>
-<li>图片（带描述）</li>
-<li>语音消息（需配置语音识别）</li>
-</ul>
-<p><strong>不支持:</strong></p>
-<ul>
-<li>视频</li>
-<li>文件</li>
-<li>贴纸</li>
-</ul>
-<hr>
-<h2>🎨 进阶配置</h2>
-<h3>设置 Bot 头像和描述</h3>
-<p>在 BotFather 中发送：</p>
-<pre><code>/setuserpic   # 设置头像
-/setabouttext # 设置关于信息
-/setdescription # 设置描述
+<blockquote>
+<p>群组 ID 通常是负数，如 <code>-1001234567890</code></p>
+</blockquote>
+<h3>Q4: 如何自定义 Bot 的 AI 人格</h3>
+<p>添加系统提示词：</p>
+<pre><code class="language-yaml">channels:
+  telegram:
+    enabled: true
+    bots:
+      - name: "my-ai-bot"
+        token: "YOUR_TOKEN"
+        system_prompt: |
+          你是一个友好、专业的 AI 助手。
+          回答要简洁明了，使用中文。
 </code></pre>
-<h3>配置隐私模式</h3>
-<p>在群组中，Bot 默认只能看到以下消息：</p>
-<ul>
-<li>@提及 Bot 的消息</li>
-<li>回复 Bot 的消息</li>
-<li>Bot 发送的命令</li>
-</ul>
-<p>如需看到所有消息，需要：</p>
-<ol>
-<li>给 Bot 管理员权限</li>
-<li>或在 BotFather 中关闭隐私模式：<code>/setprivacy</code> → Disabled</li>
-</ol>
 <hr>
-<h2>✅ 验证清单</h2>
-<p>配置完成后，检查以下项目：</p>
+<h2>✅ 完成检查清单</h2>
 <ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> 能在 Telegram 中搜索到 Bot</li>
-<li class="task-list-item"><input type="checkbox" disabled> 发送消息后能收到回复</li>
-<li class="task-list-item"><input type="checkbox" disabled> <code>/help</code> 命令正常工作</li>
-<li class="task-list-item"><input type="checkbox" disabled> 重启 Gateway 后依然有效</li>
+<li class="task-list-item"><input type="checkbox" disabled> 已通过 BotFather 创建 Bot</li>
+<li class="task-list-item"><input type="checkbox" disabled> 已保存 Bot Token</li>
+<li class="task-list-item"><input type="checkbox" disabled> 已在 OpenClaw 中配置 Telegram 频道</li>
+<li class="task-list-item"><input type="checkbox" disabled> 已重启 Gateway</li>
+<li class="task-list-item"><input type="checkbox" disabled> Bot 能正常回复消息</li>
 </ul>
 <hr>
-<h2>📝 总结</h2>
-<p>恭喜！你已经成功将 Telegram Bot 接入 OpenClaw。</p>
-<p><strong>下一步建议:</strong></p>
-<ul>
-<li>尝试其他功能，如图片发送</li>
-<li>邀请朋友加入群组体验</li>
-<li>查看其他频道接入教程（Discord、WhatsApp）</li>
-</ul>
-<p><strong>需要帮助?</strong></p>
-<ul>
-<li>查看官方文档: <a href="https://docs.openclaw.ai">https://docs.openclaw.ai</a></li>
-<li>加入社区 Discord: <a href="https://discord.gg/clawd">https://discord.gg/clawd</a></li>
-</ul>
-<hr>
-<p><em>最后更新: 2026-02-24</em><br>
-<em>适用版本: OpenClaw 2026.2.x</em></p>
-5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-orange-600 mb-8 block","children":"返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-24"}],["$","span",null,{"children":"10 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"Telegram Bot 详细配置指南"}]]}],["$","div",null,{"className":"p-8 md:p-12 markdown-content","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
+<p>完成！🎉</p>
+5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-red-600 mb-8 block","children":"← 返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-red-600 to-red-800 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-24"}],["$","span",null,{"children":"10 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"Telegram Bot 详细配置指南"}]]}],["$","div",null,{"className":"p-8 md:p-12 prose prose-lg max-w-none","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
 b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#dc2626"}]]
 7:null
 12:I[622,[],"IconMark"]

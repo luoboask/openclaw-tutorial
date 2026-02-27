@@ -1,137 +1,797 @@
-<!DOCTYPE html><!--7cjoZDVi5dXYp92__VApZ--><html lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/1bfc8055b7071d26.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-74c939c87fa0092a.js"/><script src="/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/_next/static/chunks/255-102f2e5b2e3dc2ef.js" async=""></script><script src="/_next/static/chunks/main-app-10eacd1d09204dfa.js" async=""></script><script src="/_next/static/chunks/app/layout-9f42c613afe565bb.js" async=""></script><script src="/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-9ebb3b868ebb3594.js" async=""></script><link rel="preload" href="/pagefind/pagefind-ui.css" as="style"/><meta name="theme-color" content="#dc2626"/><title>RedClaw - 基于OpenClaw自建设及自维护的知识型网站</title><meta name="description" content="RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程"/><meta name="author" content="RedClaw"/><link rel="manifest" href="/manifest.json"/><meta name="keywords" content="RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow"/><link rel="canonical" href="https://redclaw.cc/"/><meta property="og:title" content="RedClaw - 基于OpenClaw自建设及自维护的知识型网站"/><meta property="og:description" content="分享 AI 助手搭建、配置和使用的实战经验与深度教程"/><meta property="og:site_name" content="RedClaw"/><meta property="og:locale" content="zh_CN"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="RedClaw - 基于OpenClaw自建设及自维护的知识型网站"/><meta name="twitter:description" content="分享 AI 助手搭建、配置和使用的实战经验与深度教程"/><link rel="icon" href="/icon-192x192.png"/><link rel="apple-touch-icon" href="/icon-192x192.png"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"RedClaw","url":"https://redclaw.cc","description":"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验","inLanguage":"zh-CN","author":{"@type":"Organization","name":"RedClaw"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"RedClaw","url":"https://redclaw.cc","logo":"https://redclaw.cc/icon-192x192.png","sameAs":["https://github.com/openclaw/openclaw","https://discord.com/invite/clawd"],"description":"基于 OpenClaw 自建设及自维护的知识型网站"}</script><link rel="stylesheet" href="/pagefind/pagefind-ui.css"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="antialiased bg-white text-gray-900"><div hidden=""><!--$--><!--/$--></div><div class="min-h-screen bg-gradient-to-b from-slate-50 to-white"><div class="max-w-4xl mx-auto px-4 py-12"><a class="text-gray-600 hover:text-orange-600 mb-8 block" href="/blog/">返回博客</a><article class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"><div class="bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white"><div class="flex items-center gap-4 mb-4 text-sm opacity-90"><span>2026-02-27</span><span>30 分钟</span></div><h1 class="text-3xl font-bold">OpenClaw Agent 完全指南：深入理解与最佳实践</h1></div><div class="p-8 md:p-12 markdown-content"><h1>OpenClaw Agent 完全指南</h1>
-<p>Agent 是 OpenClaw 系统的核心执行单元。本文深入解析 Agent 的架构、工作原理和最佳实践。</p>
-<h2>什么是 Agent？</h2>
-<p><strong>Agent（智能体）</strong> 是 OpenClaw 中执行任务的实际工作者。</p>
-<h3>类比理解</h3>
+<!DOCTYPE html><!--8cyFJF6gqPeoWACbNJ_Nv--><html lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/f2e9a695df47f024.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-74c939c87fa0092a.js"/><script src="/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/_next/static/chunks/255-102f2e5b2e3dc2ef.js" async=""></script><script src="/_next/static/chunks/main-app-10eacd1d09204dfa.js" async=""></script><script src="/_next/static/chunks/app/layout-9f42c613afe565bb.js" async=""></script><script src="/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-9ebb3b868ebb3594.js" async=""></script><link rel="preload" href="/pagefind/pagefind-ui.css" as="style"/><meta name="theme-color" content="#dc2626"/><title>RedClaw - 基于OpenClaw自建设及自维护的知识型网站</title><meta name="description" content="RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程"/><meta name="author" content="RedClaw"/><link rel="manifest" href="/manifest.json"/><meta name="keywords" content="RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow"/><link rel="canonical" href="https://redclaw.cc/"/><meta property="og:title" content="RedClaw - 基于OpenClaw自建设及自维护的知识型网站"/><meta property="og:description" content="分享 AI 助手搭建、配置和使用的实战经验与深度教程"/><meta property="og:site_name" content="RedClaw"/><meta property="og:locale" content="zh_CN"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="RedClaw - 基于OpenClaw自建设及自维护的知识型网站"/><meta name="twitter:description" content="分享 AI 助手搭建、配置和使用的实战经验与深度教程"/><link rel="icon" href="/icon-192x192.png"/><link rel="apple-touch-icon" href="/icon-192x192.png"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"RedClaw","url":"https://redclaw.cc","description":"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验","inLanguage":"zh-CN","author":{"@type":"Organization","name":"RedClaw"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"RedClaw","url":"https://redclaw.cc","logo":"https://redclaw.cc/icon-192x192.png","sameAs":["https://github.com/openclaw/openclaw","https://discord.com/invite/clawd"],"description":"基于 OpenClaw 自建设及自维护的知识型网站"}</script><link rel="stylesheet" href="/pagefind/pagefind-ui.css"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="antialiased bg-white text-gray-900"><div hidden=""><!--$--><!--/$--></div><div class="min-h-screen bg-gradient-to-b from-slate-50 to-white"><div class="max-w-4xl mx-auto px-4 py-12"><a class="text-gray-600 hover:text-red-600 mb-8 block" href="/blog/">← 返回博客</a><article class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"><div class="bg-gradient-to-br from-red-600 to-red-800 p-12 text-white"><div class="flex items-center gap-4 mb-4 text-sm opacity-90"><span>2026-02-27</span><span>30 分钟</span></div><h1 class="text-3xl font-bold">OpenClaw Agent 完全指南：深入理解与最佳实践</h1></div><div class="p-8 md:p-12 prose prose-lg max-w-none"><h1>OpenClaw Agent 完全指南：深入理解与最佳实践</h1>
+<p>Agent 是 OpenClaw 系统的核心执行单元，它是你与 AI 助手交互的实际载体。本文将深入解析 Agent 的架构、工作原理和高级用法。</p>
+<hr>
+<h2>第一部分：理解 Agent</h2>
+<h3>1.1 什么是 Agent？</h3>
+<p><strong>Agent（智能体）</strong> 是 OpenClaw 中执行任务的实际工作者。如果把 OpenClaw 比作一个公司：</p>
+<ul>
+<li><strong>OpenClaw 系统</strong> = 公司基础设施</li>
+<li><strong>Agent</strong> = 具体的员工</li>
+<li><strong>Skill</strong> = 员工掌握的技能</li>
+<li><strong>Extension</strong> = 公司的业务部门</li>
+</ul>
+<p>每个 Agent 都有：</p>
+<ul>
+<li><strong>独立的身份</strong>：唯一的 ID 和配置</li>
+<li><strong>专属的记忆</strong>：自己的长期记忆和会话历史</li>
+<li><strong>特定的能力</strong>：配置的模型、工具和 Skills</li>
+<li><strong>明确的职责</strong>：处理特定类型的任务</li>
+</ul>
+<h3>1.2 Agent 与相关概念的关系</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                    OpenClaw 系统架构                         │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │                  Agent 层                            │   │
+│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐          │   │
+│  │  │claw-admin│  │claw-code │  │ research │  ...      │   │
+│  │  │ Agent    │  │ Agent    │  │ Agent    │          │   │
+│  │  └──────────┘  └──────────┘  └──────────┘          │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                           │                                 │
+│           ┌───────────────┼───────────────┐                │
+│           ▼               ▼               ▼                │
+│  ┌──────────────┐  ┌──────────┐  ┌────────────────┐       │
+│  │   Skill 层   │  │ Extension│  │    Memory      │       │
+│  │  pdf-proc    │  │  层      │  │    系统        │       │
+│  │  weather     │  │ telegram │  ├────────────────┤       │
+│  │  github      │  │ discord  │  │ 长期记忆       │       │
+│  └──────────────┘  │ whatsapp │  │ 会话历史       │       │
+│                    └──────────┘  │ 向量搜索       │       │
+│                                  └────────────────┘       │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>关系详解</strong>：</p>
 <table>
 <thead>
 <tr>
 <th>概念</th>
+<th>角色</th>
 <th>类比</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>OpenClaw 系统</td>
-<td>公司基础设施</td>
-</tr>
-<tr>
-<td>Agent</td>
+<td><strong>Agent</strong></td>
+<td>执行者</td>
 <td>员工</td>
 </tr>
 <tr>
-<td>Skill</td>
+<td><strong>Skill</strong></td>
+<td>知识/技能</td>
 <td>员工的技能证书</td>
 </tr>
 <tr>
-<td>Extension</td>
+<td><strong>Extension</strong></td>
+<td>基础设施</td>
 <td>公司的业务部门</td>
 </tr>
-</tbody>
-</table>
-<h2>Agent 的核心组成</h2>
-<p>每个 Agent 包含：</p>
-<ol>
-<li><strong>身份标识</strong>：唯一的 ID 和配置</li>
-<li><strong>大脑配置</strong>：使用的 AI 模型</li>
-<li><strong>感知系统</strong>：可用的工具</li>
-<li><strong>专业技能</strong>：安装的 Skills</li>
-<li><strong>记忆系统</strong>：长期记忆和会话历史</li>
-<li><strong>通讯频道</strong>：接入的聊天应用</li>
-</ol>
-<h2>Agent vs Skill vs Extension</h2>
-<table>
-<thead>
 <tr>
-<th></th>
-<th>Agent</th>
-<th>Skill</th>
-<th>Extension</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>角色</strong></td>
-<td>执行者</td>
-<td>知识包</td>
-<td>系统扩展</td>
-</tr>
-<tr>
-<td><strong>是什么</strong></td>
-<td>AI 助手</td>
-<td>教 AI 怎么做</td>
-<td>给 AI 新能力</td>
-</tr>
-<tr>
-<td><strong>例子</strong></td>
-<td>claw-admin</td>
-<td>pdf-processor</td>
-<td>telegram</td>
+<td><strong>Memory</strong></td>
+<td>记忆系统</td>
+<td>员工的笔记本</td>
 </tr>
 </tbody>
 </table>
-<h2>Agent 的工作流程</h2>
-<pre><code>用户输入
+<h3>1.3 Agent 的核心组成</h3>
+<p>每个 Agent 包含以下核心组件：</p>
+<pre><code class="language-yaml">agent:
+  # 1. 身份标识
+  id: "claw-admin"           # 唯一标识
+  name: "管理助手"            # 显示名称
+  description: "负责日常管理和协调"  # 职责描述
+  
+  # 2. 大脑配置（AI 模型）
+  model: "kimi-coding/k2p5"   # 使用的 AI 模型
+  thinking: "low"             # 思考深度
+  
+  # 3. 感知系统（工具）
+  tools:
+    - browser     # 浏览器控制
+    - exec        # 命令执行
+    - search      # 网络搜索
+    - read        # 文件读取
+    - write       # 文件写入
+  
+  # 4. 专业技能（Skills）
+  skills:
+    - pdf-processor
+    - weather
+    - github
+    - healthcheck
+  
+  # 5. 记忆系统
+  memory:
+    enabled: true
+    storage: "local"          # 本地存储
+    vector_db: "chroma"       # 向量数据库
+  
+  # 6. 通讯频道（Extensions）
+  channels:
+    - webchat     # 网页聊天
+    # - telegram  # 可接入 Telegram
+    # - discord   # 可接入 Discord
+</code></pre>
+<hr>
+<h2>第二部分：Agent 的工作原理</h2>
+<h3>2.1 请求处理流程</h3>
+<p>当用户发送一条消息时，Agent 的处理流程：</p>
+<pre><code>用户消息
     ↓
-Agent 分析意图
+┌─────────────────────────────────────┐
+│  1. 接收与解析                        │
+│  - 解析用户输入                        │
+│  - 加载会话上下文                      │
+│  - 读取长期记忆                        │
+└─────────────────────────────────────┘
     ↓
-加载相关记忆
+┌─────────────────────────────────────┐
+│  2. 意图识别                          │
+│  - 分析用户需求                        │
+│  - 确定任务类型                        │
+│  - 选择合适工具/Skill                  │
+└─────────────────────────────────────┘
     ↓
-判断需要的 Skill
+┌─────────────────────────────────────┐
+│  3. 任务执行                          │
+│  - 加载必要 Skills                     │
+│  - 执行工具调用                        │
+│  - 收集执行结果                        │
+└─────────────────────────────────────┘
+    ↓
+┌─────────────────────────────────────┐
+│  4. 结果生成                          │
+│  - 整合执行结果                        │
+│  - 生成回复内容                        │
+│  - 更新记忆系统                        │
+└─────────────────────────────────────┘
+    ↓
+用户收到回复
+</code></pre>
+<h3>2.2 记忆管理</h3>
+<p>Agent 如何管理记忆：</p>
+<pre><code class="language-python"># 伪代码示意
+class Agent:
+    def process_message(self, user_message):
+        # 1. 加载相关记忆
+        relevant_memories = self.memory.search(
+            query=user_message,
+            limit=5
+        )
+        
+        # 2. 构建上下文
+        context = {
+            "system_prompt": self.system_prompt,
+            "memories": relevant_memories,
+            "recent_messages": self.session.get_recent(10),
+            "available_skills": self.skills.list()
+        }
+        
+        # 3. 调用 AI 模型
+        response = self.llm.generate(
+            message=user_message,
+            context=context
+        )
+        
+        # 4. 执行工具（如果需要）
+        if response.requires_tool:
+            tool_result = self.execute_tool(response.tool_call)
+            response = self.llm.generate_with_result(tool_result)
+        
+        # 5. 更新记忆
+        self.memory.store_interaction(user_message, response)
+        
+        return response
+</code></pre>
+<h3>2.3 工具调用机制</h3>
+<p>Agent 如何使用工具：</p>
+<pre><code>Agent 决策
+    ↓
+识别需要 browser 工具
+    ↓
+构建工具调用请求
+{
+  "tool": "browser",
+  "action": "snapshot",
+  "params": {
+    "url": "https://example.com"
+  }
+}
     ↓
 执行工具调用
     ↓
-生成回复
+获取结果
+{
+  "status": "success",
+  "content": "网页 HTML 内容..."
+}
     ↓
-更新记忆
+基于结果生成回复
 </code></pre>
-<h2>Agent 的类型</h2>
-<h3>1. 单 Agent 模式</h3>
-<p>适合个人使用、简单任务。</p>
-<h3>2. 多 Agent 协作模式（推荐）</h3>
-<p>适合团队协作、复杂项目。</p>
-<pre><code>claw-admin (管理员)
-    ├── claw-article (内容创作)
-    ├── claw-code (开发运维)
-    └── claw-collect (信息采集)
+<h3>2.4 Skill 加载机制</h3>
+<p>Agent 如何加载和使用 Skills：</p>
+<pre><code>用户请求：处理这个 PDF
+    ↓
+Agent 识别需要 pdf-processor Skill
+    ↓
+检查是否已安装该 Skill
+    ↓
+加载 Skill 的 Metadata（名称+描述）
+    ↓
+判断 Skill 触发条件匹配
+    ↓
+加载完整的 SKILL.md 内容
+    ↓
+按照 Skill 指导执行
+    ↓
+完成任务
 </code></pre>
-<h3>3. 专用 Agent 模式</h3>
-<p>适合特定领域、高频任务。</p>
-<h2>最佳实践</h2>
-<h3>DO</h3>
+<hr>
+<h2>第三部分：Agent 的类型与场景</h2>
+<h3>3.1 单 Agent 模式</h3>
+<p><strong>适用场景</strong>：个人使用、简单任务</p>
+<pre><code class="language-yaml"># 单个全能 Agent
+agent:
+  id: "personal-assistant"
+  model: "kimi-coding/k2p5"
+  skills:
+    - weather
+    - pdf-processor
+    - github
+    - apple-notes
+    - openai-image-gen
+  tools: ["browser", "exec", "search", "read", "write"]
+</code></pre>
+<p><strong>特点</strong>：</p>
 <ul>
-<li>✅ 单一职责：每个 Agent 专注于特定领域</li>
-<li>✅ 明确边界：清晰定义 Agent 的职责范围</li>
-<li>✅ 适当授权：给 Agent 足够的权限</li>
+<li>✅ 配置简单</li>
+<li>✅ 适合个人日常使用</li>
+<li>❌ 职责不清晰</li>
+<li>❌ 难以专业化</li>
 </ul>
-<h3>DON'T</h3>
-<ul>
-<li>❌ 过度集中：一个 Agent 做所有事情</li>
-<li>❌ 权限过大：给 Agent 危险的权限</li>
-<li>❌ 职责模糊：多个 Agent 职责重叠</li>
-</ul>
-<h2>配置示例</h2>
+<h3>3.2 多 Agent 协作模式（推荐）</h3>
+<p><strong>适用场景</strong>：团队协作、复杂项目</p>
+<pre><code class="language-yaml"># 管理员 Agent
+agent:
+  id: "claw-admin"
+  role: "manager"
+  responsibilities:
+    - 任务分配
+    - 进度跟进
+    - 审核整合
+    - 决策制定
+
+# 内容创作 Agent
+agent:
+  id: "claw-article"
+  role: "content-creator"
+  skills:
+    - docx-editor
+    - openai-image-gen
+    - web-search
+    - summarize
+
+# 开发运维 Agent
+agent:
+  id: "claw-code"
+  role: "developer"
+  skills:
+    - github
+    - healthcheck
+    - coding-agent
+    - skill-creator
+
+# 信息采集 Agent
+agent:
+  id: "claw-collect"
+  role: "researcher"
+  skills:
+    - web-search
+    - web-fetch
+    - summarize
+    - gemini
+</code></pre>
+<p><strong>协作流程</strong>：</p>
+<pre><code>用户需求
+    ↓
+claw-admin (管理员)
+    ↓ 分析任务类型
+┌──────────────┬──────────────┬──────────────┐
+│              │              │              │
+内容创作任务    开发任务        研究任务
+    ↓              ↓              ↓
+claw-article   claw-code      claw-collect
+    ↓              ↓              ↓
+完成并返回     完成并返回      完成并返回
+    └──────────────┼──────────────┘
+                   ↓
+            claw-admin 整合
+                   ↓
+              返回给用户
+</code></pre>
+<p><strong>实际例子</strong>：</p>
+<pre><code class="language-markdown">用户：帮我做一个 OpenClaw 教程网站
+
+claw-admin: 这是一个综合项目，我分解一下任务：
+
+1. 内容创作 (分配给 claw-article)
+   - 撰写教程文章
+   - 准备示例代码
+   
+2. 开发实现 (分配给 claw-code)
+   - 搭建网站框架
+   - 实现页面功能
+   
+3. 资料收集 (分配给 claw-collect)
+   - 搜索最佳实践
+   - 整理参考文档
+
+我来协调大家的工作，最后整合成果。
+</code></pre>
+<h3>3.3 专用 Agent 模式</h3>
+<p><strong>适用场景</strong>：特定领域、高频任务</p>
+<pre><code class="language-yaml"># 客服 Agent
+agent:
+  id: "support-bot"
+  role: "customer-support"
+  skills:
+    - faq-manager
+    - ticket-system
+    - sentiment-analysis
+  channels:
+    - telegram
+    - discord
+
+# 代码审查 Agent
+agent:
+  id: "code-reviewer"
+  role: "reviewer"
+  skills:
+    - github
+    - static-analysis
+    - security-check
+  triggers:
+    - pull_request_opened
+
+# 数据分析 Agent
+agent:
+  id: "data-analyst"
+  role: "analyst"
+  skills:
+    - pandas
+    - visualization
+    - statistical-analysis
+</code></pre>
+<hr>
+<h2>第四部分：Agent 配置详解</h2>
+<h3>4.1 基础配置</h3>
 <pre><code class="language-json">{
   "agent": {
     "id": "my-agent",
     "name": "我的助手",
+    "description": "一个通用的个人助理",
+    
+    "// 模型配置": "",
     "model": "kimi-coding/k2p5",
-    "skills": ["pdf-processor", "weather", "github"],
-    "tools": ["browser", "exec", "search"],
-    "memory": { "enabled": true }
+    "thinking": "low",
+    "temperature": 0.7,
+    
+    "// 身份设定": "",
+    "system_prompt": "你是一个 helpful 的 AI 助手...",
+    "personality": "friendly, professional",
+    
+    "// 工作目录": "",
+    "workspace": "~/claw-workspace"
   }
 }
 </code></pre>
-<h2>总结</h2>
-<p>Agent 是 OpenClaw 的核心执行单元：</p>
+<h3>4.2 工具配置</h3>
+<pre><code class="language-json">{
+  "tools": {
+    "enabled": ["browser", "exec", "search", "read", "write"],
+    
+    "browser": {
+      "headless": true,
+      "timeout": 30000,
+      "allowed_domains": ["*"]
+    },
+    
+    "exec": {
+      "allowed_commands": ["ls", "cat", "grep", "npm", "git"],
+      "blocked_commands": ["rm -rf", "sudo"],
+      "require_confirmation": true
+    },
+    
+    "search": {
+      "provider": "brave",
+      "max_results": 10,
+      "region": "CN"
+    }
+  }
+}
+</code></pre>
+<h3>4.3 记忆配置</h3>
+<pre><code class="language-json">{
+  "memory": {
+    "enabled": true,
+    "storage": {
+      "type": "local",
+      "path": "./memory"
+    },
+    "vector": {
+      "enabled": true,
+      "provider": "chroma",
+      "model": "text-embedding-3-small",
+      "dimensions": 1536
+    },
+    "retrieval": {
+      "max_results": 5,
+      "similarity_threshold": 0.7,
+      "hybrid_search": true
+    }
+  }
+}
+</code></pre>
+<h3>4.4 频道配置</h3>
+<pre><code class="language-json">{
+  "channels": {
+    "webchat": {
+      "enabled": true
+    },
+    "telegram": {
+      "enabled": false,
+      "bot_token": "${TELEGRAM_BOT_TOKEN}"
+    },
+    "discord": {
+      "enabled": false,
+      "bot_token": "${DISCORD_BOT_TOKEN}"
+    }
+  }
+}
+</code></pre>
+<hr>
+<h2>第五部分：Agent 使用最佳实践</h2>
+<h3>5.1 设计原则</h3>
+<h4>DO（推荐）</h4>
+<p>✅ <strong>单一职责</strong>：每个 Agent 专注于特定领域</p>
+<pre><code class="language-yaml"># 好
+code-reviewer: 专门做代码审查
+content-writer: 专门写内容
+
+# 不好
+super-agent: 什么都做
+</code></pre>
+<p>✅ <strong>明确边界</strong>：清晰定义 Agent 的职责范围</p>
+<pre><code class="language-yaml">claw-admin:
+  can_do:
+    - 任务分配
+    - 进度跟进
+    - 结果整合
+  cannot_do:
+    - 直接写代码
+    - 直接写内容
+</code></pre>
+<p>✅ <strong>适当授权</strong>：给 Agent 足够的权限完成任务</p>
+<pre><code class="language-json">{
+  "tools": {
+    "exec": {
+      "allowed_commands": ["git", "npm", "python"]
+    }
+  }
+}
+</code></pre>
+<h4>DON'T（避免）</h4>
+<p>❌ <strong>过度集中</strong>：一个 Agent 做所有事情</p>
+<p>❌ <strong>权限过大</strong>：给 Agent 危险的权限（如 <code>rm -rf /</code>）</p>
+<p>❌ <strong>职责模糊</strong>：多个 Agent 职责重叠</p>
+<h3>5.2 多 Agent 协作模式</h3>
+<p><strong>模式 1：主从模式</strong></p>
+<pre><code>Master Agent (协调者)
+    ├── Worker Agent 1
+    ├── Worker Agent 2
+    └── Worker Agent 3
+</code></pre>
+<p><strong>模式 2：流水线模式</strong></p>
+<pre><code>Input → Agent A → Agent B → Agent C → Output
+</code></pre>
+<p><strong>模式 3：网状协作模式</strong></p>
+<pre><code>Agent A ←→ Agent B
+   ↕         ↕
+Agent C ←→ Agent D
+</code></pre>
+<h3>5.3 性能优化</h3>
+<h4>1. 模型选择</h4>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐模型</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代码任务</td>
+<td>kimi-coding/k2p5</td>
+<td>擅长编程</td>
+</tr>
+<tr>
+<td>通用对话</td>
+<td>bailian/glm-5</td>
+<td>性价比高</td>
+</tr>
+<tr>
+<td>本地运行</td>
+<td>ollama/qwen3:8b</td>
+<td>免费、隐私</td>
+</tr>
+</tbody>
+</table>
+<h4>2. 上下文管理</h4>
+<pre><code class="language-yaml"># 控制上下文长度
+session:
+  max_messages: 20      # 保留最近 20 条消息
+  max_tokens: 4000      # 最大 token 数
+  summarize_threshold: 15  # 超过 15 条时自动总结
+</code></pre>
+<h4>3. 记忆优化</h4>
+<pre><code class="language-yaml">memory:
+  # 自动压缩旧记忆
+  compression:
+    enabled: true
+    days_threshold: 30    # 30 天前的记忆自动压缩
+    
+  # 重要性评分
+  importance_scoring:
+    enabled: true
+    min_score: 0.5        # 只保留评分 > 0.5 的记忆
+</code></pre>
+<h3>5.4 安全实践</h3>
+<h4>1. 权限控制</h4>
+<pre><code class="language-json">{
+  "security": {
+    "tools": {
+      "exec": {
+        "mode": "allowlist",
+        "allowed": ["ls", "cat", "npm", "git"],
+        "confirmation": true
+      },
+      "browser": {
+        "mode": "blocklist",
+        "blocked": ["bank.com", "internal.company.com"]
+      }
+    },
+    "file_access": {
+      "allowed_paths": ["~/workspace", "~/documents"],
+      "blocked_paths": ["~/.ssh", "~/secret"]
+    }
+  }
+}
+</code></pre>
+<h4>2. 审计日志</h4>
+<pre><code class="language-json">{
+  "logging": {
+    "enabled": true,
+    "level": "info",
+    "sensitive_data": "redacted",
+    "retention_days": 30
+  }
+}
+</code></pre>
+<h4>3. 数据隔离</h4>
+<pre><code class="language-yaml"># 每个 Agent 独立的工作目录
+claw-admin:
+  workspace: ~/clawall/claw-admin/
+  
+claw-article:
+  workspace: ~/clawall/claw-article/
+  
+claw-code:
+  workspace: ~/clawall/claw-code/
+</code></pre>
+<hr>
+<h2>第六部分：实战案例</h2>
+<h3>6.1 搭建个人助理团队</h3>
+<p><strong>需求</strong>：建立一个个人助理团队，处理日常各种任务</p>
+<p><strong>方案</strong>：</p>
+<pre><code class="language-yaml"># 团队配置
+team:
+  name: "个人助理团队"
+  members:
+    - id: "chief-assistant"
+      name: "首席助理"
+      role: coordinator
+      responsibilities:
+        - 接收用户请求
+        - 分配任务给专业助理
+        - 整合最终结果
+      
+    - id: "research-assistant"
+      name: "研究助理"
+      role: researcher
+      skills:
+        - web-search
+        - web-fetch
+        - summarize
+        - gemini
+      
+    - id: "writing-assistant"
+      name: "写作助理"
+      role: writer
+      skills:
+        - docx-editor
+        - openai-image-gen
+        - apple-notes
+      
+    - id: "tech-assistant"
+      name: "技术助理"
+      role: developer
+      skills:
+        - github
+        - coding-agent
+        - healthcheck
+        - skill-creator
+      
+    - id: "life-assistant"
+      name: "生活助理"
+      role: personal
+      skills:
+        - weather
+        - apple-reminders
+        - apple-notes
+</code></pre>
+<p><strong>使用场景</strong>：</p>
+<pre><code class="language-markdown">用户：帮我准备下周的出差
+
+chief-assistant: 好的，我来协调大家为您准备：
+
+research-assistant: 
+- 查询目的地的天气
+- 搜索当地的交通信息
+- 查找推荐的酒店
+
+life-assistant:
+- 添加到日历
+- 设置提醒事项
+- 准备行李清单
+
+tech-assistant:
+- 预订机票（如有 API）
+- 整理行程文档
+
+writing-assistant:
+- 生成行程 PDF
+- 发送到您的邮箱
+
+chief-assistant: 所有准备工作已完成！
+</code></pre>
+<h3>6.2 自动化工作流</h3>
+<p><strong>需求</strong>：实现一个自动化的内容发布流程</p>
+<p><strong>工作流</strong>：</p>
+<pre><code>内容选题
+    ↓
+research-agent (资料收集)
+    ↓
+writer-agent (内容创作)
+    ↓
+editor-agent (审核编辑)
+    ↓
+formatter-agent (排版美化)
+    ↓
+publisher-agent (发布到各平台)
+    ↓
+完成
+</code></pre>
+<p><strong>Cron 配置</strong>：</p>
+<pre><code class="language-bash"># 每天早上 8 点执行选题
+0 8 * * * openclaw agent run content-pipeline --step=topic-selection
+
+# 9 点开始创作
+0 9 * * * openclaw agent run content-pipeline --step=research
+
+# 11 点完成写作
+0 11 * * * openclaw agent run content-pipeline --step=writing
+
+# 下午 2 点发布
+0 14 * * * openclaw agent run content-pipeline --step=publish
+</code></pre>
+<hr>
+<h2>第七部分：故障排查</h2>
+<h3>7.1 常见问题</h3>
+<p><strong>Q: Agent 无法启动？</strong></p>
+<p>排查步骤：</p>
 <ol>
-<li><strong>Agent 是执行者</strong>：实际处理任务的工作者</li>
+<li>检查配置文件格式是否正确</li>
+<li>验证模型配置是否可用</li>
+<li>查看日志文件定位错误</li>
+<li>检查权限设置</li>
+</ol>
+<pre><code class="language-bash"># 验证配置
+openclaw agent validate --config ~/.openclaw/agents/my-agent/config.json
+
+# 查看日志
+openclaw logs --agent my-agent --follow
+</code></pre>
+<p><strong>Q: Agent 记不住事情？</strong></p>
+<p>排查步骤：</p>
+<ol>
+<li>检查 memory 配置是否启用</li>
+<li>验证存储目录权限</li>
+<li>检查向量数据库连接</li>
+<li>查看记忆文件是否存在</li>
+</ol>
+<pre><code class="language-bash"># 检查记忆目录
+ls -la ~/.openclaw/agents/my-agent/memory/
+
+# 测试记忆功能
+openclaw agent test-memory --agent my-agent
+</code></pre>
+<p><strong>Q: Agent 不使用 Skill？</strong></p>
+<p>排查步骤：</p>
+<ol>
+<li>确认 Skill 已安装</li>
+<li>检查 SKILL.md 描述是否清晰</li>
+<li>验证 Skill 权限</li>
+<li>查看 Agent 是否识别到 Skill</li>
+</ol>
+<pre><code class="language-bash"># 列出 Agent 可用的 Skills
+openclaw agent skills --agent my-agent
+
+# 测试 Skill 触发
+openclaw agent test-skill --agent my-agent --skill pdf-processor
+</code></pre>
+<p><strong>Q: 多 Agent 协作混乱？</strong></p>
+<p>解决方案：</p>
+<ol>
+<li>明确每个 Agent 的职责边界</li>
+<li>使用协调者 Agent 统一管理</li>
+<li>建立清晰的通信协议</li>
+<li>添加日志追踪协作过程</li>
+</ol>
+<h3>7.2 调试技巧</h3>
+<h4>1. 启用详细日志</h4>
+<pre><code class="language-json">{
+  "logging": {
+    "level": "debug",
+    "modules": ["agent", "tools", "skills", "memory"]
+  }
+}
+</code></pre>
+<h4>2. 分步调试</h4>
+<pre><code class="language-bash"># 只执行特定步骤
+openclaw agent run my-agent --step=intent-recognition
+
+# 使用测试模式
+openclaw agent run my-agent --test --input "测试消息"
+</code></pre>
+<h4>3. 性能分析</h4>
+<pre><code class="language-bash"># 生成性能报告
+openclaw agent profile my-agent --duration=60
+
+# 查看资源使用
+openclaw agent stats my-agent
+</code></pre>
+<hr>
+<h2>总结</h2>
+<p>Agent 是 OpenClaw 的核心执行单元，理解 Agent 的工作原理对于高效使用 OpenClaw 至关重要。</p>
+<p><strong>关键要点</strong>：</p>
+<ol>
+<li><strong>Agent 是执行者</strong>：它是实际处理任务的工作者</li>
 <li><strong>Skill 是知识</strong>：Agent 通过 Skills 扩展能力</li>
 <li><strong>多 Agent 更高效</strong>：团队协作比单兵作战更强</li>
-<li><strong>配置要合理</strong>：权限、工具、记忆都要精心配置</li>
+<li><strong>配置要合理</strong>：权限、工具、记忆都需要精心配置</li>
+<li><strong>安全要重视</strong>：控制好权限，记录好日志</li>
 </ol>
-<p>掌握 Agent 的使用，是成为 OpenClaw 高级用户的关键一步。</p>
+<p><strong>下一步建议</strong>：</p>
+<ol>
+<li>从单 Agent 开始，熟悉基本概念</li>
+<li>逐步添加 Skills，扩展能力</li>
+<li>尝试多 Agent 协作，提高效率</li>
+<li>根据需求定制专属的 Agent 团队</li>
+</ol>
 <hr>
 <p><em>文档版本: 1.0</em><br>
-<em>最后更新: 2026-02-27</em></p>
-</div></article></div></div><!--$--><!--/$--><script src="/_next/static/chunks/webpack-74c939c87fa0092a.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[9113,[\"177\",\"static/chunks/app/layout-9f42c613afe565bb.js\"],\"GoogleAnalytics\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/_next/static/css/1bfc8055b7071d26.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"7cjoZDVi5dXYp92-_VApZ\",\"p\":\"\",\"c\":[\"\",\"blog\",\"openclaw-agent-guide\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"openclaw-agent-guide\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/1bfc8055b7071d26.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"$L2\",null,{}],[[\"$\",\"script\",null,{\"type\":\"application/ld+json\",\"dangerouslySetInnerHTML\":{\"__html\":\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"WebSite\\\",\\\"name\\\":\\\"RedClaw\\\",\\\"url\\\":\\\"https://redclaw.cc\\\",\\\"description\\\":\\\"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验\\\",\\\"inLanguage\\\":\\\"zh-CN\\\",\\\"author\\\":{\\\"@type\\\":\\\"Organization\\\",\\\"name\\\":\\\"RedClaw\\\"}}\"}}],[\"$\",\"script\",null,{\"type\":\"application/ld+json\",\"dangerouslySetInnerHTML\":{\"__html\":\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Organization\\\",\\\"name\\\":\\\"RedClaw\\\",\\\"url\\\":\\\"https://redclaw.cc\\\",\\\"logo\\\":\\\"https://redclaw.cc/icon-192x192.png\\\",\\\"sameAs\\\":[\\\"https://github.com/openclaw/openclaw\\\",\\\"https://discord.com/invite/clawd\\\"],\\\"description\\\":\\\"基于 OpenClaw 自建设及自维护的知识型网站\\\"}\"}}]],[\"$\",\"link\",null,{\"rel\":\"preload\",\"href\":\"/pagefind/pagefind-ui.css\",\"as\":\"style\"}],[\"$\",\"link\",null,{\"rel\":\"stylesheet\",\"href\":\"/pagefind/pagefind-ui.css\"}]]}],[\"$\",\"body\",null,{\"className\":\"antialiased bg-white text-gray-900\",\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"openclaw-agent-guide\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"10:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-9ebb3b868ebb3594.js\"],\"\"]\n11:Tda5,"])</script><script>self.__next_f.push([1,"\u003ch1\u003eOpenClaw Agent 完全指南\u003c/h1\u003e\n\u003cp\u003eAgent 是 OpenClaw 系统的核心执行单元。本文深入解析 Agent 的架构、工作原理和最佳实践。\u003c/p\u003e\n\u003ch2\u003e什么是 Agent？\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eAgent（智能体）\u003c/strong\u003e 是 OpenClaw 中执行任务的实际工作者。\u003c/p\u003e\n\u003ch3\u003e类比理解\u003c/h3\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e概念\u003c/th\u003e\n\u003cth\u003e类比\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eOpenClaw 系统\u003c/td\u003e\n\u003ctd\u003e公司基础设施\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eAgent\u003c/td\u003e\n\u003ctd\u003e员工\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eSkill\u003c/td\u003e\n\u003ctd\u003e员工的技能证书\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eExtension\u003c/td\u003e\n\u003ctd\u003e公司的业务部门\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2\u003eAgent 的核心组成\u003c/h2\u003e\n\u003cp\u003e每个 Agent 包含：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003e身份标识\u003c/strong\u003e：唯一的 ID 和配置\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e大脑配置\u003c/strong\u003e：使用的 AI 模型\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e感知系统\u003c/strong\u003e：可用的工具\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e专业技能\u003c/strong\u003e：安装的 Skills\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e记忆系统\u003c/strong\u003e：长期记忆和会话历史\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e通讯频道\u003c/strong\u003e：接入的聊天应用\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003eAgent vs Skill vs Extension\u003c/h2\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003cth\u003eAgent\u003c/th\u003e\n\u003cth\u003eSkill\u003c/th\u003e\n\u003cth\u003eExtension\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003e角色\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e执行者\u003c/td\u003e\n\u003ctd\u003e知识包\u003c/td\u003e\n\u003ctd\u003e系统扩展\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003e是什么\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eAI 助手\u003c/td\u003e\n\u003ctd\u003e教 AI 怎么做\u003c/td\u003e\n\u003ctd\u003e给 AI 新能力\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003e例子\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eclaw-admin\u003c/td\u003e\n\u003ctd\u003epdf-processor\u003c/td\u003e\n\u003ctd\u003etelegram\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2\u003eAgent 的工作流程\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003e用户输入\n    ↓\nAgent 分析意图\n    ↓\n加载相关记忆\n    ↓\n判断需要的 Skill\n    ↓\n执行工具调用\n    ↓\n生成回复\n    ↓\n更新记忆\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003eAgent 的类型\u003c/h2\u003e\n\u003ch3\u003e1. 单 Agent 模式\u003c/h3\u003e\n\u003cp\u003e适合个人使用、简单任务。\u003c/p\u003e\n\u003ch3\u003e2. 多 Agent 协作模式（推荐）\u003c/h3\u003e\n\u003cp\u003e适合团队协作、复杂项目。\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclaw-admin (管理员)\n    ├── claw-article (内容创作)\n    ├── claw-code (开发运维)\n    └── claw-collect (信息采集)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e3. 专用 Agent 模式\u003c/h3\u003e\n\u003cp\u003e适合特定领域、高频任务。\u003c/p\u003e\n\u003ch2\u003e最佳实践\u003c/h2\u003e\n\u003ch3\u003eDO\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e✅ 单一职责：每个 Agent 专注于特定领域\u003c/li\u003e\n\u003cli\u003e✅ 明确边界：清晰定义 Agent 的职责范围\u003c/li\u003e\n\u003cli\u003e✅ 适当授权：给 Agent 足够的权限\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eDON'T\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e❌ 过度集中：一个 Agent 做所有事情\u003c/li\u003e\n\u003cli\u003e❌ 权限过大：给 Agent 危险的权限\u003c/li\u003e\n\u003cli\u003e❌ 职责模糊：多个 Agent 职责重叠\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e配置示例\u003c/h2\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"agent\": {\n    \"id\": \"my-agent\",\n    \"name\": \"我的助手\",\n    \"model\": \"kimi-coding/k2p5\",\n    \"skills\": [\"pdf-processor\", \"weather\", \"github\"],\n    \"tools\": [\"browser\", \"exec\", \"search\"],\n    \"memory\": { \"enabled\": true }\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e总结\u003c/h2\u003e\n\u003cp\u003eAgent 是 OpenClaw 的核心执行单元：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eAgent 是执行者\u003c/strong\u003e：实际处理任务的工作者\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSkill 是知识\u003c/strong\u003e：Agent 通过 Skills 扩展能力\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e多 Agent 更高效\u003c/strong\u003e：团队协作比单兵作战更强\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e配置要合理\u003c/strong\u003e：权限、工具、记忆都要精心配置\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e掌握 Agent 的使用，是成为 OpenClaw 高级用户的关键一步。\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cem\u003e文档版本: 1.0\u003c/em\u003e\u003cbr\u003e\n\u003cem\u003e最后更新: 2026-02-27\u003c/em\u003e\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"div\",null,{\"className\":\"min-h-screen bg-gradient-to-b from-slate-50 to-white\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-4xl mx-auto px-4 py-12\",\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/blog\",\"className\":\"text-gray-600 hover:text-orange-600 mb-8 block\",\"children\":\"返回博客\"}],[\"$\",\"article\",null,{\"className\":\"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden\",\"children\":[[\"$\",\"div\",null,{\"className\":\"bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center gap-4 mb-4 text-sm opacity-90\",\"children\":[[\"$\",\"span\",null,{\"children\":\"2026-02-27\"}],[\"$\",\"span\",null,{\"children\":\"30 分钟\"}]]}],[\"$\",\"h1\",null,{\"className\":\"text-3xl font-bold\",\"children\":\"OpenClaw Agent 完全指南：深入理解与最佳实践\"}]]}],[\"$\",\"div\",null,{\"className\":\"p-8 md:p-12 markdown-content\",\"dangerouslySetInnerHTML\":{\"__html\":\"$11\"}}]]}]]}]}]\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"2\",{\"name\":\"theme-color\",\"content\":\"#dc2626\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"12:I[622,[],\"IconMark\"]\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"RedClaw - 基于OpenClaw自建设及自维护的知识型网站\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"RedClaw\"}],[\"$\",\"link\",\"3\",{\"rel\":\"manifest\",\"href\":\"/manifest.json\",\"crossOrigin\":\"$undefined\"}],[\"$\",\"meta\",\"4\",{\"name\":\"keywords\",\"content\":\"RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill\"}],[\"$\",\"meta\",\"5\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"6\",{\"name\":\"googlebot\",\"content\":\"index, follow\"}],[\"$\",\"link\",\"7\",{\"rel\":\"canonical\",\"href\":\"https://redclaw.cc/\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:title\",\"content\":\"RedClaw - 基于OpenClaw自建设及自维护的知识型网站\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:description\",\"content\":\"分享 AI 助手搭建、配置和使用的实战经验与深度教程\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:site_name\",\"content\":\"RedClaw\"}],[\"$\",\"meta\",\"11\",{\"property\":\"og:locale\",\"content\":\"zh_CN\"}],[\"$\",\"meta\",\"12\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"13\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"14\",{\"name\":\"twitter:title\",\"content\":\"RedClaw - 基于OpenClaw自建设及自维护的知识型网站\"}],[\"$\",\"meta\",\"15\",{\"name\":\"twitter:description\",\"content\":\"分享 AI 助手搭建、配置和使用的实战经验与深度教程\"}],[\"$\",\"link\",\"16\",{\"rel\":\"icon\",\"href\":\"/icon-192x192.png\"}],[\"$\",\"link\",\"17\",{\"rel\":\"apple-touch-icon\",\"href\":\"/icon-192x192.png\"}],[\"$\",\"$L12\",\"18\",{}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script></body></html>
+<em>最后更新: 2026-02-27</em><br>
+<em>适用版本: OpenClaw 2026.2.x</em></p>
+</div></article></div></div><!--$--><!--/$--><script src="/_next/static/chunks/webpack-74c939c87fa0092a.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[9113,[\"177\",\"static/chunks/app/layout-9f42c613afe565bb.js\"],\"GoogleAnalytics\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/_next/static/css/f2e9a695df47f024.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"8cyFJF6gqPeoWACbNJ-Nv\",\"p\":\"\",\"c\":[\"\",\"blog\",\"openclaw-agent-guide\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"openclaw-agent-guide\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/f2e9a695df47f024.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"$L2\",null,{}],[[\"$\",\"script\",null,{\"type\":\"application/ld+json\",\"dangerouslySetInnerHTML\":{\"__html\":\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"WebSite\\\",\\\"name\\\":\\\"RedClaw\\\",\\\"url\\\":\\\"https://redclaw.cc\\\",\\\"description\\\":\\\"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验\\\",\\\"inLanguage\\\":\\\"zh-CN\\\",\\\"author\\\":{\\\"@type\\\":\\\"Organization\\\",\\\"name\\\":\\\"RedClaw\\\"}}\"}}],[\"$\",\"script\",null,{\"type\":\"application/ld+json\",\"dangerouslySetInnerHTML\":{\"__html\":\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Organization\\\",\\\"name\\\":\\\"RedClaw\\\",\\\"url\\\":\\\"https://redclaw.cc\\\",\\\"logo\\\":\\\"https://redclaw.cc/icon-192x192.png\\\",\\\"sameAs\\\":[\\\"https://github.com/openclaw/openclaw\\\",\\\"https://discord.com/invite/clawd\\\"],\\\"description\\\":\\\"基于 OpenClaw 自建设及自维护的知识型网站\\\"}\"}}]],[\"$\",\"link\",null,{\"rel\":\"preload\",\"href\":\"/pagefind/pagefind-ui.css\",\"as\":\"style\"}],[\"$\",\"link\",null,{\"rel\":\"stylesheet\",\"href\":\"/pagefind/pagefind-ui.css\"}]]}],[\"$\",\"body\",null,{\"className\":\"antialiased bg-white text-gray-900\",\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"openclaw-agent-guide\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"10:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-9ebb3b868ebb3594.js\"],\"\"]\n11:T5d15,"])</script><script>self.__next_f.push([1,"\u003ch1\u003eOpenClaw Agent 完全指南：深入理解与最佳实践\u003c/h1\u003e\n\u003cp\u003eAgent 是 OpenClaw 系统的核心执行单元，它是你与 AI 助手交互的实际载体。本文将深入解析 Agent 的架构、工作原理和高级用法。\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e第一部分：理解 Agent\u003c/h2\u003e\n\u003ch3\u003e1.1 什么是 Agent？\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eAgent（智能体）\u003c/strong\u003e 是 OpenClaw 中执行任务的实际工作者。如果把 OpenClaw 比作一个公司：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eOpenClaw 系统\u003c/strong\u003e = 公司基础设施\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eAgent\u003c/strong\u003e = 具体的员工\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSkill\u003c/strong\u003e = 员工掌握的技能\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eExtension\u003c/strong\u003e = 公司的业务部门\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e每个 Agent 都有：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e独立的身份\u003c/strong\u003e：唯一的 ID 和配置\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e专属的记忆\u003c/strong\u003e：自己的长期记忆和会话历史\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e特定的能力\u003c/strong\u003e：配置的模型、工具和 Skills\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e明确的职责\u003c/strong\u003e：处理特定类型的任务\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e1.2 Agent 与相关概念的关系\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e┌─────────────────────────────────────────────────────────────┐\n│                    OpenClaw 系统架构                         │\n├─────────────────────────────────────────────────────────────┤\n│                                                             │\n│  ┌─────────────────────────────────────────────────────┐   │\n│  │                  Agent 层                            │   │\n│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐          │   │\n│  │  │claw-admin│  │claw-code │  │ research │  ...      │   │\n│  │  │ Agent    │  │ Agent    │  │ Agent    │          │   │\n│  │  └──────────┘  └──────────┘  └──────────┘          │   │\n│  └─────────────────────────────────────────────────────┘   │\n│                           │                                 │\n│           ┌───────────────┼───────────────┐                │\n│           ▼               ▼               ▼                │\n│  ┌──────────────┐  ┌──────────┐  ┌────────────────┐       │\n│  │   Skill 层   │  │ Extension│  │    Memory      │       │\n│  │  pdf-proc    │  │  层      │  │    系统        │       │\n│  │  weather     │  │ telegram │  ├────────────────┤       │\n│  │  github      │  │ discord  │  │ 长期记忆       │       │\n│  └──────────────┘  │ whatsapp │  │ 会话历史       │       │\n│                    └──────────┘  │ 向量搜索       │       │\n│                                  └────────────────┘       │\n└─────────────────────────────────────────────────────────────┘\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e关系详解\u003c/strong\u003e：\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e概念\u003c/th\u003e\n\u003cth\u003e角色\u003c/th\u003e\n\u003cth\u003e类比\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eAgent\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e执行者\u003c/td\u003e\n\u003ctd\u003e员工\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eSkill\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e知识/技能\u003c/td\u003e\n\u003ctd\u003e员工的技能证书\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExtension\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e基础设施\u003c/td\u003e\n\u003ctd\u003e公司的业务部门\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eMemory\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e记忆系统\u003c/td\u003e\n\u003ctd\u003e员工的笔记本\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003e1.3 Agent 的核心组成\u003c/h3\u003e\n\u003cp\u003e每个 Agent 包含以下核心组件：\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003eagent:\n  # 1. 身份标识\n  id: \"claw-admin\"           # 唯一标识\n  name: \"管理助手\"            # 显示名称\n  description: \"负责日常管理和协调\"  # 职责描述\n  \n  # 2. 大脑配置（AI 模型）\n  model: \"kimi-coding/k2p5\"   # 使用的 AI 模型\n  thinking: \"low\"             # 思考深度\n  \n  # 3. 感知系统（工具）\n  tools:\n    - browser     # 浏览器控制\n    - exec        # 命令执行\n    - search      # 网络搜索\n    - read        # 文件读取\n    - write       # 文件写入\n  \n  # 4. 专业技能（Skills）\n  skills:\n    - pdf-processor\n    - weather\n    - github\n    - healthcheck\n  \n  # 5. 记忆系统\n  memory:\n    enabled: true\n    storage: \"local\"          # 本地存储\n    vector_db: \"chroma\"       # 向量数据库\n  \n  # 6. 通讯频道（Extensions）\n  channels:\n    - webchat     # 网页聊天\n    # - telegram  # 可接入 Telegram\n    # - discord   # 可接入 Discord\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e第二部分：Agent 的工作原理\u003c/h2\u003e\n\u003ch3\u003e2.1 请求处理流程\u003c/h3\u003e\n\u003cp\u003e当用户发送一条消息时，Agent 的处理流程：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e用户消息\n    ↓\n┌─────────────────────────────────────┐\n│  1. 接收与解析                        │\n│  - 解析用户输入                        │\n│  - 加载会话上下文                      │\n│  - 读取长期记忆                        │\n└─────────────────────────────────────┘\n    ↓\n┌─────────────────────────────────────┐\n│  2. 意图识别                          │\n│  - 分析用户需求                        │\n│  - 确定任务类型                        │\n│  - 选择合适工具/Skill                  │\n└─────────────────────────────────────┘\n    ↓\n┌─────────────────────────────────────┐\n│  3. 任务执行                          │\n│  - 加载必要 Skills                     │\n│  - 执行工具调用                        │\n│  - 收集执行结果                        │\n└─────────────────────────────────────┘\n    ↓\n┌─────────────────────────────────────┐\n│  4. 结果生成                          │\n│  - 整合执行结果                        │\n│  - 生成回复内容                        │\n│  - 更新记忆系统                        │\n└─────────────────────────────────────┘\n    ↓\n用户收到回复\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e2.2 记忆管理\u003c/h3\u003e\n\u003cp\u003eAgent 如何管理记忆：\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-python\"\u003e# 伪代码示意\nclass Agent:\n    def process_message(self, user_message):\n        # 1. 加载相关记忆\n        relevant_memories = self.memory.search(\n            query=user_message,\n            limit=5\n        )\n        \n        # 2. 构建上下文\n        context = {\n            \"system_prompt\": self.system_prompt,\n            \"memories\": relevant_memories,\n            \"recent_messages\": self.session.get_recent(10),\n            \"available_skills\": self.skills.list()\n        }\n        \n        # 3. 调用 AI 模型\n        response = self.llm.generate(\n            message=user_message,\n            context=context\n        )\n        \n        # 4. 执行工具（如果需要）\n        if response.requires_tool:\n            tool_result = self.execute_tool(response.tool_call)\n            response = self.llm.generate_with_result(tool_result)\n        \n        # 5. 更新记忆\n        self.memory.store_interaction(user_message, response)\n        \n        return response\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e2.3 工具调用机制\u003c/h3\u003e\n\u003cp\u003eAgent 如何使用工具：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eAgent 决策\n    ↓\n识别需要 browser 工具\n    ↓\n构建工具调用请求\n{\n  \"tool\": \"browser\",\n  \"action\": \"snapshot\",\n  \"params\": {\n    \"url\": \"https://example.com\"\n  }\n}\n    ↓\n执行工具调用\n    ↓\n获取结果\n{\n  \"status\": \"success\",\n  \"content\": \"网页 HTML 内容...\"\n}\n    ↓\n基于结果生成回复\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e2.4 Skill 加载机制\u003c/h3\u003e\n\u003cp\u003eAgent 如何加载和使用 Skills：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e用户请求：处理这个 PDF\n    ↓\nAgent 识别需要 pdf-processor Skill\n    ↓\n检查是否已安装该 Skill\n    ↓\n加载 Skill 的 Metadata（名称+描述）\n    ↓\n判断 Skill 触发条件匹配\n    ↓\n加载完整的 SKILL.md 内容\n    ↓\n按照 Skill 指导执行\n    ↓\n完成任务\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e第三部分：Agent 的类型与场景\u003c/h2\u003e\n\u003ch3\u003e3.1 单 Agent 模式\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e适用场景\u003c/strong\u003e：个人使用、简单任务\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003e# 单个全能 Agent\nagent:\n  id: \"personal-assistant\"\n  model: \"kimi-coding/k2p5\"\n  skills:\n    - weather\n    - pdf-processor\n    - github\n    - apple-notes\n    - openai-image-gen\n  tools: [\"browser\", \"exec\", \"search\", \"read\", \"write\"]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e特点\u003c/strong\u003e：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e✅ 配置简单\u003c/li\u003e\n\u003cli\u003e✅ 适合个人日常使用\u003c/li\u003e\n\u003cli\u003e❌ 职责不清晰\u003c/li\u003e\n\u003cli\u003e❌ 难以专业化\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e3.2 多 Agent 协作模式（推荐）\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e适用场景\u003c/strong\u003e：团队协作、复杂项目\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003e# 管理员 Agent\nagent:\n  id: \"claw-admin\"\n  role: \"manager\"\n  responsibilities:\n    - 任务分配\n    - 进度跟进\n    - 审核整合\n    - 决策制定\n\n# 内容创作 Agent\nagent:\n  id: \"claw-article\"\n  role: \"content-creator\"\n  skills:\n    - docx-editor\n    - openai-image-gen\n    - web-search\n    - summarize\n\n# 开发运维 Agent\nagent:\n  id: \"claw-code\"\n  role: \"developer\"\n  skills:\n    - github\n    - healthcheck\n    - coding-agent\n    - skill-creator\n\n# 信息采集 Agent\nagent:\n  id: \"claw-collect\"\n  role: \"researcher\"\n  skills:\n    - web-search\n    - web-fetch\n    - summarize\n    - gemini\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e协作流程\u003c/strong\u003e：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e用户需求\n    ↓\nclaw-admin (管理员)\n    ↓ 分析任务类型\n┌──────────────┬──────────────┬──────────────┐\n│              │              │              │\n内容创作任务    开发任务        研究任务\n    ↓              ↓              ↓\nclaw-article   claw-code      claw-collect\n    ↓              ↓              ↓\n完成并返回     完成并返回      完成并返回\n    └──────────────┼──────────────┘\n                   ↓\n            claw-admin 整合\n                   ↓\n              返回给用户\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e实际例子\u003c/strong\u003e：\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-markdown\"\u003e用户：帮我做一个 OpenClaw 教程网站\n\nclaw-admin: 这是一个综合项目，我分解一下任务：\n\n1. 内容创作 (分配给 claw-article)\n   - 撰写教程文章\n   - 准备示例代码\n   \n2. 开发实现 (分配给 claw-code)\n   - 搭建网站框架\n   - 实现页面功能\n   \n3. 资料收集 (分配给 claw-collect)\n   - 搜索最佳实践\n   - 整理参考文档\n\n我来协调大家的工作，最后整合成果。\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e3.3 专用 Agent 模式\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e适用场景\u003c/strong\u003e：特定领域、高频任务\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003e# 客服 Agent\nagent:\n  id: \"support-bot\"\n  role: \"customer-support\"\n  skills:\n    - faq-manager\n    - ticket-system\n    - sentiment-analysis\n  channels:\n    - telegram\n    - discord\n\n# 代码审查 Agent\nagent:\n  id: \"code-reviewer\"\n  role: \"reviewer\"\n  skills:\n    - github\n    - static-analysis\n    - security-check\n  triggers:\n    - pull_request_opened\n\n# 数据分析 Agent\nagent:\n  id: \"data-analyst\"\n  role: \"analyst\"\n  skills:\n    - pandas\n    - visualization\n    - statistical-analysis\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e第四部分：Agent 配置详解\u003c/h2\u003e\n\u003ch3\u003e4.1 基础配置\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"agent\": {\n    \"id\": \"my-agent\",\n    \"name\": \"我的助手\",\n    \"description\": \"一个通用的个人助理\",\n    \n    \"// 模型配置\": \"\",\n    \"model\": \"kimi-coding/k2p5\",\n    \"thinking\": \"low\",\n    \"temperature\": 0.7,\n    \n    \"// 身份设定\": \"\",\n    \"system_prompt\": \"你是一个 helpful 的 AI 助手...\",\n    \"personality\": \"friendly, professional\",\n    \n    \"// 工作目录\": \"\",\n    \"workspace\": \"~/claw-workspace\"\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e4.2 工具配置\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"tools\": {\n    \"enabled\": [\"browser\", \"exec\", \"search\", \"read\", \"write\"],\n    \n    \"browser\": {\n      \"headless\": true,\n      \"timeout\": 30000,\n      \"allowed_domains\": [\"*\"]\n    },\n    \n    \"exec\": {\n      \"allowed_commands\": [\"ls\", \"cat\", \"grep\", \"npm\", \"git\"],\n      \"blocked_commands\": [\"rm -rf\", \"sudo\"],\n      \"require_confirmation\": true\n    },\n    \n    \"search\": {\n      \"provider\": \"brave\",\n      \"max_results\": 10,\n      \"region\": \"CN\"\n    }\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e4.3 记忆配置\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"memory\": {\n    \"enabled\": true,\n    \"storage\": {\n      \"type\": \"local\",\n      \"path\": \"./memory\"\n    },\n    \"vector\": {\n      \"enabled\": true,\n      \"provider\": \"chroma\",\n      \"model\": \"text-embedding-3-small\",\n      \"dimensions\": 1536\n    },\n    \"retrieval\": {\n      \"max_results\": 5,\n      \"similarity_threshold\": 0.7,\n      \"hybrid_search\": true\n    }\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e4.4 频道配置\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"channels\": {\n    \"webchat\": {\n      \"enabled\": true\n    },\n    \"telegram\": {\n      \"enabled\": false,\n      \"bot_token\": \"${TELEGRAM_BOT_TOKEN}\"\n    },\n    \"discord\": {\n      \"enabled\": false,\n      \"bot_token\": \"${DISCORD_BOT_TOKEN}\"\n    }\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e第五部分：Agent 使用最佳实践\u003c/h2\u003e\n\u003ch3\u003e5.1 设计原则\u003c/h3\u003e\n\u003ch4\u003eDO（推荐）\u003c/h4\u003e\n\u003cp\u003e✅ \u003cstrong\u003e单一职责\u003c/strong\u003e：每个 Agent 专注于特定领域\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003e# 好\ncode-reviewer: 专门做代码审查\ncontent-writer: 专门写内容\n\n# 不好\nsuper-agent: 什么都做\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e✅ \u003cstrong\u003e明确边界\u003c/strong\u003e：清晰定义 Agent 的职责范围\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003eclaw-admin:\n  can_do:\n    - 任务分配\n    - 进度跟进\n    - 结果整合\n  cannot_do:\n    - 直接写代码\n    - 直接写内容\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e✅ \u003cstrong\u003e适当授权\u003c/strong\u003e：给 Agent 足够的权限完成任务\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"tools\": {\n    \"exec\": {\n      \"allowed_commands\": [\"git\", \"npm\", \"python\"]\n    }\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eDON'T（避免）\u003c/h4\u003e\n\u003cp\u003e❌ \u003cstrong\u003e过度集中\u003c/strong\u003e：一个 Agent 做所有事情\u003c/p\u003e\n\u003cp\u003e❌ \u003cstrong\u003e权限过大\u003c/strong\u003e：给 Agent 危险的权限（如 \u003ccode\u003erm -rf /\u003c/code\u003e）\u003c/p\u003e\n\u003cp\u003e❌ \u003cstrong\u003e职责模糊\u003c/strong\u003e：多个 Agent 职责重叠\u003c/p\u003e\n\u003ch3\u003e5.2 多 Agent 协作模式\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e模式 1：主从模式\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eMaster Agent (协调者)\n    ├── Worker Agent 1\n    ├── Worker Agent 2\n    └── Worker Agent 3\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e模式 2：流水线模式\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eInput → Agent A → Agent B → Agent C → Output\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e模式 3：网状协作模式\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eAgent A ←→ Agent B\n   ↕         ↕\nAgent C ←→ Agent D\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e5.3 性能优化\u003c/h3\u003e\n\u003ch4\u003e1. 模型选择\u003c/h4\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e场景\u003c/th\u003e\n\u003cth\u003e推荐模型\u003c/th\u003e\n\u003cth\u003e原因\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e代码任务\u003c/td\u003e\n\u003ctd\u003ekimi-coding/k2p5\u003c/td\u003e\n\u003ctd\u003e擅长编程\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e通用对话\u003c/td\u003e\n\u003ctd\u003ebailian/glm-5\u003c/td\u003e\n\u003ctd\u003e性价比高\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e本地运行\u003c/td\u003e\n\u003ctd\u003eollama/qwen3:8b\u003c/td\u003e\n\u003ctd\u003e免费、隐私\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch4\u003e2. 上下文管理\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003e# 控制上下文长度\nsession:\n  max_messages: 20      # 保留最近 20 条消息\n  max_tokens: 4000      # 最大 token 数\n  summarize_threshold: 15  # 超过 15 条时自动总结\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e3. 记忆优化\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003ememory:\n  # 自动压缩旧记忆\n  compression:\n    enabled: true\n    days_threshold: 30    # 30 天前的记忆自动压缩\n    \n  # 重要性评分\n  importance_scoring:\n    enabled: true\n    min_score: 0.5        # 只保留评分 \u003e 0.5 的记忆\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e5.4 安全实践\u003c/h3\u003e\n\u003ch4\u003e1. 权限控制\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"security\": {\n    \"tools\": {\n      \"exec\": {\n        \"mode\": \"allowlist\",\n        \"allowed\": [\"ls\", \"cat\", \"npm\", \"git\"],\n        \"confirmation\": true\n      },\n      \"browser\": {\n        \"mode\": \"blocklist\",\n        \"blocked\": [\"bank.com\", \"internal.company.com\"]\n      }\n    },\n    \"file_access\": {\n      \"allowed_paths\": [\"~/workspace\", \"~/documents\"],\n      \"blocked_paths\": [\"~/.ssh\", \"~/secret\"]\n    }\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e2. 审计日志\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"logging\": {\n    \"enabled\": true,\n    \"level\": \"info\",\n    \"sensitive_data\": \"redacted\",\n    \"retention_days\": 30\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e3. 数据隔离\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003e# 每个 Agent 独立的工作目录\nclaw-admin:\n  workspace: ~/clawall/claw-admin/\n  \nclaw-article:\n  workspace: ~/clawall/claw-article/\n  \nclaw-code:\n  workspace: ~/clawall/claw-code/\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e第六部分：实战案例\u003c/h2\u003e\n\u003ch3\u003e6.1 搭建个人助理团队\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e需求\u003c/strong\u003e：建立一个个人助理团队，处理日常各种任务\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e方案\u003c/strong\u003e：\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-yaml\"\u003e# 团队配置\nteam:\n  name: \"个人助理团队\"\n  members:\n    - id: \"chief-assistant\"\n      name: \"首席助理\"\n      role: coordinator\n      responsibilities:\n        - 接收用户请求\n        - 分配任务给专业助理\n        - 整合最终结果\n      \n    - id: \"research-assistant\"\n      name: \"研究助理\"\n      role: researcher\n      skills:\n        - web-search\n        - web-fetch\n        - summarize\n        - gemini\n      \n    - id: \"writing-assistant\"\n      name: \"写作助理\"\n      role: writer\n      skills:\n        - docx-editor\n        - openai-image-gen\n        - apple-notes\n      \n    - id: \"tech-assistant\"\n      name: \"技术助理\"\n      role: developer\n      skills:\n        - github\n        - coding-agent\n        - healthcheck\n        - skill-creator\n      \n    - id: \"life-assistant\"\n      name: \"生活助理\"\n      role: personal\n      skills:\n        - weather\n        - apple-reminders\n        - apple-notes\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003e使用场景\u003c/strong\u003e：\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-markdown\"\u003e用户：帮我准备下周的出差\n\nchief-assistant: 好的，我来协调大家为您准备：\n\nresearch-assistant: \n- 查询目的地的天气\n- 搜索当地的交通信息\n- 查找推荐的酒店\n\nlife-assistant:\n- 添加到日历\n- 设置提醒事项\n- 准备行李清单\n\ntech-assistant:\n- 预订机票（如有 API）\n- 整理行程文档\n\nwriting-assistant:\n- 生成行程 PDF\n- 发送到您的邮箱\n\nchief-assistant: 所有准备工作已完成！\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e6.2 自动化工作流\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e需求\u003c/strong\u003e：实现一个自动化的内容发布流程\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e工作流\u003c/strong\u003e：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e内容选题\n    ↓\nresearch-agent (资料收集)\n    ↓\nwriter-agent (内容创作)\n    ↓\neditor-agent (审核编辑)\n    ↓\nformatter-agent (排版美化)\n    ↓\npublisher-agent (发布到各平台)\n    ↓\n完成\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eCron 配置\u003c/strong\u003e：\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e# 每天早上 8 点执行选题\n0 8 * * * openclaw agent run content-pipeline --step=topic-selection\n\n# 9 点开始创作\n0 9 * * * openclaw agent run content-pipeline --step=research\n\n# 11 点完成写作\n0 11 * * * openclaw agent run content-pipeline --step=writing\n\n# 下午 2 点发布\n0 14 * * * openclaw agent run content-pipeline --step=publish\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e第七部分：故障排查\u003c/h2\u003e\n\u003ch3\u003e7.1 常见问题\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eQ: Agent 无法启动？\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e排查步骤：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e检查配置文件格式是否正确\u003c/li\u003e\n\u003cli\u003e验证模型配置是否可用\u003c/li\u003e\n\u003cli\u003e查看日志文件定位错误\u003c/li\u003e\n\u003cli\u003e检查权限设置\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e# 验证配置\nopenclaw agent validate --config ~/.openclaw/agents/my-agent/config.json\n\n# 查看日志\nopenclaw logs --agent my-agent --follow\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eQ: Agent 记不住事情？\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e排查步骤：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e检查 memory 配置是否启用\u003c/li\u003e\n\u003cli\u003e验证存储目录权限\u003c/li\u003e\n\u003cli\u003e检查向量数据库连接\u003c/li\u003e\n\u003cli\u003e查看记忆文件是否存在\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e# 检查记忆目录\nls -la ~/.openclaw/agents/my-agent/memory/\n\n# 测试记忆功能\nopenclaw agent test-memory --agent my-agent\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eQ: Agent 不使用 Skill？\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e排查步骤：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e确认 Skill 已安装\u003c/li\u003e\n\u003cli\u003e检查 SKILL.md 描述是否清晰\u003c/li\u003e\n\u003cli\u003e验证 Skill 权限\u003c/li\u003e\n\u003cli\u003e查看 Agent 是否识别到 Skill\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e# 列出 Agent 可用的 Skills\nopenclaw agent skills --agent my-agent\n\n# 测试 Skill 触发\nopenclaw agent test-skill --agent my-agent --skill pdf-processor\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eQ: 多 Agent 协作混乱？\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003e解决方案：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e明确每个 Agent 的职责边界\u003c/li\u003e\n\u003cli\u003e使用协调者 Agent 统一管理\u003c/li\u003e\n\u003cli\u003e建立清晰的通信协议\u003c/li\u003e\n\u003cli\u003e添加日志追踪协作过程\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e7.2 调试技巧\u003c/h3\u003e\n\u003ch4\u003e1. 启用详细日志\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \"logging\": {\n    \"level\": \"debug\",\n    \"modules\": [\"agent\", \"tools\", \"skills\", \"memory\"]\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e2. 分步调试\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e# 只执行特定步骤\nopenclaw agent run my-agent --step=intent-recognition\n\n# 使用测试模式\nopenclaw agent run my-agent --test --input \"测试消息\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e3. 性能分析\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e# 生成性能报告\nopenclaw agent profile my-agent --duration=60\n\n# 查看资源使用\nopenclaw agent stats my-agent\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch2\u003e总结\u003c/h2\u003e\n\u003cp\u003eAgent 是 OpenClaw 的核心执行单元，理解 Agent 的工作原理对于高效使用 OpenClaw 至关重要。\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e关键要点\u003c/strong\u003e：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eAgent 是执行者\u003c/strong\u003e：它是实际处理任务的工作者\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSkill 是知识\u003c/strong\u003e：Agent 通过 Skills 扩展能力\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e多 Agent 更高效\u003c/strong\u003e：团队协作比单兵作战更强\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e配置要合理\u003c/strong\u003e：权限、工具、记忆都需要精心配置\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e安全要重视\u003c/strong\u003e：控制好权限，记录好日志\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cstrong\u003e下一步建议\u003c/strong\u003e：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e从单 Agent 开始，熟悉基本概念\u003c/li\u003e\n\u003cli\u003e逐步添加 Skills，扩展能力\u003c/li\u003e\n\u003cli\u003e尝试多 Agent 协作，提高效率\u003c/li\u003e\n\u003cli\u003e根据需求定制专属的 Agent 团队\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cem\u003e文档版本: 1.0\u003c/em\u003e\u003cbr\u003e\n\u003cem\u003e最后更新: 2026-02-27\u003c/em\u003e\u003cbr\u003e\n\u003cem\u003e适用版本: OpenClaw 2026.2.x\u003c/em\u003e\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"div\",null,{\"className\":\"min-h-screen bg-gradient-to-b from-slate-50 to-white\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-4xl mx-auto px-4 py-12\",\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/blog\",\"className\":\"text-gray-600 hover:text-red-600 mb-8 block\",\"children\":\"← 返回博客\"}],[\"$\",\"article\",null,{\"className\":\"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden\",\"children\":[[\"$\",\"div\",null,{\"className\":\"bg-gradient-to-br from-red-600 to-red-800 p-12 text-white\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center gap-4 mb-4 text-sm opacity-90\",\"children\":[[\"$\",\"span\",null,{\"children\":\"2026-02-27\"}],[\"$\",\"span\",null,{\"children\":\"30 分钟\"}]]}],[\"$\",\"h1\",null,{\"className\":\"text-3xl font-bold\",\"children\":\"OpenClaw Agent 完全指南：深入理解与最佳实践\"}]]}],[\"$\",\"div\",null,{\"className\":\"p-8 md:p-12 prose prose-lg max-w-none\",\"dangerouslySetInnerHTML\":{\"__html\":\"$11\"}}]]}]]}]}]\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"2\",{\"name\":\"theme-color\",\"content\":\"#dc2626\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"12:I[622,[],\"IconMark\"]\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"RedClaw - 基于OpenClaw自建设及自维护的知识型网站\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"RedClaw\"}],[\"$\",\"link\",\"3\",{\"rel\":\"manifest\",\"href\":\"/manifest.json\",\"crossOrigin\":\"$undefined\"}],[\"$\",\"meta\",\"4\",{\"name\":\"keywords\",\"content\":\"RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill\"}],[\"$\",\"meta\",\"5\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"6\",{\"name\":\"googlebot\",\"content\":\"index, follow\"}],[\"$\",\"link\",\"7\",{\"rel\":\"canonical\",\"href\":\"https://redclaw.cc/\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:title\",\"content\":\"RedClaw - 基于OpenClaw自建设及自维护的知识型网站\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:description\",\"content\":\"分享 AI 助手搭建、配置和使用的实战经验与深度教程\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:site_name\",\"content\":\"RedClaw\"}],[\"$\",\"meta\",\"11\",{\"property\":\"og:locale\",\"content\":\"zh_CN\"}],[\"$\",\"meta\",\"12\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"13\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"14\",{\"name\":\"twitter:title\",\"content\":\"RedClaw - 基于OpenClaw自建设及自维护的知识型网站\"}],[\"$\",\"meta\",\"15\",{\"name\":\"twitter:description\",\"content\":\"分享 AI 助手搭建、配置和使用的实战经验与深度教程\"}],[\"$\",\"link\",\"16\",{\"rel\":\"icon\",\"href\":\"/icon-192x192.png\"}],[\"$\",\"link\",\"17\",{\"rel\":\"apple-touch-icon\",\"href\":\"/icon-192x192.png\"}],[\"$\",\"$L12\",\"18\",{}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script></body></html>
