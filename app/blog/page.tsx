@@ -8,11 +8,20 @@ import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
 
 const blogPosts = [
   {
-    id: 'openclaw-skills-guide',
-    title: 'OpenClaw Skill 使用方法与实践指南',
-    excerpt: '深入理解 Skill 系统，学会安装、使用和创建自己的 Skill，扩展 AI 助手的专业能力',
+    id: 'openclaw-agent-guide',
+    title: 'OpenClaw Agent 完全指南：深入理解与最佳实践',
+    excerpt: '全面解析 Agent 架构、工作原理、配置方法和多 Agent 协作模式',
     date: '2026-02-27',
-    readTime: '20 分钟',
+    readTime: '30 分钟',
+    category: '核心概念',
+    featured: false,
+  },
+  {
+    id: 'openclaw-skills-guide',
+    title: 'OpenClaw Skill 深度实践指南：从入门到精通',
+    excerpt: '全面掌握 Skill 系统，从基础使用到高级开发，包含完整实战案例和最佳实践',
+    date: '2026-02-27',
+    readTime: '35 分钟',
     category: '实战教程',
     featured: true,
   },
