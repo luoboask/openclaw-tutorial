@@ -375,6 +375,147 @@ Telegram 是接入 OpenClaw 最简单的方式之一。
 你还可以开发自己的工具，扩展 AI 的能力边界。
     `,
   },
+  'openclaw-skills-guide': {
+    title: 'OpenClaw Skill 使用方法与实践指南',
+    date: '2026-02-27',
+    readTime: '20 分钟',
+    content: `
+# OpenClaw Skill 使用方法与实践指南
+
+OpenClaw 的 Skill 系统是其最强大的特性之一。通过 Skill，你可以为 AI 助手添加专业能力，让它能够处理特定领域的任务。
+
+## 什么是 Skill？
+
+**Skill（技能）** 是模块化的功能包，它为 OpenClaw 提供特定领域的专业知识和工作流程。可以把 Skill 理解为 AI 助手的"专业培训教材"。
+
+### 核心特点
+
+- **模块化**：按需加载，不影响基础性能
+- **专业化**：每个 Skill 聚焦特定领域
+- **可复用**：一次开发，多处使用
+- **易分享**：通过 ClawHub 分享和获取
+
+## 如何安装 Skill
+
+### 通过 ClawHub 安装
+
+\`\`\`bash
+# 搜索 Skill
+clawhub search pdf
+
+# 安装
+clawhub install pdf-processor
+
+# 更新
+clawhub update pdf-processor
+\`\`\`
+
+### 手动安装
+
+\`\`\`bash
+openclaw skill install ./path/to/skill-name.skill
+\`\`\`
+
+## 常用 Skill 分类
+
+### 文件处理
+- **pdf-processor**: PDF 处理
+- **docx-editor**: Word 文档编辑
+- **nano-pdf**: 轻量 PDF 工具
+
+### 开发工具
+- **github**: GitHub 操作
+- **healthcheck**: 系统安全检查
+- **coding-agent**: 编程辅助
+
+### 内容创作
+- **openai-image-gen**: AI 图片生成
+- **sag**: 语音合成
+- **openai-whisper**: 语音转文字
+
+### 生活服务
+- **weather**: 天气查询
+- **apple-notes**: Apple 笔记管理
+- **apple-reminders**: 提醒事项
+
+## Skill 使用技巧
+
+### 1. 查看已安装 Skills
+
+\`\`\`
+用户：你有哪些 Skill 可以用？
+Agent：我目前安装了...
+  - pdf-processor: 处理 PDF 文件
+  - github: GitHub 操作
+  - weather: 天气查询
+\`\`\`
+
+### 2. 组合多个 Skill
+
+\`\`\`
+用户：抓取这个网页，生成 PDF，然后发邮件给我
+Agent：
+  1. 使用 web_fetch 抓取网页
+  2. 使用 pdf-processor 生成 PDF
+  3. 使用 himalaya 发送邮件
+\`\`\`
+
+### 3. 查看 Skill 文档
+
+每个 Skill 都有详细的 SKILL.md 文档，包含使用说明和最佳实践。
+
+## 如何创建自己的 Skill
+
+### 目录结构
+
+\`\`\`
+my-skill/
+├── SKILL.md           # 核心文档（必需）
+├── scripts/           # 可执行脚本（可选）
+├── references/        # 参考资料（可选）
+└── assets/           # 资源文件（可选）
+\`\`\`
+
+### SKILL.md 示例
+
+\`\`\`markdown
+---
+name: my-skill
+description: |
+  简短描述 Skill 的功能。
+  使用场景：场景一、场景二、场景三
+---
+
+# My Skill
+
+## 快速开始
+
+基本使用示例...
+
+## 参考文档
+
+- 详细 API：[API.md](references/API.md)
+\`\`\`
+
+### 最佳实践
+
+1. **描述要清晰** —— 让 Codex 知道何时触发
+2. **保持简洁** —— 控制 token 占用
+3. **提供示例** —— 好的示例胜过千言万语
+4. **渐进式披露** —— 复杂内容分层加载
+
+## 总结
+
+Skill 系统是 OpenClaw 的核心竞争力。通过合理使用 Skill，你可以：
+
+- 扩展 AI 的能力边界
+- 提高工作效率
+- 保持一致性
+- 分享和复用知识
+
+掌握 Skill 的使用和开发，是成为 OpenClaw 高级用户的关键一步。
+    `,
+  },
   'openclaw-memory-system-deep-dive': {
     title: 'OpenClaw 记忆系统技术详解',
     date: '2026-02-24',

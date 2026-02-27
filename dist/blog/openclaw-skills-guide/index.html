@@ -1,0 +1,110 @@
+<!DOCTYPE html><!--EiMDZ7hwwXkFX4zwNP59K--><html lang="zh-CN"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/7649e4e24324f761.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-74c939c87fa0092a.js"/><script src="/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/_next/static/chunks/255-102f2e5b2e3dc2ef.js" async=""></script><script src="/_next/static/chunks/main-app-10eacd1d09204dfa.js" async=""></script><script src="/_next/static/chunks/app/layout-46f5ac64a413e030.js" async=""></script><script src="/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-7164898cb9c00029.js" async=""></script><title>OpenClaw 中文教程 - 自托管 AI 网关</title><meta name="description" content="OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用"/><meta name="author" content="OpenClaw 中文社区"/><meta name="keywords" content="OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程"/><meta property="og:title" content="OpenClaw 中文教程"/><meta property="og:description" content="自托管 AI 网关，连接你的所有聊天应用"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="OpenClaw 中文教程"/><meta name="twitter:description" content="自托管 AI 网关，连接你的所有聊天应用"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="antialiased bg-white text-gray-900"><div hidden=""><!--$--><!--/$--></div><div class="min-h-screen bg-gradient-to-b from-slate-50 to-white"><div class="max-w-4xl mx-auto px-4 py-12"><a class="text-gray-600 hover:text-orange-600 mb-8 block" href="/blog/">返回博客</a><article class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"><div class="bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white"><div class="flex items-center gap-4 mb-4 text-sm opacity-90"><span>2026-02-27</span><span>20 分钟</span></div><h1 class="text-3xl font-bold">OpenClaw Skill 使用方法与实践指南</h1></div><div class="p-8 md:p-12 markdown-content"><h1>OpenClaw Skill 使用方法与实践指南</h1>
+<p>OpenClaw 的 Skill 系统是其最强大的特性之一。通过 Skill，你可以为 AI 助手添加专业能力，让它能够处理特定领域的任务。</p>
+<h2>什么是 Skill？</h2>
+<p><strong>Skill（技能）</strong> 是模块化的功能包，它为 OpenClaw 提供特定领域的专业知识和工作流程。可以把 Skill 理解为 AI 助手的"专业培训教材"。</p>
+<h3>核心特点</h3>
+<ul>
+<li><strong>模块化</strong>：按需加载，不影响基础性能</li>
+<li><strong>专业化</strong>：每个 Skill 聚焦特定领域</li>
+<li><strong>可复用</strong>：一次开发，多处使用</li>
+<li><strong>易分享</strong>：通过 ClawHub 分享和获取</li>
+</ul>
+<h2>如何安装 Skill</h2>
+<h3>通过 ClawHub 安装</h3>
+<pre><code class="language-bash"># 搜索 Skill
+clawhub search pdf
+
+# 安装
+clawhub install pdf-processor
+
+# 更新
+clawhub update pdf-processor
+</code></pre>
+<h3>手动安装</h3>
+<pre><code class="language-bash">openclaw skill install ./path/to/skill-name.skill
+</code></pre>
+<h2>常用 Skill 分类</h2>
+<h3>文件处理</h3>
+<ul>
+<li><strong>pdf-processor</strong>: PDF 处理</li>
+<li><strong>docx-editor</strong>: Word 文档编辑</li>
+<li><strong>nano-pdf</strong>: 轻量 PDF 工具</li>
+</ul>
+<h3>开发工具</h3>
+<ul>
+<li><strong>github</strong>: GitHub 操作</li>
+<li><strong>healthcheck</strong>: 系统安全检查</li>
+<li><strong>coding-agent</strong>: 编程辅助</li>
+</ul>
+<h3>内容创作</h3>
+<ul>
+<li><strong>openai-image-gen</strong>: AI 图片生成</li>
+<li><strong>sag</strong>: 语音合成</li>
+<li><strong>openai-whisper</strong>: 语音转文字</li>
+</ul>
+<h3>生活服务</h3>
+<ul>
+<li><strong>weather</strong>: 天气查询</li>
+<li><strong>apple-notes</strong>: Apple 笔记管理</li>
+<li><strong>apple-reminders</strong>: 提醒事项</li>
+</ul>
+<h2>Skill 使用技巧</h2>
+<h3>1. 查看已安装 Skills</h3>
+<pre><code>用户：你有哪些 Skill 可以用？
+Agent：我目前安装了...
+  - pdf-processor: 处理 PDF 文件
+  - github: GitHub 操作
+  - weather: 天气查询
+</code></pre>
+<h3>2. 组合多个 Skill</h3>
+<pre><code>用户：抓取这个网页，生成 PDF，然后发邮件给我
+Agent：
+  1. 使用 web_fetch 抓取网页
+  2. 使用 pdf-processor 生成 PDF
+  3. 使用 himalaya 发送邮件
+</code></pre>
+<h3>3. 查看 Skill 文档</h3>
+<p>每个 Skill 都有详细的 SKILL.md 文档，包含使用说明和最佳实践。</p>
+<h2>如何创建自己的 Skill</h2>
+<h3>目录结构</h3>
+<pre><code>my-skill/
+├── SKILL.md           # 核心文档（必需）
+├── scripts/           # 可执行脚本（可选）
+├── references/        # 参考资料（可选）
+└── assets/           # 资源文件（可选）
+</code></pre>
+<h3>SKILL.md 示例</h3>
+<pre><code class="language-markdown">---
+name: my-skill
+description: |
+  简短描述 Skill 的功能。
+  使用场景：场景一、场景二、场景三
+---
+
+# My Skill
+
+## 快速开始
+
+基本使用示例...
+
+## 参考文档
+
+- 详细 API：[API.md](references/API.md)
+</code></pre>
+<h3>最佳实践</h3>
+<ol>
+<li><strong>描述要清晰</strong> —— 让 Codex 知道何时触发</li>
+<li><strong>保持简洁</strong> —— 控制 token 占用</li>
+<li><strong>提供示例</strong> —— 好的示例胜过千言万语</li>
+<li><strong>渐进式披露</strong> —— 复杂内容分层加载</li>
+</ol>
+<h2>总结</h2>
+<p>Skill 系统是 OpenClaw 的核心竞争力。通过合理使用 Skill，你可以：</p>
+<ul>
+<li>扩展 AI 的能力边界</li>
+<li>提高工作效率</li>
+<li>保持一致性</li>
+<li>分享和复用知识</li>
+</ul>
+<p>掌握 Skill 的使用和开发，是成为 OpenClaw 高级用户的关键一步。</p>
+</div></article></div></div><!--$--><!--/$--><script src="/_next/static/chunks/webpack-74c939c87fa0092a.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[9113,[\"177\",\"static/chunks/app/layout-46f5ac64a413e030.js\"],\"GoogleAnalytics\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/_next/static/css/7649e4e24324f761.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"EiMDZ7hwwXkFX4zwNP59K\",\"p\":\"\",\"c\":[\"\",\"blog\",\"openclaw-skills-guide\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"openclaw-skills-guide\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/7649e4e24324f761.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"zh-CN\",\"children\":[[\"$\",\"head\",null,{\"children\":[\"$\",\"$L2\",null,{}]}],[\"$\",\"body\",null,{\"className\":\"antialiased bg-white text-gray-900\",\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"openclaw-skills-guide\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"10:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-7164898cb9c00029.js\"],\"\"]\n11:Ted7,"])</script><script>self.__next_f.push([1,"\u003ch1\u003eOpenClaw Skill 使用方法与实践指南\u003c/h1\u003e\n\u003cp\u003eOpenClaw 的 Skill 系统是其最强大的特性之一。通过 Skill，你可以为 AI 助手添加专业能力，让它能够处理特定领域的任务。\u003c/p\u003e\n\u003ch2\u003e什么是 Skill？\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eSkill（技能）\u003c/strong\u003e 是模块化的功能包，它为 OpenClaw 提供特定领域的专业知识和工作流程。可以把 Skill 理解为 AI 助手的\"专业培训教材\"。\u003c/p\u003e\n\u003ch3\u003e核心特点\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e模块化\u003c/strong\u003e：按需加载，不影响基础性能\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e专业化\u003c/strong\u003e：每个 Skill 聚焦特定领域\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e可复用\u003c/strong\u003e：一次开发，多处使用\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e易分享\u003c/strong\u003e：通过 ClawHub 分享和获取\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e如何安装 Skill\u003c/h2\u003e\n\u003ch3\u003e通过 ClawHub 安装\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e# 搜索 Skill\nclawhub search pdf\n\n# 安装\nclawhub install pdf-processor\n\n# 更新\nclawhub update pdf-processor\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e手动安装\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003eopenclaw skill install ./path/to/skill-name.skill\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e常用 Skill 分类\u003c/h2\u003e\n\u003ch3\u003e文件处理\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003epdf-processor\u003c/strong\u003e: PDF 处理\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003edocx-editor\u003c/strong\u003e: Word 文档编辑\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003enano-pdf\u003c/strong\u003e: 轻量 PDF 工具\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e开发工具\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003egithub\u003c/strong\u003e: GitHub 操作\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ehealthcheck\u003c/strong\u003e: 系统安全检查\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ecoding-agent\u003c/strong\u003e: 编程辅助\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e内容创作\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eopenai-image-gen\u003c/strong\u003e: AI 图片生成\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003esag\u003c/strong\u003e: 语音合成\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eopenai-whisper\u003c/strong\u003e: 语音转文字\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e生活服务\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eweather\u003c/strong\u003e: 天气查询\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eapple-notes\u003c/strong\u003e: Apple 笔记管理\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eapple-reminders\u003c/strong\u003e: 提醒事项\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eSkill 使用技巧\u003c/h2\u003e\n\u003ch3\u003e1. 查看已安装 Skills\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e用户：你有哪些 Skill 可以用？\nAgent：我目前安装了...\n  - pdf-processor: 处理 PDF 文件\n  - github: GitHub 操作\n  - weather: 天气查询\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e2. 组合多个 Skill\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e用户：抓取这个网页，生成 PDF，然后发邮件给我\nAgent：\n  1. 使用 web_fetch 抓取网页\n  2. 使用 pdf-processor 生成 PDF\n  3. 使用 himalaya 发送邮件\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e3. 查看 Skill 文档\u003c/h3\u003e\n\u003cp\u003e每个 Skill 都有详细的 SKILL.md 文档，包含使用说明和最佳实践。\u003c/p\u003e\n\u003ch2\u003e如何创建自己的 Skill\u003c/h2\u003e\n\u003ch3\u003e目录结构\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003emy-skill/\n├── SKILL.md           # 核心文档（必需）\n├── scripts/           # 可执行脚本（可选）\n├── references/        # 参考资料（可选）\n└── assets/           # 资源文件（可选）\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eSKILL.md 示例\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-markdown\"\u003e---\nname: my-skill\ndescription: |\n  简短描述 Skill 的功能。\n  使用场景：场景一、场景二、场景三\n---\n\n# My Skill\n\n## 快速开始\n\n基本使用示例...\n\n## 参考文档\n\n- 详细 API：[API.md](references/API.md)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e最佳实践\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003e描述要清晰\u003c/strong\u003e —— 让 Codex 知道何时触发\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e保持简洁\u003c/strong\u003e —— 控制 token 占用\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e提供示例\u003c/strong\u003e —— 好的示例胜过千言万语\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e渐进式披露\u003c/strong\u003e —— 复杂内容分层加载\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e总结\u003c/h2\u003e\n\u003cp\u003eSkill 系统是 OpenClaw 的核心竞争力。通过合理使用 Skill，你可以：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e扩展 AI 的能力边界\u003c/li\u003e\n\u003cli\u003e提高工作效率\u003c/li\u003e\n\u003cli\u003e保持一致性\u003c/li\u003e\n\u003cli\u003e分享和复用知识\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e掌握 Skill 的使用和开发，是成为 OpenClaw 高级用户的关键一步。\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"div\",null,{\"className\":\"min-h-screen bg-gradient-to-b from-slate-50 to-white\",\"children\":[\"$\",\"div\",null,{\"className\":\"max-w-4xl mx-auto px-4 py-12\",\"children\":[[\"$\",\"$L10\",null,{\"href\":\"/blog\",\"className\":\"text-gray-600 hover:text-orange-600 mb-8 block\",\"children\":\"返回博客\"}],[\"$\",\"article\",null,{\"className\":\"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden\",\"children\":[[\"$\",\"div\",null,{\"className\":\"bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex items-center gap-4 mb-4 text-sm opacity-90\",\"children\":[[\"$\",\"span\",null,{\"children\":\"2026-02-27\"}],[\"$\",\"span\",null,{\"children\":\"20 分钟\"}]]}],[\"$\",\"h1\",null,{\"className\":\"text-3xl font-bold\",\"children\":\"OpenClaw Skill 使用方法与实践指南\"}]]}],[\"$\",\"div\",null,{\"className\":\"p-8 md:p-12 markdown-content\",\"dangerouslySetInnerHTML\":{\"__html\":\"$11\"}}]]}]]}]}]\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"OpenClaw 中文教程 - 自托管 AI 网关\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"OpenClaw 中文社区\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:title\",\"content\":\"OpenClaw 中文教程\"}],[\"$\",\"meta\",\"5\",{\"property\":\"og:description\",\"content\":\"自托管 AI 网关，连接你的所有聊天应用\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:card\",\"content\":\"summary\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:title\",\"content\":\"OpenClaw 中文教程\"}],[\"$\",\"meta\",\"9\",{\"name\":\"twitter:description\",\"content\":\"自托管 AI 网关，连接你的所有聊天应用\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script></body></html>

@@ -1,0 +1,422 @@
+# OpenClaw Skill 使用方法与实践指南
+
+OpenClaw 的 Skill 系统是其最强大的特性之一。通过 Skill，你可以为 AI 助手添加专业能力，让它能够处理特定领域的任务。本文将详细介绍 Skill 的使用方法和实践技巧。
+
+## 什么是 Skill？
+
+**Skill（技能）** 是模块化的功能包，它为 OpenClaw 提供特定领域的专业知识和工作流程。可以把 Skill 理解为 AI 助手的"专业培训教材"——装上不同的 Skill，AI 就具备了不同的专业能力。
+
+### Skill vs 普通工具的区别
+
+| 特性 | 普通工具 | Skill |
+|------|---------|-------|
+| 复杂度 | 简单单一功能 | 复杂多步骤流程 |
+| 知识深度 | 基础 API 调用 | 领域专业知识 |
+| 可定制性 | 固定功能 | 可自定义配置 |
+| 学习成本 | 低 | 需要阅读 SKILL.md |
+
+## 如何安装 Skill
+
+### 方法 1：通过 ClawHub 安装（推荐）
+
+ClawHub 是 OpenClaw 的官方 Skill 仓库。
+
+```bash
+# 搜索 Skill
+clawhub search pdf
+
+# 安装 Skill
+clawhub install pdf-processor
+
+# 安装指定版本
+clawhub install pdf-processor@1.2.0
+
+# 更新 Skill
+clawhub update pdf-processor
+
+# 查看已安装的 Skills
+clawhub list
+```
+
+### 方法 2：手动安装
+
+```bash
+# 下载 .skill 文件后安装
+openclaw skill install ./path/to/skill-name.skill
+
+# 从 Git 仓库安装
+openclaw skill install https://github.com/user/skill-repo
+```
+
+### 方法 3：本地开发安装
+
+```bash
+# 在 Skill 目录下
+openclaw skill install . --dev
+```
+
+## 常用 Skill 介绍
+
+### 1. 文件处理类
+
+#### PDF 处理 (pdf-processor)
+
+```
+用户：把这个 PDF 的前 5 页提取出来
+Agent：使用 pdf-processor Skill 提取页面...
+
+用户：合并这几个 PDF 文件
+Agent：使用 pdf-processor Skill 合并文件...
+
+用户：把 PDF 转换成 Word
+Agent：使用 pdf-processor Skill 转换格式...
+```
+
+#### 文档处理 (docx-editor)
+
+```
+用户：在合同文档中添加批注
+Agent：使用 docx-editor Skill 添加批注...
+
+用户：生成一份带格式的报告
+Agent：使用 docx-editor Skill 创建文档...
+```
+
+### 2. 开发工具类
+
+#### GitHub 助手 (github)
+
+```
+用户：查看我的待处理 PR
+Agent：使用 github Skill 获取 PR 列表...
+
+用户：创建一个新 Issue
+Agent：使用 github Skill 创建 Issue...
+```
+
+#### 健康检查 (healthcheck)
+
+```
+用户：检查我的服务器安全状况
+Agent：使用 healthcheck Skill 进行安全审计...
+
+用户：查看系统更新状态
+Agent：使用 healthcheck Skill 检查更新...
+```
+
+### 3. 内容创作类
+
+#### 图片生成 (openai-image-gen)
+
+```
+用户：生成一张 futuristic city 的图片
+Agent：使用 openai-image-gen Skill 生成图片...
+```
+
+#### 语音合成 (sag)
+
+```
+用户：把这段话转成语音
+Agent：使用 sag Skill 进行 TTS 转换...
+```
+
+### 4. 生活服务类
+
+#### 天气查询 (weather)
+
+```
+用户：北京今天天气怎么样？
+Agent：使用 weather Skill 查询天气...
+```
+
+#### 笔记管理 (apple-notes)
+
+```
+用户：创建一个会议记录笔记
+Agent：使用 apple-notes Skill 创建笔记...
+```
+
+## Skill 使用技巧
+
+### 技巧 1：让 Agent 知道你有什么 Skill
+
+```
+用户：你有哪些 Skill 可以用？
+Agent：我目前安装了以下 Skill...
+  - pdf-processor: 处理 PDF 文件
+  - github: GitHub 操作
+  - weather: 天气查询
+  ...
+```
+
+### 技巧 2：组合多个 Skill
+
+```
+用户：抓取这个网页，生成 PDF，然后发邮件给我
+Agent：
+  1. 使用 web_fetch Skill 抓取网页
+  2. 使用 pdf-processor Skill 生成 PDF
+  3. 使用 himalaya Skill 发送邮件
+```
+
+### 技巧 3：查看 Skill 文档
+
+每个 Skill 都有详细的 SKILL.md 文档：
+
+```
+用户：healthcheck Skill 能做什么？
+Agent：根据 SKILL.md，healthcheck Skill 提供以下功能...
+```
+
+### 技巧 4：按需加载
+
+OpenClaw 采用渐进式加载机制：
+
+1. **Metadata 层**：始终加载（skill 名称和描述）
+2. **SKILL.md 层**：触发时加载（详细说明）
+3. **资源层**：需要时加载（脚本、参考文档）
+
+这样可以保持上下文清爽，只在需要时加载相关内容。
+
+## 如何创建自己的 Skill
+
+### 第一步：规划 Skill 内容
+
+明确你的 Skill 要解决什么问题：
+
+- **目标用户**：谁会使用这个 Skill？
+- **核心功能**：主要解决什么问题？
+- **使用场景**：典型的使用方式是什么？
+
+### 第二步：创建 Skill 结构
+
+```bash
+# 使用官方工具创建
+openclaw skill create my-skill
+
+# 生成的目录结构
+my-skill/
+├── SKILL.md           # 核心文档（必需）
+├── scripts/           # 可执行脚本（可选）
+├── references/        # 参考资料（可选）
+└── assets/           # 资源文件（可选）
+```
+
+### 第三步：编写 SKILL.md
+
+```markdown
+---
+name: my-skill
+description: |
+  简短描述 Skill 的功能。
+  使用场景：
+  1. 场景一
+  2. 场景二
+  3. 场景三
+---
+
+# My Skill
+
+## 快速开始
+
+基本使用示例...
+
+## 高级用法
+
+复杂场景示例...
+
+## 参考文档
+
+- 详细 API：[API.md](references/API.md)
+- 示例代码：[examples/](references/examples/)
+```
+
+### 第四步：添加脚本（可选）
+
+如果 Skill 需要执行代码：
+
+```python
+# scripts/process_data.py
+import json
+import sys
+
+def main():
+    data = json.load(sys.stdin)
+    # 处理逻辑
+    result = process(data)
+    print(json.dumps(result))
+
+if __name__ == "__main__":
+    main()
+```
+
+### 第五步：测试和打包
+
+```bash
+# 本地测试
+openclaw skill test ./my-skill
+
+# 打包
+openclaw skill package ./my-skill
+
+# 发布到 ClawHub
+clawhub publish my-skill.skill
+```
+
+## Skill 开发最佳实践
+
+### 1. 描述要清晰
+
+SKILL.md 的 description 是最重要的触发器：
+
+- ✅ "处理 PDF 文件：提取页面、合并文档、转换格式"
+- ❌ "PDF 工具"
+
+### 2. 保持简洁
+
+Skill 的上下文会占用 token，尽量精简：
+
+- SKILL.md 控制在 500 行以内
+- 大文档放到 references/
+- 只在 SKILL.md 保留核心流程
+
+### 3. 提供示例
+
+好的示例胜过千言万语：
+
+```markdown
+## 使用示例
+
+提取 PDF 第 3-5 页：
+```bash
+python scripts/extract_pages.py input.pdf 3 5
+```
+
+合并多个 PDF：
+```bash
+python scripts/merge_pdfs.py file1.pdf file2.pdf output.pdf
+```
+```
+
+### 4. 渐进式披露
+
+复杂 Skill 采用分层设计：
+
+```markdown
+# 核心内容（总是加载）
+
+## 基础用法
+简单示例...
+
+## 高级功能
+- 表单处理：见 [FORMS.md](references/FORMS.md)
+- 批注功能：见 [ANNOTATIONS.md](references/ANNOTATIONS.md)
+```
+
+### 5. 测试脚本
+
+所有脚本必须实际测试过：
+
+```bash
+# 测试脚本
+python scripts/my_script.py < test_input.json
+
+# 验证输出
+# 检查错误处理
+# 测试边界情况
+```
+
+## 实战案例：创建一个发票处理 Skill
+
+### 需求分析
+
+- 从 PDF/图片中提取发票信息
+- 验证发票格式
+- 导出为 Excel
+
+### 目录结构
+
+```
+invoice-processor/
+├── SKILL.md
+├── scripts/
+│   ├── extract_invoice.py    # 提取信息
+│   ├── validate_invoice.py   # 验证格式
+│   └── export_excel.py       # 导出 Excel
+├── references/
+│   ├── invoice_format.md     # 发票格式说明
+│   └── api_docs.md          # API 文档
+└── assets/
+    └── template.xlsx        # Excel 模板
+```
+
+### SKILL.md 示例
+
+```markdown
+---
+name: invoice-processor
+description: |
+  发票处理自动化工具。从 PDF/图片中提取发票信息、
+  验证格式、导出 Excel 报表。适用于财务报销、发票管理场景。
+---
+
+# 发票处理 Skill
+
+## 快速开始
+
+提取发票信息：
+```python
+python scripts/extract_invoice.py invoice.pdf
+```
+
+验证并导出：
+```python
+python scripts/validate_invoice.py invoice.json
+python scripts/export_excel.py invoice.json output.xlsx
+```
+
+## 支持的发票格式
+
+- 增值税普通发票
+- 增值税专用发票
+- 电子发票
+
+详见 [invoice_format.md](references/invoice_format.md)
+
+## API 文档
+
+见 [api_docs.md](references/api_docs.md)
+```
+
+## 常见问题
+
+**Q: Skill 和 Extension 有什么区别？**
+
+A: Extension 是系统级扩展，提供新工具；Skill 是知识包，指导如何使用工具。
+
+**Q: 如何更新已安装的 Skill？**
+
+A: `clawhub update skill-name` 或重新安装。
+
+**Q: Skill 可以依赖其他 Skill 吗？**
+
+A: 目前不支持直接依赖，但可以在文档中说明需要配合使用的 Skill。
+
+**Q: 如何分享我的 Skill？**
+
+A: 打包后上传到 ClawHub，或分享 .skill 文件。
+
+**Q: Skill 会占用多少上下文？**
+
+A: 取决于大小，一般 1-5k tokens。使用渐进式加载可以减少占用。
+
+## 总结
+
+Skill 系统是 OpenClaw 的核心竞争力之一。通过合理使用 Skill，你可以：
+
+1. **扩展能力边界**：让 AI 处理专业领域任务
+2. **提高效率**：复用成熟的工作流程
+3. **保持一致性**：标准化处理方式
+4. **分享知识**：将经验封装成可复用的 Skill
+
+掌握 Skill 的使用和开发，是成为 OpenClaw 高级用户的关键一步。

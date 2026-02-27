@@ -8,21 +8,30 @@ import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
 
 const blogPosts = [
   {
-    id: 'telegram-bot-complete-guide',
-    title: 'Telegram Bot 详细配置指南',
-    excerpt: '从零开始配置 Telegram Bot 接入 OpenClaw，包含完整步骤和常见问题解答',
-    date: '2026-02-24',
-    readTime: '10 分钟',
-    category: '频道配置',
+    id: 'openclaw-skills-guide',
+    title: 'OpenClaw Skill 使用方法与实践指南',
+    excerpt: '深入理解 Skill 系统，学会安装、使用和创建自己的 Skill，扩展 AI 助手的专业能力',
+    date: '2026-02-27',
+    readTime: '20 分钟',
+    category: '实战教程',
     featured: true,
   },
   {
     id: 'openclaw-memory-system-deep-dive',
     title: 'OpenClaw 记忆系统技术详解',
     excerpt: '深入解析记忆系统架构、向量搜索、BM25算法、FTS全文搜索及数据库存储机制',
-    date: '2026-02-24',
-    readTime: '30 分钟',
+    date: '2026-02-27',
+    readTime: '15 分钟',
     category: '技术文档',
+    featured: false,
+  },
+  {
+    id: 'telegram-bot-complete-guide',
+    title: 'Telegram Bot 详细配置指南',
+    excerpt: '从零开始配置 Telegram Bot 接入 OpenClaw，包含完整步骤和常见问题解答',
+    date: '2026-02-24',
+    readTime: '10 分钟',
+    category: '频道配置',
     featured: false,
   },
   {
