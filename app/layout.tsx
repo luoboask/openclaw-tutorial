@@ -54,6 +54,8 @@ export default function RootLayout({
       <head>
         <GoogleAnalytics />
         <StructuredData />
+        <link rel="preload" href="/pagefind/pagefind-ui.css" as="style" />
+        <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
       </head>
       <body className="antialiased bg-white text-gray-900">
         {children}

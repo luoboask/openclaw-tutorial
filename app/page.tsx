@@ -1,9 +1,17 @@
+'use client'
+
 import Link from 'next/link'
+import { useState } from 'react'
 import { BookOpen, Zap, Shield, MessageCircle, Terminal, ChevronRight, Brain, Code, Users, Bot, RefreshCw, Sparkles, Search } from 'lucide-react'
+import { SearchButton, SearchModal } from '@/components/search'
 
 export default function Home() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-gray-900">
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      
       <header className="relative overflow-hidden">
         {/* 背景装饰 */}
         <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-white to-orange-50 opacity-70" />
@@ -24,13 +32,16 @@ export default function Home() {
             <div className="hidden md:flex space-x-6 items-center">
               <Link href="/docs" className="text-gray-600 hover:text-red-600 transition">文档</Link>
               <Link href="/blog" className="text-gray-600 hover:text-red-600 transition">博客</Link>
-              <Link href="/search" className="text-gray-600 hover:text-red-600 transition flex items-center">
-                <Search className="w-4 h-4 mr-1" />
-                搜索
-              </Link>
+              <SearchButton onClick={() => setIsSearchOpen(true)} />
               <Link href="/about" className="text-gray-600 hover:text-red-600 transition">关于</Link>
             </div>
             <div className="flex items-center gap-2">
+              <Link 
+                href="/search" 
+                className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition"
+              >
+                <Search className="w-5 h-5 text-gray-600" />
+              </Link>
               <Link 
                 href="/docs/quickstart" 
                 className="hidden sm:block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition shadow-md"
