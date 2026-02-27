@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BookOpen, Zap, Shield, MessageCircle, Terminal, ChevronRight, Brain, Code, Users, Bot, RefreshCw, Sparkles } from 'lucide-react'
+import { BookOpen, Zap, Shield, MessageCircle, Terminal, ChevronRight, Brain, Code, Users, Bot, RefreshCw, Sparkles, Search } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -24,7 +24,10 @@ export default function Home() {
             <div className="hidden md:flex space-x-6 items-center">
               <Link href="/docs" className="text-gray-600 hover:text-red-600 transition">文档</Link>
               <Link href="/blog" className="text-gray-600 hover:text-red-600 transition">博客</Link>
-              <Link href="/docs/channels" className="text-gray-600 hover:text-red-600 transition">频道接入</Link>
+              <Link href="/search" className="text-gray-600 hover:text-red-600 transition flex items-center">
+                <Search className="w-4 h-4 mr-1" />
+                搜索
+              </Link>
               <Link href="/about" className="text-gray-600 hover:text-red-600 transition">关于</Link>
             </div>
             <div className="flex items-center gap-2">
