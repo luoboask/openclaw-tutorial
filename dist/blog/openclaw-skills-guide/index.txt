@@ -9,119 +9,477 @@ c:I[4431,[],"MetadataBoundary"]
 d:"$Sreact.suspense"
 f:I[7150,[],""]
 :HL["/_next/static/css/7649e4e24324f761.css","style"]
-0:{"P":null,"b":"EiMDZ7hwwXkFX4zwNP59K","p":"","c":["","blog","openclaw-skills-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","openclaw-skills-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/7649e4e24324f761.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":["$","$L2",null,{}]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","openclaw-skills-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+0:{"P":null,"b":"N9Dhni1f6XFAjZnrZZYuH","p":"","c":["","blog","openclaw-skills-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","openclaw-skills-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/7649e4e24324f761.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":[["$","$L2",null,{}],[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"OpenClaw 中文教程\",\"url\":\"https://redclaw.cc\",\"description\":\"OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw\",\"inLanguage\":\"zh-CN\",\"author\":{\"@type\":\"Organization\",\"name\":\"OpenClaw 中文社区\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"OpenClaw 中文社区\",\"url\":\"https://redclaw.cc\",\"logo\":\"https://redclaw.cc/icon-192x192.png\",\"sameAs\":[\"https://github.com/openclaw/openclaw\",\"https://discord.com/invite/clawd\"]}"}}]]]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","openclaw-skills-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
 10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-7164898cb9c00029.js"],""]
-11:Ted7,<h1>OpenClaw Skill 使用方法与实践指南</h1>
-<p>OpenClaw 的 Skill 系统是其最强大的特性之一。通过 Skill，你可以为 AI 助手添加专业能力，让它能够处理特定领域的任务。</p>
-<h2>什么是 Skill？</h2>
-<p><strong>Skill（技能）</strong> 是模块化的功能包，它为 OpenClaw 提供特定领域的专业知识和工作流程。可以把 Skill 理解为 AI 助手的"专业培训教材"。</p>
-<h3>核心特点</h3>
+11:T3772,<h1>OpenClaw Skill 深度实践指南：从入门到精通</h1>
+<p>OpenClaw 的 Skill 系统是其最强大的特性之一，它让 AI 助手能够掌握专业技能，处理复杂任务。本文将带你从基础使用到高级开发，全面掌握 Skill 系统。</p>
+<hr>
+<h2>第一部分：理解 Skill 系统</h2>
+<h3>1.1 什么是 Skill？</h3>
+<p><strong>Skill（技能）</strong> 是 OpenClaw 的模块化知识包。如果把 AI 助手比作一位员工，那么：</p>
 <ul>
-<li><strong>模块化</strong>：按需加载，不影响基础性能</li>
-<li><strong>专业化</strong>：每个 Skill 聚焦特定领域</li>
-<li><strong>可复用</strong>：一次开发，多处使用</li>
-<li><strong>易分享</strong>：通过 ClawHub 分享和获取</li>
+<li><strong>基础能力</strong> = 通识教育（阅读、写作、推理）</li>
+<li><strong>Skill</strong> = 专业培训（会计证书、编程技能、设计能力）</li>
 </ul>
-<h2>如何安装 Skill</h2>
-<h3>通过 ClawHub 安装</h3>
-<pre><code class="language-bash"># 搜索 Skill
-clawhub search pdf
+<p>安装一个 Skill，就像给 AI 助手发放了某个领域的"职业资格证书"，它就能够使用该领域的专业知识和工具。</p>
+<h3>1.2 Skill 的架构设计</h3>
+<p>Skill 采用模块化设计，每个 Skill 都是独立的单元，包含：</p>
+<ul>
+<li><strong>SKILL.md</strong>：核心文档，描述 Skill 的功能和使用方法</li>
+<li><strong>scripts/</strong>：可执行脚本，实现具体功能</li>
+<li><strong>references/</strong>：参考资料，详细文档和示例</li>
+<li><strong>assets/</strong>：资源文件，模板、图标等</li>
+</ul>
+<h3>1.3 Skill vs Extension 的区别</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Skill</th>
+<th>Extension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本质</strong></td>
+<td>知识包 + 工作流</td>
+<td>代码扩展</td>
+</tr>
+<tr>
+<td><strong>开发语言</strong></td>
+<td>Markdown + 任意脚本</td>
+<td>TypeScript/JavaScript</td>
+</tr>
+<tr>
+<td><strong>安装位置</strong></td>
+<td>~/.openclaw/skills/</td>
+<td>~/.openclaw/extensions/</td>
+</tr>
+<tr>
+<td><strong>运行方式</strong></td>
+<td>被 Agent 加载执行</td>
+<td>独立进程</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>领域知识、复杂流程</td>
+<td>新工具、新通道</td>
+</tr>
+</tbody>
+</table>
+<p><strong>简单记忆</strong>：</p>
+<ul>
+<li>需要<strong>教 AI 怎么做</strong> → 用 Skill</li>
+<li>需要<strong>给 AI 新能力</strong> → 用 Extension</li>
+</ul>
+<hr>
+<h2>第二部分：Skill 使用实战</h2>
+<h3>2.1 安装与管理</h3>
+<h4>通过 ClawHub 安装（推荐）</h4>
+<pre><code class="language-bash"># 1. 搜索可用的 Skills
+$ clawhub search pdf
 
-# 安装
-clawhub install pdf-processor
+搜索结果:
+  📦 pdf-processor
+     版本: 1.2.0
+     描述: 专业的 PDF 处理工具
+     下载量: 1,234
+     评分: ⭐⭐⭐⭐⭐ (4.8)
 
-# 更新
-clawhub update pdf-processor
+# 2. 安装指定 Skill
+$ clawhub install pdf-processor
+✓ 安装完成！
+
+# 3. 查看已安装的 Skills
+$ clawhub list
+已安装 Skills (5):
+  ✓ pdf-processor    1.2.0   PDF 处理
+  ✓ weather          2.1.0   天气查询
+  ✓ github           1.5.2   GitHub 操作
+
+# 4. 更新 Skill
+$ clawhub update pdf-processor
+✓ 更新完成
+
+# 5. 卸载 Skill
+$ clawhub uninstall nano-pdf
+✓ 已卸载
 </code></pre>
-<h3>手动安装</h3>
-<pre><code class="language-bash">openclaw skill install ./path/to/skill-name.skill
+<h4>手动安装</h4>
+<pre><code class="language-bash"># 从本地文件安装
+$ openclaw skill install ./my-custom-skill.skill
+
+# 从 Git 仓库安装
+$ openclaw skill install https://github.com/username/my-skill
+
+# 开发模式安装
+$ openclaw skill install . --dev
 </code></pre>
-<h2>常用 Skill 分类</h2>
-<h3>文件处理</h3>
-<ul>
-<li><strong>pdf-processor</strong>: PDF 处理</li>
-<li><strong>docx-editor</strong>: Word 文档编辑</li>
-<li><strong>nano-pdf</strong>: 轻量 PDF 工具</li>
-</ul>
-<h3>开发工具</h3>
-<ul>
-<li><strong>github</strong>: GitHub 操作</li>
-<li><strong>healthcheck</strong>: 系统安全检查</li>
-<li><strong>coding-agent</strong>: 编程辅助</li>
-</ul>
-<h3>内容创作</h3>
-<ul>
-<li><strong>openai-image-gen</strong>: AI 图片生成</li>
-<li><strong>sag</strong>: 语音合成</li>
-<li><strong>openai-whisper</strong>: 语音转文字</li>
-</ul>
-<h3>生活服务</h3>
-<ul>
-<li><strong>weather</strong>: 天气查询</li>
-<li><strong>apple-notes</strong>: Apple 笔记管理</li>
-<li><strong>apple-reminders</strong>: 提醒事项</li>
-</ul>
-<h2>Skill 使用技巧</h2>
-<h3>1. 查看已安装 Skills</h3>
-<pre><code>用户：你有哪些 Skill 可以用？
-Agent：我目前安装了...
-  - pdf-processor: 处理 PDF 文件
-  - github: GitHub 操作
-  - weather: 天气查询
+<h3>2.2 实际使用场景</h3>
+<h4>场景一：自动化文档处理工作流</h4>
+<p><strong>需求</strong>：每周五需要整理一份周报，包含：</p>
+<ol>
+<li>从各个渠道收集数据</li>
+<li>生成 PDF 报告</li>
+<li>发送邮件给团队</li>
+</ol>
+<p><strong>使用 Skills</strong>:</p>
+<pre><code>用户：帮我生成本周的数据报告
+
+Agent：我来帮您处理...
+
+[使用 web_fetch Skill]
+- 从内部系统抓取本周数据
+- 整理成结构化格式
+
+[使用 pdf-processor Skill]
+- 创建格式化的 PDF 报告
+- 添加页眉页脚和公司 Logo
+
+[使用 himalaya Skill]
+- 撰写邮件正文
+- 发送给团队成员
+
+✓ 周报已生成并发送！
 </code></pre>
-<h3>2. 组合多个 Skill</h3>
-<pre><code>用户：抓取这个网页，生成 PDF，然后发邮件给我
-Agent：
-  1. 使用 web_fetch 抓取网页
-  2. 使用 pdf-processor 生成 PDF
-  3. 使用 himalaya 发送邮件
+<h4>场景二：开发工作流自动化</h4>
+<pre><code>用户：我要开始开发一个新功能，帮我初始化
+
+Agent：好的，我来帮您设置...
+
+[使用 github Skill]
+- 创建新分支 feature/user-authentication
+
+[使用 coding-agent Skill]
+- 生成项目结构和基础代码
+
+[使用 healthcheck Skill]
+- 检查开发环境配置
+
+✓ 开发环境已就绪！
 </code></pre>
-<h3>3. 查看 Skill 文档</h3>
-<p>每个 Skill 都有详细的 SKILL.md 文档，包含使用说明和最佳实践。</p>
-<h2>如何创建自己的 Skill</h2>
-<h3>目录结构</h3>
-<pre><code>my-skill/
-├── SKILL.md           # 核心文档（必需）
-├── scripts/           # 可执行脚本（可选）
-├── references/        # 参考资料（可选）
-└── assets/           # 资源文件（可选）
+<h3>2.3 高级使用技巧</h3>
+<h4>技巧 1：Skill 组合策略</h4>
+<p><strong>顺序执行模式</strong>：</p>
+<pre><code>任务 A → Skill 1 → 结果 → Skill 2 → 结果 → Skill 3 → 完成
 </code></pre>
-<h3>SKILL.md 示例</h3>
+<p><strong>条件分支模式</strong>：</p>
+<pre><code>任务 → Skill A (判断) → 
+  ├─ 条件1 → Skill B → 完成
+  └─ 条件2 → Skill C → 完成
+</code></pre>
+<h4>技巧 2：上下文管理</h4>
+<p>在对话中明确指定上下文：</p>
+<pre><code>用户：先用 pdf-processor 提取第一页，
+     然后用 docx-editor 创建新文档插入内容
+
+Agent：明白。我按顺序执行：
+       1. 使用 pdf-processor 提取第 1 页
+       2. 将提取的内容传递给 docx-editor
+       3. 创建新文档并插入
+</code></pre>
+<hr>
+<h2>第三部分：Skill 开发实战</h2>
+<h3>3.1 开发环境准备</h3>
+<pre><code class="language-bash"># 1. 安装 Skill Creator 工具
+$ clawhub install skill-creator
+
+# 2. 创建工作目录
+$ mkdir -p ~/openclaw-skills
+$ cd ~/openclaw-skills
+</code></pre>
+<h3>3.2 完整开发流程</h3>
+<h4>案例：开发一个「网站监控」Skill</h4>
+<p><strong>Step 1：需求分析</strong></p>
+<pre><code class="language-markdown">## 需求规格说明书
+
+**Skill 名称**: website-monitor
+**目标用户**: 网站运维人员、个人站长
+**核心功能**:
+1. 监控网站可用性（HTTP 状态检查）
+2. 检查 SSL 证书过期时间
+3. 检测网页内容变化
+4. 生成监控报告
+</code></pre>
+<p><strong>Step 2：创建项目结构</strong></p>
+<pre><code class="language-bash">$ openclaw skill create website-monitor
+
+目录结构：
+website-monitor/
+├── SKILL.md              # 核心文档
+├── scripts/
+│   ├── check_http.py     # HTTP 检查脚本
+│   ├── check_ssl.py      # SSL 证书检查
+│   └── generate_report.py # 报告生成
+├── references/
+│   └── api_reference.md  # API 文档
+└── assets/
+    └── report_template.html
+</code></pre>
+<p><strong>Step 3：编写 SKILL.md</strong></p>
 <pre><code class="language-markdown">---
-name: my-skill
+name: website-monitor
 description: |
-  简短描述 Skill 的功能。
-  使用场景：场景一、场景二、场景三
+  网站监控工具，支持 HTTP 状态检查、SSL 证书监控、
+  内容变化检测和报告生成。适用于网站运维、可用性监控场景。
 ---
 
-# My Skill
+# Website Monitor Skill
 
 ## 快速开始
 
-基本使用示例...
+### 检查单个网站
 
-## 参考文档
-
-- 详细 API：[API.md](references/API.md)
+```bash
+# 检查网站 HTTP 状态
+python scripts/check_http.py https://example.com
 </code></pre>
-<h3>最佳实践</h3>
+<h3>检查 SSL 证书</h3>
+<pre><code class="language-bash">python scripts/check_ssl.py https://example.com
+</code></pre>
+<h2>完整示例</h2>
+<h3>场景：监控公司官网</h3>
+<pre><code class="language-bash"># 1. 创建监控列表
+cat > websites.txt &#x3C;&#x3C; 'EOF'
+https://company.com
+https://blog.company.com
+EOF
+
+# 2. 执行批量检查
+python scripts/check_http.py --file websites.txt --output status.json
+
+# 3. 生成日报
+python scripts/generate_report.py --input status.json --format html
+</code></pre>
+<pre><code>
+**Step 4：实现核心脚本**
+
+```python
+# scripts/check_http.py
+#!/usr/bin/env python3
+"""HTTP 状态检查脚本"""
+
+import sys
+import json
+import urllib.request
+from datetime import datetime
+
+
+def check_website(url: str, timeout: int = 10000):
+    """检查网站 HTTP 状态"""
+    result = {
+        "url": url,
+        "timestamp": datetime.now().isoformat(),
+        "status": None,
+        "response_time": None,
+        "error": None
+    }
+    
+    try:
+        import time
+        start_time = time.time()
+        
+        req = urllib.request.Request(
+            url,
+            headers={'User-Agent': 'WebsiteMonitor/1.0'}
+        )
+        
+        with urllib.request.urlopen(req, timeout=timeout/1000) as response:
+            result["status"] = response.getcode()
+            result["response_time"] = round((time.time() - start_time) * 1000, 2)
+                        
+    except Exception as e:
+        result["error"] = str(e)
+    
+    return result
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('url')
+    args = parser.parse_args()
+    
+    result = check_website(args.url)
+    print(json.dumps(result, indent=2))
+</code></pre>
+<p><strong>Step 5：测试 Skill</strong></p>
+<pre><code class="language-bash"># 1. 开发模式安装
+$ cd website-monitor
+$ openclaw skill install . --dev
+
+# 2. 测试脚本
+$ python scripts/check_http.py https://example.com
+{
+  "url": "https://example.com",
+  "status": 200,
+  "response_time": 234.56
+}
+</code></pre>
+<p><strong>Step 6：打包和发布</strong></p>
+<pre><code class="language-bash"># 1. 运行测试
+$ openclaw skill test .
+✓ 所有测试通过
+
+# 2. 打包
+$ openclaw skill package .
+✓ 创建 website-monitor.skill (45KB)
+
+# 3. 发布
+$ clawhub publish website-monitor.skill
+✓ Skill 已发布！
+</code></pre>
+<h3>3.3 高级开发技巧</h3>
+<h4>技巧 1：参数校验和错误处理</h4>
+<pre><code class="language-python">def validate_url(url: str) -> bool:
+    """验证 URL 格式"""
+    import re
+    pattern = r'^https?://[^\s/$.?#].[^\s]*$'
+    return bool(re.match(pattern, url))
+
+
+def check_website(url: str, timeout: int = 10000):
+    # 参数校验
+    if not validate_url(url):
+        return {
+            "error": "无效的 URL 格式",
+            "hint": "请使用 http:// 或 https:// 开头的完整 URL"
+        }
+    
+    # ... 主逻辑
+</code></pre>
+<h4>技巧 2：缓存机制</h4>
+<pre><code class="language-python">import hashlib
+import json
+from pathlib import Path
+
+CACHE_DIR = Path.home() / '.cache' / 'website-monitor'
+
+def get_cache_key(url: str) -> str:
+    return hashlib.md5(url.encode()).hexdigest()
+
+def get_cached_result(url: str, max_age: int = 300):
+    """获取缓存的结果，默认 5 分钟"""
+    cache_file = CACHE_DIR / f"{get_cache_key(url)}.json"
+    
+    if not cache_file.exists():
+        return None
+    
+    import time
+    if time.time() - cache_file.stat().st_mtime > max_age:
+        return None
+    
+    with open(cache_file) as f:
+        return json.load(f)
+</code></pre>
+<hr>
+<h2>第四部分：最佳实践与常见问题</h2>
+<h3>4.1 Skill 设计原则</h3>
+<h4>DO（推荐）</h4>
+<p>✅ <strong>单一职责</strong>：一个 Skill 只做一类事情</p>
+<p>✅ <strong>渐进式复杂度</strong>：提供简单入口，复杂功能可选</p>
+<p>✅ <strong>防御性编程</strong>：处理各种边界情况</p>
+<p>✅ <strong>清晰错误信息</strong>：让用户知道发生了什么</p>
+<h4>DON'T（避免）</h4>
+<p>❌ <strong>过度设计</strong>：简单的任务不需要复杂的 Skill</p>
+<p>❌ <strong>重复造轮子</strong>：检查是否已有类似 Skill</p>
+<p>❌ <strong>硬编码路径</strong>：使用相对路径或配置</p>
+<h3>4.2 性能优化</h3>
+<h4>1. 减少上下文占用</h4>
+<pre><code class="language-markdown"># SKILL.md 结构优化
+
+## 快速开始（&#x3C; 50 行）
+核心内容，总是被加载
+
+## 详细文档（> 100 行）
+移到 references/detailed.md
+只在需要时加载
+</code></pre>
+<h4>2. 异步处理</h4>
+<pre><code class="language-python">import asyncio
+import aiohttp
+
+async def check_multiple_urls(urls):
+    """异步并发检查多个 URL"""
+    async with aiohttp.ClientSession() as session:
+        tasks = [check_url(session, url) for url in urls]
+        return await asyncio.gather(*tasks)
+</code></pre>
+<h3>4.3 常见问题 FAQ</h3>
+<p><strong>Q: Skill 安装后无法使用？</strong></p>
+<p>检查步骤：</p>
 <ol>
-<li><strong>描述要清晰</strong> —— 让 Codex 知道何时触发</li>
-<li><strong>保持简洁</strong> —— 控制 token 占用</li>
-<li><strong>提供示例</strong> —— 好的示例胜过千言万语</li>
-<li><strong>渐进式披露</strong> —— 复杂内容分层加载</li>
+<li><code>clawhub list</code> 确认已安装</li>
+<li>检查 SKILL.md 描述是否包含你的使用场景</li>
+<li>查看 OpenClaw 日志是否有加载错误</li>
+<li>尝试重启 OpenClaw Gateway</li>
 </ol>
+<p><strong>Q: 如何调试 Skill？</strong></p>
+<pre><code class="language-bash"># 1. 开发模式安装（修改后自动生效）
+openclaw skill install . --dev
+
+# 2. 查看详细日志
+openclaw logs --follow | grep skill-name
+
+# 3. 手动测试脚本
+python scripts/your_script.py --debug
+</code></pre>
+<p><strong>Q: Skill 可以调用其他 Skill 吗？</strong></p>
+<p>目前不直接支持，但可以通过以下方式协作：</p>
+<ol>
+<li><strong>链式调用</strong>：让用户按顺序执行多个 Skills</li>
+<li><strong>脚本组合</strong>：在 scripts/ 中调用其他 Skill 的脚本</li>
+<li><strong>共享库</strong>：将公共功能提取为 Python 模块</li>
+</ol>
+<h3>4.4 调试技巧</h3>
+<h4>启用详细日志</h4>
+<pre><code class="language-bash"># 在 openclaw.json 中启用调试模式
+{
+  "debug": true,
+  "log_level": "verbose"
+}
+</code></pre>
+<h4>性能分析</h4>
+<pre><code class="language-python">import time
+import functools
+
+def timing(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        elapsed = time.perf_counter() - start
+        print(f"{func.__name__} 耗时: {elapsed:.2f}s")
+        return result
+    return wrapper
+
+@timing
+def slow_operation():
+    pass
+</code></pre>
+<hr>
 <h2>总结</h2>
-<p>Skill 系统是 OpenClaw 的核心竞争力。通过合理使用 Skill，你可以：</p>
-<ul>
-<li>扩展 AI 的能力边界</li>
-<li>提高工作效率</li>
-<li>保持一致性</li>
-<li>分享和复用知识</li>
-</ul>
-<p>掌握 Skill 的使用和开发，是成为 OpenClaw 高级用户的关键一步。</p>
-5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-orange-600 mb-8 block","children":"返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-27"}],["$","span",null,{"children":"20 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"OpenClaw Skill 使用方法与实践指南"}]]}],["$","div",null,{"className":"p-8 md:p-12 markdown-content","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
-b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+<p>通过本文，你应该已经掌握了：</p>
+<ol>
+<li><strong>基础使用</strong>：安装、管理、组合 Skills</li>
+<li><strong>高级技巧</strong>：上下文管理、错误处理、性能优化</li>
+<li><strong>开发能力</strong>：从零开发一个完整的 Skill</li>
+<li><strong>最佳实践</strong>：设计原则、调试技巧、FAQ</li>
+</ol>
+<p><strong>下一步建议</strong>：</p>
+<ol>
+<li>尝试开发一个简单的个人 Skill</li>
+<li>分享到社区，获取反馈</li>
+<li>迭代优化，最终发布到 ClawHub</li>
+</ol>
+<p>记住：<strong>最好的 Skill 来自于解决真实问题</strong>。从你自己的需求出发，开发对你有用的 Skill，然后分享给社区！</p>
+<hr>
+<p><em>文档版本: 2.0</em><br>
+<em>最后更新: 2026-02-27</em><br>
+<em>适用版本: OpenClaw 2026.2.x</em></p>
+5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-orange-600 mb-8 block","children":"返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-27"}],["$","span",null,{"children":"35 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"OpenClaw Skill 深度实践指南：从入门到精通"}]]}],["$","div",null,{"className":"p-8 md:p-12 markdown-content","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#f97316"}]]
 7:null
-9:{"metadata":[["$","title","0",{"children":"OpenClaw 中文教程 - 自托管 AI 网关"}],["$","meta","1",{"name":"description","content":"OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用"}],["$","meta","2",{"name":"author","content":"OpenClaw 中文社区"}],["$","meta","3",{"name":"keywords","content":"OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程"}],["$","meta","4",{"property":"og:title","content":"OpenClaw 中文教程"}],["$","meta","5",{"property":"og:description","content":"自托管 AI 网关，连接你的所有聊天应用"}],["$","meta","6",{"property":"og:type","content":"website"}],["$","meta","7",{"name":"twitter:card","content":"summary"}],["$","meta","8",{"name":"twitter:title","content":"OpenClaw 中文教程"}],["$","meta","9",{"name":"twitter:description","content":"自托管 AI 网关，连接你的所有聊天应用"}]],"error":null,"digest":"$undefined"}
+12:I[622,[],"IconMark"]
+9:{"metadata":[["$","title","0",{"children":"OpenClaw 中文教程 - 自托管 AI 网关"}],["$","meta","1",{"name":"description","content":"OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用"}],["$","meta","2",{"name":"author","content":"OpenClaw 中文社区"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"keywords","content":"OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://redclaw.cc/"}],["$","meta","8",{"property":"og:title","content":"OpenClaw 中文教程"}],["$","meta","9",{"property":"og:description","content":"自托管 AI 网关，连接你的所有聊天应用"}],["$","meta","10",{"property":"og:site_name","content":"OpenClaw 中文教程"}],["$","meta","11",{"property":"og:locale","content":"zh_CN"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"OpenClaw 中文教程"}],["$","meta","15",{"name":"twitter:description","content":"自托管 AI 网关，连接你的所有聊天应用"}],["$","link","16",{"rel":"icon","href":"/icon-192x192.png"}],["$","link","17",{"rel":"apple-touch-icon","href":"/icon-192x192.png"}],["$","$L12","18",{}]],"error":null,"digest":"$undefined"}
 e:"$9:metadata"

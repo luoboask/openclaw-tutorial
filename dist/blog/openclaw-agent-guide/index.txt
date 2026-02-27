@@ -1,0 +1,155 @@
+1:"$Sreact.fragment"
+2:I[9113,["177","static/chunks/app/layout-46f5ac64a413e030.js"],"GoogleAnalytics"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/css/7649e4e24324f761.css","style"]
+0:{"P":null,"b":"N9Dhni1f6XFAjZnrZZYuH","p":"","c":["","blog","openclaw-agent-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","openclaw-agent-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/7649e4e24324f761.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":[["$","$L2",null,{}],[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"OpenClaw 中文教程\",\"url\":\"https://redclaw.cc\",\"description\":\"OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw\",\"inLanguage\":\"zh-CN\",\"author\":{\"@type\":\"Organization\",\"name\":\"OpenClaw 中文社区\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"OpenClaw 中文社区\",\"url\":\"https://redclaw.cc\",\"logo\":\"https://redclaw.cc/icon-192x192.png\",\"sameAs\":[\"https://github.com/openclaw/openclaw\",\"https://discord.com/invite/clawd\"]}"}}]]]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","openclaw-agent-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-7164898cb9c00029.js"],""]
+11:Tda5,<h1>OpenClaw Agent 完全指南</h1>
+<p>Agent 是 OpenClaw 系统的核心执行单元。本文深入解析 Agent 的架构、工作原理和最佳实践。</p>
+<h2>什么是 Agent？</h2>
+<p><strong>Agent（智能体）</strong> 是 OpenClaw 中执行任务的实际工作者。</p>
+<h3>类比理解</h3>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenClaw 系统</td>
+<td>公司基础设施</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>员工</td>
+</tr>
+<tr>
+<td>Skill</td>
+<td>员工的技能证书</td>
+</tr>
+<tr>
+<td>Extension</td>
+<td>公司的业务部门</td>
+</tr>
+</tbody>
+</table>
+<h2>Agent 的核心组成</h2>
+<p>每个 Agent 包含：</p>
+<ol>
+<li><strong>身份标识</strong>：唯一的 ID 和配置</li>
+<li><strong>大脑配置</strong>：使用的 AI 模型</li>
+<li><strong>感知系统</strong>：可用的工具</li>
+<li><strong>专业技能</strong>：安装的 Skills</li>
+<li><strong>记忆系统</strong>：长期记忆和会话历史</li>
+<li><strong>通讯频道</strong>：接入的聊天应用</li>
+</ol>
+<h2>Agent vs Skill vs Extension</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Agent</th>
+<th>Skill</th>
+<th>Extension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>角色</strong></td>
+<td>执行者</td>
+<td>知识包</td>
+<td>系统扩展</td>
+</tr>
+<tr>
+<td><strong>是什么</strong></td>
+<td>AI 助手</td>
+<td>教 AI 怎么做</td>
+<td>给 AI 新能力</td>
+</tr>
+<tr>
+<td><strong>例子</strong></td>
+<td>claw-admin</td>
+<td>pdf-processor</td>
+<td>telegram</td>
+</tr>
+</tbody>
+</table>
+<h2>Agent 的工作流程</h2>
+<pre><code>用户输入
+    ↓
+Agent 分析意图
+    ↓
+加载相关记忆
+    ↓
+判断需要的 Skill
+    ↓
+执行工具调用
+    ↓
+生成回复
+    ↓
+更新记忆
+</code></pre>
+<h2>Agent 的类型</h2>
+<h3>1. 单 Agent 模式</h3>
+<p>适合个人使用、简单任务。</p>
+<h3>2. 多 Agent 协作模式（推荐）</h3>
+<p>适合团队协作、复杂项目。</p>
+<pre><code>claw-admin (管理员)
+    ├── claw-article (内容创作)
+    ├── claw-code (开发运维)
+    └── claw-collect (信息采集)
+</code></pre>
+<h3>3. 专用 Agent 模式</h3>
+<p>适合特定领域、高频任务。</p>
+<h2>最佳实践</h2>
+<h3>DO</h3>
+<ul>
+<li>✅ 单一职责：每个 Agent 专注于特定领域</li>
+<li>✅ 明确边界：清晰定义 Agent 的职责范围</li>
+<li>✅ 适当授权：给 Agent 足够的权限</li>
+</ul>
+<h3>DON'T</h3>
+<ul>
+<li>❌ 过度集中：一个 Agent 做所有事情</li>
+<li>❌ 权限过大：给 Agent 危险的权限</li>
+<li>❌ 职责模糊：多个 Agent 职责重叠</li>
+</ul>
+<h2>配置示例</h2>
+<pre><code class="language-json">{
+  "agent": {
+    "id": "my-agent",
+    "name": "我的助手",
+    "model": "kimi-coding/k2p5",
+    "skills": ["pdf-processor", "weather", "github"],
+    "tools": ["browser", "exec", "search"],
+    "memory": { "enabled": true }
+  }
+}
+</code></pre>
+<h2>总结</h2>
+<p>Agent 是 OpenClaw 的核心执行单元：</p>
+<ol>
+<li><strong>Agent 是执行者</strong>：实际处理任务的工作者</li>
+<li><strong>Skill 是知识</strong>：Agent 通过 Skills 扩展能力</li>
+<li><strong>多 Agent 更高效</strong>：团队协作比单兵作战更强</li>
+<li><strong>配置要合理</strong>：权限、工具、记忆都要精心配置</li>
+</ol>
+<p>掌握 Agent 的使用，是成为 OpenClaw 高级用户的关键一步。</p>
+<hr>
+<p><em>文档版本: 1.0</em><br>
+<em>最后更新: 2026-02-27</em></p>
+5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-orange-600 mb-8 block","children":"返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-orange-500 to-red-600 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-27"}],["$","span",null,{"children":"30 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"OpenClaw Agent 完全指南：深入理解与最佳实践"}]]}],["$","div",null,{"className":"p-8 md:p-12 markdown-content","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#f97316"}]]
+7:null
+12:I[622,[],"IconMark"]
+9:{"metadata":[["$","title","0",{"children":"OpenClaw 中文教程 - 自托管 AI 网关"}],["$","meta","1",{"name":"description","content":"OpenClaw 中文教程网站 - 学习如何部署和配置 OpenClaw，将 AI 助手接入 WhatsApp、Telegram、Discord 等聊天应用"}],["$","meta","2",{"name":"author","content":"OpenClaw 中文社区"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"keywords","content":"OpenClaw, AI, 自托管, WhatsApp, Telegram, Discord, 教程"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://redclaw.cc/"}],["$","meta","8",{"property":"og:title","content":"OpenClaw 中文教程"}],["$","meta","9",{"property":"og:description","content":"自托管 AI 网关，连接你的所有聊天应用"}],["$","meta","10",{"property":"og:site_name","content":"OpenClaw 中文教程"}],["$","meta","11",{"property":"og:locale","content":"zh_CN"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"OpenClaw 中文教程"}],["$","meta","15",{"name":"twitter:description","content":"自托管 AI 网关，连接你的所有聊天应用"}],["$","link","16",{"rel":"icon","href":"/icon-192x192.png"}],["$","link","17",{"rel":"apple-touch-icon","href":"/icon-192x192.png"}],["$","$L12","18",{}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"

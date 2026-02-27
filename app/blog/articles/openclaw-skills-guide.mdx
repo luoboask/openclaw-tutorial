@@ -1,422 +1,1031 @@
-# OpenClaw Skill 使用方法与实践指南
+# OpenClaw Skill 深度实践指南：从入门到精通
 
-OpenClaw 的 Skill 系统是其最强大的特性之一。通过 Skill，你可以为 AI 助手添加专业能力，让它能够处理特定领域的任务。本文将详细介绍 Skill 的使用方法和实践技巧。
+OpenClaw 的 Skill 系统是其最强大的特性之一，它让 AI 助手能够掌握专业技能，处理复杂任务。本文将带你从基础使用到高级开发，全面掌握 Skill 系统。
 
-## 什么是 Skill？
+---
 
-**Skill（技能）** 是模块化的功能包，它为 OpenClaw 提供特定领域的专业知识和工作流程。可以把 Skill 理解为 AI 助手的"专业培训教材"——装上不同的 Skill，AI 就具备了不同的专业能力。
+## 第一部分：理解 Skill 系统
 
-### Skill vs 普通工具的区别
+### 1.1 什么是 Skill？
 
-| 特性 | 普通工具 | Skill |
-|------|---------|-------|
-| 复杂度 | 简单单一功能 | 复杂多步骤流程 |
-| 知识深度 | 基础 API 调用 | 领域专业知识 |
-| 可定制性 | 固定功能 | 可自定义配置 |
-| 学习成本 | 低 | 需要阅读 SKILL.md |
+**Skill（技能）** 是 OpenClaw 的模块化知识包。如果把 AI 助手比作一位员工，那么：
 
-## 如何安装 Skill
+- **基础能力** = 通识教育（阅读、写作、推理）
+- **Skill** = 专业培训（会计证书、编程技能、设计能力）
 
-### 方法 1：通过 ClawHub 安装（推荐）
+安装一个 Skill，就像给 AI 助手发放了某个领域的"职业资格证书"，它就能够使用该领域的专业知识和工具。
 
-ClawHub 是 OpenClaw 的官方 Skill 仓库。
+### 1.2 Skill 的架构设计
 
-```bash
-# 搜索 Skill
-clawhub search pdf
-
-# 安装 Skill
-clawhub install pdf-processor
-
-# 安装指定版本
-clawhub install pdf-processor@1.2.0
-
-# 更新 Skill
-clawhub update pdf-processor
-
-# 查看已安装的 Skills
-clawhub list
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    OpenClaw Agent                          │
+├─────────────────────────────────────────────────────────────┤
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
+│  │  weather     │  │  pdf-proc    │  │   github     │     │
+│  │  Skill       │  │  Skill       │  │   Skill      │     │
+│  ├──────────────┤  ├──────────────┤  ├──────────────┤     │
+│  │ SKILL.md     │  │ SKILL.md     │  │ SKILL.md     │     │
+│  │ scripts/     │  │ scripts/     │  │ scripts/     │     │
+│  │ references/  │  │ references/  │  │ references/  │     │
+│  └──────────────┘  └──────────────┘  └──────────────┘     │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### 方法 2：手动安装
+### 1.3 Skill vs Extension 的区别
+
+| 维度 | Skill | Extension |
+|------|-------|-----------|
+| **本质** | 知识包 + 工作流 | 代码扩展 |
+| **开发语言** | Markdown + 任意脚本 | TypeScript/JavaScript |
+| **安装位置** | `~/.openclaw/skills/` | `~/.openclaw/extensions/` |
+| **运行方式** | 被 Agent 加载执行 | 独立进程 |
+| **适用场景** | 领域知识、复杂流程 | 新工具、新通道 |
+| **例子** | pdf-processor, weather | feishu, telegram |
+
+**简单记忆**：
+- 需要**教 AI 怎么做** → 用 Skill
+- 需要**给 AI 新能力** → 用 Extension
+
+---
+
+## 第二部分：Skill 使用实战
+
+### 2.1 安装与管理
+
+#### 通过 ClawHub 安装（推荐）
 
 ```bash
-# 下载 .skill 文件后安装
-openclaw skill install ./path/to/skill-name.skill
+# 1. 搜索可用的 Skills
+$ clawhub search pdf
+
+搜索结果:
+  📦 pdf-processor
+     版本: 1.2.0
+     描述: 专业的 PDF 处理工具，支持提取、合并、转换
+     下载量: 1,234
+     评分: ⭐⭐⭐⭐⭐ (4.8)
+
+  📦 nano-pdf
+     版本: 0.9.5
+     描述: 轻量级 PDF 工具
+     下载量: 567
+     评分: ⭐⭐⭐⭐ (4.2)
+
+# 2. 安装指定 Skill
+$ clawhub install pdf-processor
+
+正在下载 pdf-processor@1.2.0...
+✓ 下载完成
+✓ 验证签名
+✓ 安装到 ~/.openclaw/skills/pdf-processor
+✓ 安装成功！
+
+# 3. 查看已安装的 Skills
+$ clawhub list
+
+已安装 Skills (5):
+  ✓ pdf-processor    1.2.0   PDF 处理
+  ✓ weather          2.1.0   天气查询
+  ✓ github           1.5.2   GitHub 操作
+  ✓ apple-notes      1.0.8   笔记管理
+  ✓ openai-image-gen 0.9.1   图片生成
+
+# 4. 更新 Skill
+$ clawhub update pdf-processor
+
+检查更新...
+发现新版本: 1.3.0
+更新日志:
+  - 新增 PDF 表单填充功能
+  - 修复内存泄漏问题
+  - 提升 30% 处理速度
+
+是否更新? (Y/n): y
+✓ 更新完成
+
+# 5. 卸载 Skill
+$ clawhub uninstall nano-pdf
+✓ 已卸载 nano-pdf
+```
+
+#### 手动安装
+
+```bash
+# 从本地文件安装
+$ openclaw skill install ./my-custom-skill.skill
 
 # 从 Git 仓库安装
-openclaw skill install https://github.com/user/skill-repo
+$ openclaw skill install https://github.com/username/my-skill
+
+# 开发模式安装（创建符号链接，方便开发调试）
+$ cd ~/my-skill-dev
+$ openclaw skill install . --dev
 ```
 
-### 方法 3：本地开发安装
+### 2.2 实际使用场景
+
+#### 场景一：自动化文档处理工作流
+
+**需求**：每周五需要整理一份周报，包含：
+1. 从各个渠道收集数据
+2. 生成 PDF 报告
+3. 发送邮件给团队
+
+**使用 Skills**:
+
+```
+用户：帮我生成本周的数据报告
+
+Agent：我来帮您处理。首先让我收集数据...
+
+[使用 web_fetch Skill]
+- 从内部系统抓取本周数据
+- 整理成结构化格式
+
+[使用 pandas Skill]  
+- 数据清洗和分析
+- 生成图表
+
+[使用 pdf-processor Skill]
+- 创建格式化的 PDF 报告
+- 添加页眉页脚和公司 Logo
+
+[使用 himalaya Skill]
+- 撰写邮件正文
+- 添加 PDF 附件
+- 发送给团队成员
+
+✓ 周报已生成并发送！
+```
+
+#### 场景二：开发工作流自动化
+
+**需求**：新功能开发的标准流程
+
+```
+用户：我要开始开发一个新功能，帮我初始化
+
+Agent：好的，我来帮您设置开发环境...
+
+[使用 github Skill]
+- 创建新分支 feature/user-authentication
+- 基于最新的 main 分支
+
+[使用 coding-agent Skill]
+- 分析需求文档
+- 生成项目结构和基础代码
+
+[使用 healthcheck Skill]
+- 检查开发环境配置
+- 验证依赖版本
+
+[使用 apple-notes Skill]
+- 创建开发任务清单
+- 设置提醒事项
+
+✓ 开发环境已就绪！
+```
+
+#### 场景三：内容创作助手
+
+**需求**：创作一篇技术博客
+
+```
+用户：帮我写一篇关于 Docker 的教程
+
+Agent：我来协助您创作...
+
+[使用 web_search Skill]
+- 搜索最新的 Docker 最佳实践
+- 查找官方文档更新
+
+[使用 openai-image-gen Skill]
+- 生成 Docker 架构图
+- 创建封面图片
+
+[使用 summarize Skill]
+- 整理参考资料要点
+- 提取关键信息
+
+[使用 docx-editor Skill]
+- 创建格式化的文档
+- 添加代码高亮
+
+✓ 初稿已完成，请审阅！
+```
+
+### 2.3 高级使用技巧
+
+#### 技巧 1：Skill 组合策略
+
+**顺序执行模式**：
+```
+任务 A → Skill 1 → 结果 → Skill 2 → 结果 → Skill 3 → 完成
+```
+
+**条件分支模式**：
+```
+任务 → Skill A (判断) → 
+  ├─ 条件1 → Skill B → 完成
+  └─ 条件2 → Skill C → 完成
+```
+
+**并行处理模式**：
+```
+任务 → 
+  ├─ Skill A (分支1) ─┐
+  ├─ Skill B (分支2) ─┼─ 聚合结果 → Skill D → 完成
+  └─ Skill C (分支3) ─┘
+```
+
+#### 技巧 2：上下文管理
+
+**问题**：多个 Skills 同时使用时，如何避免上下文混乱？
+
+**解决方案**：
+
+```markdown
+在对话中明确指定上下文：
+
+用户：先用 pdf-processor 提取第一页，
+     然后用 docx-editor 创建新文档插入内容
+
+Agent：明白。我按顺序执行：
+       1. 使用 pdf-processor 提取第 1 页
+       2. 将提取的内容传递给 docx-editor
+       3. 创建新文档并插入
+```
+
+#### 技巧 3：错误处理和重试
+
+```
+用户：处理这个 PDF，如果失败了就告诉我原因
+
+Agent：开始处理...
+
+[尝试使用 pdf-processor]
+第一次：文件格式错误 (加密 PDF)
+  ↓
+检测加密 → 提示用户输入密码
+  ↓
+用户：密码是 "123456"
+  ↓
+重试处理 → 成功
+
+✓ 处理完成！
+```
+
+---
+
+## 第三部分：Skill 开发实战
+
+### 3.1 开发环境准备
 
 ```bash
-# 在 Skill 目录下
-openclaw skill install . --dev
+# 1. 安装 Skill Creator 工具
+$ clawhub install skill-creator
+
+# 2. 创建工作目录
+$ mkdir -p ~/openclaw-skills
+$ cd ~/openclaw-skills
+
+# 3. 验证安装
+$ openclaw skill --version
+skill-creator 1.0.0
 ```
 
-## 常用 Skill 介绍
+### 3.2 完整开发流程
 
-### 1. 文件处理类
+#### 案例：开发一个「网站监控」Skill
 
-#### PDF 处理 (pdf-processor)
+**Step 1：需求分析**
 
-```
-用户：把这个 PDF 的前 5 页提取出来
-Agent：使用 pdf-processor Skill 提取页面...
+```markdown
+## 需求规格说明书
 
-用户：合并这几个 PDF 文件
-Agent：使用 pdf-processor Skill 合并文件...
+**Skill 名称**: website-monitor
+**目标用户**: 网站运维人员、个人站长
+**核心功能**:
+1. 监控网站可用性（HTTP 状态检查）
+2. 检查 SSL 证书过期时间
+3. 检测网页内容变化
+4. 生成监控报告
 
-用户：把 PDF 转换成 Word
-Agent：使用 pdf-processor Skill 转换格式...
-```
-
-#### 文档处理 (docx-editor)
-
-```
-用户：在合同文档中添加批注
-Agent：使用 docx-editor Skill 添加批注...
-
-用户：生成一份带格式的报告
-Agent：使用 docx-editor Skill 创建文档...
+**使用场景**:
+- 定期检查网站健康状态
+- 监控竞争对手网站变化
+- 批量检查客户网站状态
 ```
 
-### 2. 开发工具类
-
-#### GitHub 助手 (github)
-
-```
-用户：查看我的待处理 PR
-Agent：使用 github Skill 获取 PR 列表...
-
-用户：创建一个新 Issue
-Agent：使用 github Skill 创建 Issue...
-```
-
-#### 健康检查 (healthcheck)
-
-```
-用户：检查我的服务器安全状况
-Agent：使用 healthcheck Skill 进行安全审计...
-
-用户：查看系统更新状态
-Agent：使用 healthcheck Skill 检查更新...
-```
-
-### 3. 内容创作类
-
-#### 图片生成 (openai-image-gen)
-
-```
-用户：生成一张 futuristic city 的图片
-Agent：使用 openai-image-gen Skill 生成图片...
-```
-
-#### 语音合成 (sag)
-
-```
-用户：把这段话转成语音
-Agent：使用 sag Skill 进行 TTS 转换...
-```
-
-### 4. 生活服务类
-
-#### 天气查询 (weather)
-
-```
-用户：北京今天天气怎么样？
-Agent：使用 weather Skill 查询天气...
-```
-
-#### 笔记管理 (apple-notes)
-
-```
-用户：创建一个会议记录笔记
-Agent：使用 apple-notes Skill 创建笔记...
-```
-
-## Skill 使用技巧
-
-### 技巧 1：让 Agent 知道你有什么 Skill
-
-```
-用户：你有哪些 Skill 可以用？
-Agent：我目前安装了以下 Skill...
-  - pdf-processor: 处理 PDF 文件
-  - github: GitHub 操作
-  - weather: 天气查询
-  ...
-```
-
-### 技巧 2：组合多个 Skill
-
-```
-用户：抓取这个网页，生成 PDF，然后发邮件给我
-Agent：
-  1. 使用 web_fetch Skill 抓取网页
-  2. 使用 pdf-processor Skill 生成 PDF
-  3. 使用 himalaya Skill 发送邮件
-```
-
-### 技巧 3：查看 Skill 文档
-
-每个 Skill 都有详细的 SKILL.md 文档：
-
-```
-用户：healthcheck Skill 能做什么？
-Agent：根据 SKILL.md，healthcheck Skill 提供以下功能...
-```
-
-### 技巧 4：按需加载
-
-OpenClaw 采用渐进式加载机制：
-
-1. **Metadata 层**：始终加载（skill 名称和描述）
-2. **SKILL.md 层**：触发时加载（详细说明）
-3. **资源层**：需要时加载（脚本、参考文档）
-
-这样可以保持上下文清爽，只在需要时加载相关内容。
-
-## 如何创建自己的 Skill
-
-### 第一步：规划 Skill 内容
-
-明确你的 Skill 要解决什么问题：
-
-- **目标用户**：谁会使用这个 Skill？
-- **核心功能**：主要解决什么问题？
-- **使用场景**：典型的使用方式是什么？
-
-### 第二步：创建 Skill 结构
+**Step 2：创建项目结构**
 
 ```bash
-# 使用官方工具创建
-openclaw skill create my-skill
+$ openclaw skill create website-monitor
 
-# 生成的目录结构
-my-skill/
-├── SKILL.md           # 核心文档（必需）
-├── scripts/           # 可执行脚本（可选）
-├── references/        # 参考资料（可选）
-└── assets/           # 资源文件（可选）
+✓ 创建目录 website-monitor/
+✓ 生成 SKILL.md 模板
+✓ 创建 scripts/ 目录
+✓ 创建 references/ 目录
+
+目录结构：
+website-monitor/
+├── SKILL.md              # 核心文档
+├── scripts/
+│   ├── check_http.py     # HTTP 检查脚本
+│   ├── check_ssl.py      # SSL 证书检查
+│   ├── check_diff.py     # 内容变化检测
+│   └── generate_report.py # 报告生成
+├── references/
+│   ├── api_reference.md  # API 文档
+│   └── examples.md       # 更多示例
+└── assets/
+    └── report_template.html  # 报告模板
 ```
 
-### 第三步：编写 SKILL.md
+**Step 3：编写 SKILL.md**
 
 ```markdown
 ---
-name: my-skill
+name: website-monitor
 description: |
-  简短描述 Skill 的功能。
+  网站监控工具，支持 HTTP 状态检查、SSL 证书监控、
+  内容变化检测和报告生成。适用于网站运维、可用性监控场景。
+  
   使用场景：
-  1. 场景一
-  2. 场景二
-  3. 场景三
+  1. 监控网站是否正常运行
+  2. 检查 SSL 证书过期时间
+  3. 检测网页内容是否有变化
+  4. 批量监控多个网站
+  5. 生成监控报告
 ---
 
-# My Skill
+# Website Monitor Skill
 
 ## 快速开始
 
-基本使用示例...
+### 检查单个网站
+
+```bash
+# 检查网站 HTTP 状态
+python scripts/check_http.py https://example.com
+
+# 输出示例：
+# {
+#   "url": "https://example.com",
+#   "status": 200,
+#   "response_time": 0.234,
+#   "ssl_valid": true,
+#   "ssl_expiry": "2025-12-31"
+# }
+```
+
+### 检查 SSL 证书
+
+```bash
+python scripts/check_ssl.py https://example.com
+
+# 输出示例：
+# {
+#   "domain": "example.com",
+#   "issuer": "Let's Encrypt",
+#   "valid_from": "2024-01-01",
+#   "valid_until": "2025-12-31",
+#   "days_remaining": 672,
+#   "warning": false
+# }
+```
+
+### 检测内容变化
+
+```bash
+# 第一次运行建立基准
+python scripts/check_diff.py https://example.com --save-baseline
+
+# 后续检查是否有变化
+python scripts/check_diff.py https://example.com
+
+# 输出示例：
+# {
+#   "changed": true,
+#   "diff_summary": "标题从 'Example' 变为 'Example Inc.'",
+#   "sections_changed": ["header", "footer"]
+# }
+```
+
+### 批量监控
+
+```bash
+# 从文件读取 URL 列表
+python scripts/check_http.py --file urls.txt --output results.json
+```
 
 ## 高级用法
 
-复杂场景示例...
+### 生成监控报告
 
-## 参考文档
+```bash
+# 生成 HTML 报告
+python scripts/generate_report.py --input results.json --format html --output report.html
 
-- 详细 API：[API.md](references/API.md)
-- 示例代码：[examples/](references/examples/)
+# 生成 Markdown 报告
+python scripts/generate_report.py --input results.json --format markdown
 ```
 
-### 第四步：添加脚本（可选）
+### 设置监控阈值
 
-如果 Skill 需要执行代码：
+```bash
+# 设置响应时间告警阈值（毫秒）
+python scripts/check_http.py https://example.com --timeout 5000
+
+# 设置 SSL 过期告警阈值（天数）
+python scripts/check_ssl.py https://example.com --warn-days 30
+```
+
+## 完整示例
+
+### 场景：监控公司官网
+
+```bash
+# 1. 创建监控列表
+cat > websites.txt << 'EOF'
+https://company.com
+https://blog.company.com
+https://api.company.com
+EOF
+
+# 2. 执行批量检查
+python scripts/check_http.py --file websites.txt --output status.json
+
+# 3. 检查 SSL 证书
+for url in $(cat websites.txt); do
+  python scripts/check_ssl.py "$url" --warn-days 30
+done
+
+# 4. 生成日报
+python scripts/generate_report.py --input status.json --format html --output daily-report.html
+```
+
+## 配置文件
+
+可以创建配置文件简化常用参数：
+
+```json
+{
+  "default_timeout": 10000,
+  "ssl_warn_days": 30,
+  "concurrent_checks": 5,
+  "user_agent": "WebsiteMonitor/1.0"
+}
+```
+
+## 故障排查
+
+### 问题 1：SSL 证书检查失败
+
+**原因**：服务器不支持 SNI 或证书链不完整
+
+**解决**：
+```bash
+# 添加 --insecure 跳过证书验证（仅用于测试）
+python scripts/check_ssl.py https://example.com --insecure
+```
+
+### 问题 2：响应时间过长
+
+**原因**：网络延迟或服务器负载高
+
+**解决**：
+```bash
+# 增加超时时间
+python scripts/check_http.py https://example.com --timeout 30000
+```
+
+## API 参考
+
+详见 [references/api_reference.md](references/api_reference.md)
+
+## 更多示例
+
+详见 [references/examples.md](references/examples.md)
+```
+
+**Step 4：实现核心脚本**
 
 ```python
-# scripts/process_data.py
-import json
+# scripts/check_http.py
+#!/usr/bin/env python3
+"""
+HTTP 状态检查脚本
+"""
+
 import sys
+import json
+import argparse
+import urllib.request
+import ssl
+from datetime import datetime
+from typing import Dict, Any
+
+
+def check_website(url: str, timeout: int = 10000) -> Dict[str, Any]:
+    """
+    检查网站 HTTP 状态
+    
+    Args:
+        url: 目标网址
+        timeout: 超时时间（毫秒）
+    
+    Returns:
+        检查结果字典
+    """
+    result = {
+        "url": url,
+        "timestamp": datetime.now().isoformat(),
+        "status": None,
+        "response_time": None,
+        "error": None,
+        "ssl_valid": None,
+        "ssl_expiry": None
+    }
+    
+    try:
+        import time
+        start_time = time.time()
+        
+        # 创建请求
+        req = urllib.request.Request(
+            url,
+            headers={
+                'User-Agent': 'WebsiteMonitor/1.0'
+            }
+        )
+        
+        # 发送请求
+        with urllib.request.urlopen(req, timeout=timeout/1000) as response:
+            result["status"] = response.getcode()
+            result["response_time"] = round((time.time() - start_time) * 1000, 2)
+            
+            # 检查 SSL 信息
+            if url.startswith('https://'):
+                cert = response.getpeercert()
+                if cert:
+                    result["ssl_valid"] = True
+                    expiry = cert.get('notAfter')
+                    if expiry:
+                        result["ssl_expiry"] = expiry
+                        
+    except urllib.error.HTTPError as e:
+        result["status"] = e.code
+        result["error"] = f"HTTP Error: {e.reason}"
+    except urllib.error.URLError as e:
+        result["error"] = f"URL Error: {str(e.reason)}"
+    except Exception as e:
+        result["error"] = f"Error: {str(e)}"
+    
+    return result
+
 
 def main():
-    data = json.load(sys.stdin)
-    # 处理逻辑
-    result = process(data)
-    print(json.dumps(result))
+    parser = argparse.ArgumentParser(description='检查网站 HTTP 状态')
+    parser.add_argument('url', help='目标网址')
+    parser.add_argument('--timeout', type=int, default=10000, help='超时时间（毫秒）')
+    parser.add_argument('--output', '-o', help='输出文件')
+    
+    args = parser.parse_args()
+    
+    # 执行检查
+    result = check_website(args.url, args.timeout)
+    
+    # 格式化输出
+    output = json.dumps(result, indent=2, ensure_ascii=False)
+    
+    if args.output:
+        with open(args.output, 'w', encoding='utf-8') as f:
+            f.write(output)
+        print(f"结果已保存到: {args.output}")
+    else:
+        print(output)
+    
+    # 返回状态码用于脚本判断
+    sys.exit(0 if result["status"] == 200 else 1)
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     main()
 ```
 
-### 第五步：测试和打包
+**Step 5：测试 Skill**
 
 ```bash
-# 本地测试
-openclaw skill test ./my-skill
+# 1. 开发模式安装
+$ cd website-monitor
+$ openclaw skill install . --dev
 
-# 打包
-openclaw skill package ./my-skill
+# 2. 测试脚本
+$ python scripts/check_http.py https://example.com
+{
+  "url": "https://example.com",
+  "timestamp": "2026-02-27T15:30:00",
+  "status": 200,
+  "response_time": 234.56,
+  "ssl_valid": true,
+  "ssl_expiry": "Dec 31 23:59:59 2025 GMT"
+}
 
-# 发布到 ClawHub
-clawhub publish my-skill.skill
+# 3. 在 OpenClaw 中测试
+用户：检查 https://example.com 的状态
+Agent：我来为您检查网站状态...
+[运行脚本检查结果]
+网站状态正常！
+- HTTP 状态: 200 OK
+- 响应时间: 234ms
+- SSL 证书有效至: 2025-12-31
 ```
 
-## Skill 开发最佳实践
+**Step 6：打包和发布**
 
-### 1. 描述要清晰
+```bash
+# 1. 运行测试套件
+$ openclaw skill test .
+✓ 检查目录结构
+✓ 验证 SKILL.md 格式
+✓ 测试脚本可执行性
+✓ 验证无敏感信息
+✓ 所有测试通过
 
-SKILL.md 的 description 是最重要的触发器：
+# 2. 打包
+$ openclaw skill package .
+✓ 验证 Skill 完整性
+✓ 压缩资源文件
+✓ 生成签名
+✓ 创建 website-monitor.skill (45KB)
 
-- ✅ "处理 PDF 文件：提取页面、合并文档、转换格式"
-- ❌ "PDF 工具"
+# 3. 发布到 ClawHub
+$ clawhub publish website-monitor.skill
+✓ 上传成功
+✓ 等待审核 (通常 1-2 工作日)
+✓ Skill 已发布！
+```
 
-### 2. 保持简洁
+### 3.3 高级开发技巧
 
-Skill 的上下文会占用 token，尽量精简：
+#### 技巧 1：参数校验和错误处理
 
-- SKILL.md 控制在 500 行以内
-- 大文档放到 references/
-- 只在 SKILL.md 保留核心流程
+```python
+# scripts/check_http.py
 
-### 3. 提供示例
+def validate_url(url: str) -> bool:
+    """验证 URL 格式"""
+    import re
+    pattern = r'^https?://[^\s/$.?#].[^\s]*$'
+    return bool(re.match(pattern, url))
 
-好的示例胜过千言万语：
 
+def check_website(url: str, timeout: int = 10000) -> Dict[str, Any]:
+    # 参数校验
+    if not validate_url(url):
+        return {
+            "error": "无效的 URL 格式",
+            "hint": "请使用 http:// 或 https:// 开头的完整 URL"
+        }
+    
+    if timeout < 1000 or timeout > 60000:
+        return {
+            "error": "超时时间超出范围",
+            "hint": "超时时间应在 1000-60000 毫秒之间"
+        }
+    
+    # ... 主逻辑
+```
+
+#### 技巧 2：进度反馈
+
+```python
+import sys
+import time
+
+def check_with_progress(urls: List[str]):
+    """带进度条的批量检查"""
+    total = len(urls)
+    results = []
+    
+    for i, url in enumerate(urls, 1):
+        # 输出进度到 stderr（不影响 JSON 输出）
+        print(f"\r检查中: {i}/{total} ({url})", file=sys.stderr, end='')
+        
+        result = check_website(url)
+        results.append(result)
+        
+        # 短暂延迟避免请求过快
+        time.sleep(0.5)
+    
+    print(file=sys.stderr)  # 换行
+    return results
+```
+
+#### 技巧 3：缓存机制
+
+```python
+import hashlib
+import os
+from pathlib import Path
+
+CACHE_DIR = Path.home() / '.cache' / 'openclaw' / 'website-monitor'
+
+def get_cache_key(url: str) -> str:
+    """生成缓存键"""
+    return hashlib.md5(url.encode()).hexdigest()
+
+def get_cached_result(url: str, max_age: int = 300) -> Optional[Dict]:
+    """
+    获取缓存的结果
+    
+    Args:
+        max_age: 缓存最大年龄（秒），默认 5 分钟
+    """
+    cache_file = CACHE_DIR / f"{get_cache_key(url)}.json"
+    
+    if not cache_file.exists():
+        return None
+    
+    # 检查缓存是否过期
+    import time
+    if time.time() - cache_file.stat().st_mtime > max_age:
+        return None
+    
+    with open(cache_file, 'r') as f:
+        return json.load(f)
+
+def cache_result(url: str, result: Dict):
+    """缓存结果"""
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache_file = CACHE_DIR / f"{get_cache_key(url)}.json"
+    
+    with open(cache_file, 'w') as f:
+        json.dump(result, f)
+```
+
+---
+
+## 第四部分：最佳实践与常见问题
+
+### 4.1 Skill 设计原则
+
+#### DO（推荐）
+
+✅ **单一职责**：一个 Skill 只做一类事情
 ```markdown
-## 使用示例
-
-提取 PDF 第 3-5 页：
-```bash
-python scripts/extract_pages.py input.pdf 3 5
+好：weather - 只做天气查询
+坏：utils - 包含天气、股票、汇率等各种功能
 ```
 
-合并多个 PDF：
-```bash
-python scripts/merge_pdfs.py file1.pdf file2.pdf output.pdf
-```
-```
-
-### 4. 渐进式披露
-
-复杂 Skill 采用分层设计：
-
+✅ **渐进式复杂度**：提供简单入口，复杂功能可选
 ```markdown
-# 核心内容（总是加载）
-
-## 基础用法
+## 快速开始（必看）
 简单示例...
 
-## 高级功能
-- 表单处理：见 [FORMS.md](references/FORMS.md)
-- 批注功能：见 [ANNOTATIONS.md](references/ANNOTATIONS.md)
+## 高级用法（可选）
+复杂配置...
 ```
 
-### 5. 测试脚本
+✅ **防御性编程**：处理各种边界情况
+```python
+# 检查文件是否存在
+if not os.path.exists(filepath):
+    return {"error": "文件不存在", "filepath": filepath}
 
-所有脚本必须实际测试过：
-
-```bash
-# 测试脚本
-python scripts/my_script.py < test_input.json
-
-# 验证输出
-# 检查错误处理
-# 测试边界情况
+# 检查权限
+try:
+    with open(filepath, 'r') as f:
+        content = f.read()
+except PermissionError:
+    return {"error": "没有读取权限", "filepath": filepath}
 ```
 
-## 实战案例：创建一个发票处理 Skill
+✅ **清晰错误信息**：让用户知道发生了什么
+```python
+# 不好
+return {"error": "failed"}
 
-### 需求分析
-
-- 从 PDF/图片中提取发票信息
-- 验证发票格式
-- 导出为 Excel
-
-### 目录结构
-
-```
-invoice-processor/
-├── SKILL.md
-├── scripts/
-│   ├── extract_invoice.py    # 提取信息
-│   ├── validate_invoice.py   # 验证格式
-│   └── export_excel.py       # 导出 Excel
-├── references/
-│   ├── invoice_format.md     # 发票格式说明
-│   └── api_docs.md          # API 文档
-└── assets/
-    └── template.xlsx        # Excel 模板
+# 好
+return {
+    "error": "PDF 文件受密码保护",
+    "hint": "请提供密码: python script.py file.pdf --password your_password"
+}
 ```
 
-### SKILL.md 示例
+#### DON'T（避免）
+
+❌ **过度设计**：简单的任务不需要复杂的 Skill
+
+❌ **重复造轮子**：检查是否已有类似 Skill
+
+❌ **硬编码路径**：使用相对路径或配置
+```python
+# 不好
+with open('/Users/me/data/config.json') as f:
+    config = json.load(f)
+
+# 好
+config_path = os.environ.get('SKILL_CONFIG', './config.json')
+with open(config_path) as f:
+    config = json.load(f)
+```
+
+### 4.2 性能优化
+
+#### 1. 减少上下文占用
 
 ```markdown
----
-name: invoice-processor
-description: |
-  发票处理自动化工具。从 PDF/图片中提取发票信息、
-  验证格式、导出 Excel 报表。适用于财务报销、发票管理场景。
----
+# SKILL.md 结构优化
 
-# 发票处理 Skill
+## 快速开始（< 50 行）
+核心内容，总是被加载
 
-## 快速开始
+## 详细文档（> 100 行）
+移到 references/detailed.md
+只在需要时加载
+```
 
-提取发票信息：
+#### 2. 异步处理
+
 ```python
-python scripts/extract_invoice.py invoice.pdf
+import asyncio
+import aiohttp
+
+async def check_multiple_urls(urls: List[str]):
+    """异步并发检查多个 URL"""
+    async with aiohttp.ClientSession() as session:
+        tasks = [check_single_url(session, url) for url in urls]
+        return await asyncio.gather(*tasks)
 ```
 
-验证并导出：
+#### 3. 资源懒加载
+
 ```python
-python scripts/validate_invoice.py invoice.json
-python scripts/export_excel.py invoice.json output.xlsx
+# 延迟导入重型库
+def process_pdf(filepath: str):
+    # 只在实际需要时才导入
+    import pdfplumber
+    
+    with pdfplumber.open(filepath) as pdf:
+        # 处理 PDF
+        pass
 ```
 
-## 支持的发票格式
+### 4.3 常见问题 FAQ
 
-- 增值税普通发票
-- 增值税专用发票
-- 电子发票
+**Q: Skill 安装后无法使用？**
 
-详见 [invoice_format.md](references/invoice_format.md)
+检查步骤：
+1. `clawhub list` 确认已安装
+2. 检查 SKILL.md 描述是否包含你的使用场景
+3. 查看 OpenClaw 日志是否有加载错误
+4. 尝试重启 OpenClaw Gateway
 
-## API 文档
+**Q: 如何调试 Skill？**
 
-见 [api_docs.md](references/api_docs.md)
+```bash
+# 1. 开发模式安装（修改后自动生效）
+openclaw skill install . --dev
+
+# 2. 查看详细日志
+openclaw logs --follow | grep skill-name
+
+# 3. 手动测试脚本
+python scripts/your_script.py --debug
 ```
 
-## 常见问题
+**Q: Skill 冲突怎么办？**
 
-**Q: Skill 和 Extension 有什么区别？**
+如果两个 Skill 功能重叠：
+1. 卸载不需要的：`clawhub uninstall old-skill`
+2. 在对话中明确指定："使用 pdf-processor 而不是 nano-pdf"
+3. 调整 Skill 加载优先级（在配置文件中）
 
-A: Extension 是系统级扩展，提供新工具；Skill 是知识包，指导如何使用工具。
+**Q: 如何处理敏感信息？**
 
-**Q: 如何更新已安装的 Skill？**
+```python
+# 使用环境变量
+import os
 
-A: `clawhub update skill-name` 或重新安装。
+api_key = os.environ.get('API_KEY')
+if not api_key:
+    return {"error": "请设置 API_KEY 环境变量"}
 
-**Q: Skill 可以依赖其他 Skill 吗？**
+# 或使用配置文件（不要提交到 Git）
+config = load_config('.env.local')  # 加入 .gitignore
+```
 
-A: 目前不支持直接依赖，但可以在文档中说明需要配合使用的 Skill。
+**Q: Skill 可以调用其他 Skill 吗？**
 
-**Q: 如何分享我的 Skill？**
+目前不直接支持，但可以通过以下方式协作：
+1. **链式调用**：让用户按顺序执行多个 Skills
+2. **脚本组合**：在 scripts/ 中调用其他 Skill 的脚本
+3. **共享库**：将公共功能提取为 Python 模块
 
-A: 打包后上传到 ClawHub，或分享 .skill 文件。
+### 4.4 调试技巧
 
-**Q: Skill 会占用多少上下文？**
+#### 启用详细日志
 
-A: 取决于大小，一般 1-5k tokens。使用渐进式加载可以减少占用。
+```bash
+# 在 openclaw.json 中启用调试模式
+{
+  "debug": true,
+  "log_level": "verbose"
+}
+```
+
+#### 测试单个 Skill
+
+```bash
+# 隔离测试
+OPENCLAW_SKILLS=/path/to/your/skill openclaw agent run
+```
+
+#### 性能分析
+
+```python
+import time
+import functools
+
+def timing(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        elapsed = time.perf_counter() - start
+        print(f"{func.__name__} 耗时: {elapsed:.2f}s", file=sys.stderr)
+        return result
+    return wrapper
+
+@timing
+def slow_operation():
+    # 你的代码
+    pass
+```
+
+---
+
+## 第五部分：实战案例集
+
+### 案例 1：开发团队的 CI/CD Skill
+
+```
+需求：自动化代码检查、测试、部署流程
+
+包含：
+- 代码风格检查（black, flake8, eslint）
+- 单元测试运行
+- 覆盖率报告
+- 自动部署到测试环境
+- 通知团队成员
+```
+
+### 案例 2：数据分析师的数据处理 Skill
+
+```
+需求：常见的数据处理任务
+
+包含：
+- CSV/Excel 数据清洗
+- 数据可视化
+- 统计分析
+- 生成报告
+```
+
+### 案例 3：内容创作者的媒体处理 Skill
+
+```
+需求：处理图片、视频、音频
+
+包含：
+- 图片压缩、裁剪、加水印
+- 视频转码、提取帧
+- 音频转录、合并
+```
+
+---
 
 ## 总结
 
-Skill 系统是 OpenClaw 的核心竞争力之一。通过合理使用 Skill，你可以：
+通过本文，你应该已经掌握了：
 
-1. **扩展能力边界**：让 AI 处理专业领域任务
-2. **提高效率**：复用成熟的工作流程
-3. **保持一致性**：标准化处理方式
-4. **分享知识**：将经验封装成可复用的 Skill
+1. **基础使用**：安装、管理、组合 Skills
+2. **高级技巧**：上下文管理、错误处理、性能优化
+3. **开发能力**：从零开发一个完整的 Skill
+4. **最佳实践**：设计原则、调试技巧、FAQ
 
-掌握 Skill 的使用和开发，是成为 OpenClaw 高级用户的关键一步。
+**下一步建议**：
+1. 尝试开发一个简单的个人 Skill
+2. 分享到社区，获取反馈
+3. 迭代优化，最终发布到 ClawHub
+
+记住：**最好的 Skill 来自于解决真实问题**。从你自己的需求出发，开发对你有用的 Skill，然后分享给社区！
+
+---
+
+*文档版本: 2.0*  
+*最后更新: 2026-02-27*  
+*适用版本: OpenClaw 2026.2.x*
