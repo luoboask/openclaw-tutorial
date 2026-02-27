@@ -32,7 +32,14 @@ export default function Home() {
             <div className="hidden md:flex space-x-6 items-center">
               <Link href="/docs" className="text-gray-600 hover:text-red-600 transition">文档</Link>
               <Link href="/blog" className="text-gray-600 hover:text-red-600 transition">博客</Link>
-              <SearchButton onClick={() => setIsSearchOpen(true)} />
+              <Link 
+                href="/search" 
+                className="flex items-center px-4 py-2 bg-gray-100 hover:bg-red-50 text-gray-700 hover:text-red-600 rounded-lg transition border border-gray-200 hover:border-red-200"
+              >
+                <Search className="w-4 h-4 mr-2" />
+                <span className="text-sm">搜索</span>
+                <kbd className="ml-2 px-2 py-0.5 text-xs bg-white rounded border">⌘K</kbd>
+              </Link>
               <Link href="/about" className="text-gray-600 hover:text-red-600 transition">关于</Link>
             </div>
             <div className="flex items-center gap-2">

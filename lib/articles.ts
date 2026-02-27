@@ -13,12 +13,21 @@ export interface ArticleMeta {
 
 export const articlesMeta: ArticleMeta[] = [
   {
+    id: 'redclaw-deployment-guide',
+    title: 'RedClaw 部署完全指南：从 0 到上线',
+    date: '2026-02-27',
+    readTime: '30 分钟',
+    category: '部署教程',
+    featured: true,
+    excerpt: '手把手教你部署一个自托管的 AI 知识网站，包含 VPS、Nginx、自动化部署等完整流程',
+  },
+  {
     id: 'multi-agent-collaboration-practice',
     title: '多 Agent 协作实战：从失败到成功的完整记录',
     date: '2026-02-27',
     readTime: '20 分钟',
     category: '团队实践',
-    featured: true,
+    featured: false,
     excerpt: '真实案例记录 RedClaw 团队首次实现 3 个 Agent 同时工作的完整过程与经验总结',
   },
   {
