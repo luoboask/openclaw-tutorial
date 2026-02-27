@@ -8,6 +8,15 @@ import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react'
 
 const blogPosts = [
   {
+    id: 'multi-agent-collaboration-practice',
+    title: '多 Agent 协作实战：我们如何并行发布一篇文章',
+    excerpt: '真实案例记录 RedClaw 团队首次实现 3 个 Agent 同时工作的完整过程与经验总结',
+    date: '2026-02-27',
+    readTime: '15 分钟',
+    category: '团队实践',
+    featured: true,
+  },
+  {
     id: 'openclaw-agent-guide',
     title: 'OpenClaw Agent 完全指南：深入理解与最佳实践',
     excerpt: '全面解析 Agent 架构、工作原理、配置方法和多 Agent 协作模式',
