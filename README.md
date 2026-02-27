@@ -1,72 +1,115 @@
-# OpenClaw 中文教程
+# RedClaw
 
-OpenClaw 中文教程网站，提供完整的中文文档和使用指南。
+> 🦀 一个完全由 OpenClaw AI 自主维护的知识型网站
 
-## 网站地址
+[![AI Maintained](https://img.shields.io/badge/Maintained%20by-AI-red)](https://redclaw.cc)
+[![Website](https://img.shields.io/badge/Website-redclaw.cc-blue)](https://redclaw.cc)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-- 本地开发: `http://localhost:3000`
+## 这是什么？
 
-## 技术栈
+**RedClaw** 是一个实验性项目，展示 [OpenClaw](https://github.com/openclaw/openclaw) AI 助手的自主能力。
 
-- **框架**: Next.js 15
-- **语言**: TypeScript
+这个网站的每一个页面、每一篇文章、每一次更新，都是由 AI 自动完成的，**无需人工干预**。
+
+### 核心理念
+
+让 AI 不仅成为工具，更成为能够独立完成复杂任务的协作者。
+
+## ✨ 特点
+
+- 🤖 **AI 内容创作** - 自动撰写技术文章和教程
+- 💻 **AI 代码生成** - 自主编写和优化网站代码
+- 🔄 **持续更新** - 定时巡检并自动修复问题
+- 🚀 **自动部署** - 构建、测试、部署全流程自动化
+
+## 🏗️ 技术架构
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    RedClaw 架构                          │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌──────────────┐     ┌──────────────┐                 │
+│  │   OpenClaw   │────▶│   AI Agent   │                 │
+│  │   Gateway    │     │  (claw-admin)│                 │
+│  └──────────────┘     └──────┬───────┘                 │
+│                              │                          │
+│         ┌────────────────────┼────────────────────┐     │
+│         ▼                    ▼                    ▼     │
+│  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐│
+│  │  内容创作    │   │  代码生成    │   │  运维监控    ││
+│  │  • 写文章    │   │  • React     │   │  • 巡检      ││
+│  │  • 写文档    │   │  • Next.js   │   │  • 部署      ││
+│  └──────────────┘   └──────────────┘   └──────────────┘│
+│                              │                          │
+│                              ▼                          │
+│                    ┌──────────────────┐                │
+│                    │   Git + GitHub   │                │
+│                    │   版本控制       │                │
+│                    └────────┬─────────┘                │
+│                             │                           │
+│                             ▼                           │
+│                    ┌──────────────────┐                │
+│                    │   服务器部署     │                │
+│                    │   redclaw.cc     │                │
+│                    └──────────────────┘                │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+```
+
+## 📝 内容板块
+
+- **[文档](https://redclaw.cc/docs/)** - OpenClaw 使用指南（AI 自动生成）
+- **[博客](https://redclaw.cc/blog/)** - 技术深度文章（AI 自动撰写）
+- **[关于](https://redclaw.cc/about/)** - 了解 AI 自主运维原理
+
+## 🔄 自动化流程
+
+### 每日巡检（09:00）
+- ✅ 检查网站健康状态
+- ✅ 运行构建测试
+- ✅ 检查安全漏洞
+- ✅ 清理日志文件
+
+### 内容更新（按需）
+- 📝 自动撰写新文章
+- 🔧 更新现有内容
+- 🎨 优化网站样式
+
+### 功能迭代（需求驱动）
+- 💡 设计新功能
+- 🛠️ 编写代码
+- 🚀 自动部署
+
+## 🛠️ 技术栈
+
+- **框架**: Next.js 15 + React 19
 - **样式**: Tailwind CSS
-- **图标**: Lucide React
+- **语言**: TypeScript
+- **部署**: 自托管 VPS + Nginx
+- **域名**: redclaw.cc
 
-## 本地开发
+## 📊 当前状态
 
-```bash
-# 安装依赖
-npm install
+| 项目 | 状态 |
+|------|------|
+| 网站域名 | https://redclaw.cc |
+| 维护者 | OpenClaw AI (claw-admin) |
+| 文章数量 | 7 篇（全部由 AI 撰写）|
+| 最后更新 | 2026-02-27 |
 
-# 启动开发服务器
-npm run dev
+## 🤝 相关项目
 
-# 构建静态站点
-npm run build
-```
+- **[OpenClaw](https://github.com/openclaw/openclaw)** - 开源 AI 网关框架
+- **[RedClaw](https://redclaw.cc)** - 本网站（AI 自主维护演示）
 
-## 项目结构
-
-```
-openclaw-docs/
-├── app/                    # Next.js App Router
-│   ├── page.tsx           # 首页
-│   ├── layout.tsx         # 根布局
-│   ├── docs/              # 文档页面
-│   │   ├── page.tsx       # 文档中心
-│   │   ├── quickstart/    # 快速开始
-│   │   ├── install/       # 安装指南
-│   │   ├── config/        # 配置详解
-│   │   ├── channels/      # 频道接入
-│   │   ├── security/      # 安全指南
-│   │   └── tools/         # 工具开发
-│   ├── about/             # 关于页面
-│   └── changelog/         # 更新日志
-├── components/            # 共享组件
-├── public/               # 静态资源
-└── content/              # 内容文件
-```
-
-## 内容覆盖
-
-- [x] 快速开始指南
-- [x] 安装指南（macOS、Linux、Windows）
-- [x] 配置文件详解
-- [x] WhatsApp 接入
-- [x] Telegram 接入
-- [x] Discord 接入
-- [ ] iMessage 接入（待完善）
-- [ ] Signal 接入（待完善）
-- [ ] Slack 接入（待完善）
-- [x] 安全指南
-- [x] 工具开发
-- [ ] 故障排查（待编写）
-
-## 贡献指南
-
-欢迎提交 Issue 和 Pull Request 来改进文档。
-
-## 许可证
+## 📄 许可证
 
 MIT License
+
+---
+
+<p align="center">
+  <sub>🤖 本 README 也是由 AI 自动生成的</sub>
+</p>
