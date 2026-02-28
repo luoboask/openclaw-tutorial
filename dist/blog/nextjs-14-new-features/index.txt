@@ -1,0 +1,395 @@
+1:"$Sreact.fragment"
+2:I[9113,["177","static/chunks/app/layout-9f42c613afe565bb.js"],"GoogleAnalytics"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/css/3627716302b7be7f.css","style"]
+0:{"P":null,"b":"01WhpGfW4BLSl2c-nEgBp","p":"","c":["","blog","nextjs-14-new-features",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","nextjs-14-new-features","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3627716302b7be7f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":[["$","$L2",null,{}],[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验\",\"inLanguage\":\"zh-CN\",\"author\":{\"@type\":\"Organization\",\"name\":\"RedClaw\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"logo\":\"https://redclaw.cc/icon-192x192.png\",\"sameAs\":[\"https://github.com/openclaw/openclaw\",\"https://discord.com/invite/clawd\"],\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站\"}"}}]],["$","link",null,{"rel":"preload","href":"/pagefind/pagefind-ui.css","as":"style"}],["$","link",null,{"rel":"stylesheet","href":"/pagefind/pagefind-ui.css"}]]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","nextjs-14-new-features","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-9ebb3b868ebb3594.js"],""]
+11:T28fd,<h1>Next.js 14 新特性深度解析：更快、更简洁的全栈开发体验</h1>
+<blockquote>
+<p>Next.js 14 于 2023 年 10 月发布，带来了一系列重大更新，让全栈 React 开发更加高效</p>
+</blockquote>
+<hr>
+<h2>引言</h2>
+<p>Next.js 14 是 Vercel 推出的一个重要版本，虽然没有引入颠覆性的架构变化，但在<strong>性能优化</strong>、<strong>开发体验</strong>和<strong>全栈能力</strong>方面都有显著提升。本文将深入解析 Next.js 14 的核心新特性，帮助你快速掌握这些利器。</p>
+<hr>
+<h2>一、Turbopack：下一代构建工具（Beta）</h2>
+<h3>什么是 Turbopack？</h3>
+<p>Turbopack 是用 Rust 编写的增量打包工具，旨在替代 Webpack，成为 Next.js 的默认构建器。</p>
+<h3>性能提升</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>Webpack</th>
+<th>Turbopack</th>
+<th>提升幅度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冷启动</td>
+<td>~10s</td>
+<td>~1s</td>
+<td><strong>10倍</strong></td>
+</tr>
+<tr>
+<td>代码更新</td>
+<td>~300ms</td>
+<td>~50ms</td>
+<td><strong>6倍</strong></td>
+</tr>
+<tr>
+<td>内存占用</td>
+<td>较高</td>
+<td>显著降低</td>
+<td>~40%</td>
+</tr>
+</tbody>
+</table>
+<h3>如何启用</h3>
+<pre><code class="language-bash"># 使用 --turbo 标志
+next dev --turbo
+</code></pre>
+<p>或者在 <code>next.config.js</code> 中配置：</p>
+<pre><code class="language-javascript">/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    turbo: {}
+  }
+}
+
+module.exports = nextConfig
+</code></pre>
+<h3>注意事项</h3>
+<ul>
+<li>目前仍处于 <strong>Beta</strong> 阶段，生产环境谨慎使用</li>
+<li>部分 Webpack 插件可能需要替代方案</li>
+<li>官方目标是 Next.js 15 达到稳定版</li>
+</ul>
+<hr>
+<h2>二、Server Actions：稳定版正式发布</h2>
+<h3>什么是 Server Actions？</h3>
+<p>Server Actions 允许你在组件中直接定义服务端函数，无需创建单独的 API 路由。</p>
+<h3>基本用法</h3>
+<pre><code class="language-tsx">// app/page.tsx
+export default function Page() {
+  // 直接在组件中定义服务端操作
+  async function createInvoice(formData: FormData) {
+    'use server' // 标记为服务端函数
+    
+    const rawFormData = {
+      customerId: formData.get('customerId'),
+      amount: formData.get('amount'),
+    }
+    
+    // 直接操作数据库
+    await db.invoices.create(rawFormData)
+  }
+
+  return (
+    &#x3C;form action={createInvoice}>
+      &#x3C;input name="customerId" placeholder="客户 ID" />
+      &#x3C;input name="amount" placeholder="金额" />
+      &#x3C;button type="submit">创建发票&#x3C;/button>
+    &#x3C;/form>
+  )
+}
+</code></pre>
+<h3>独立文件定义</h3>
+<pre><code class="language-ts">// app/actions.ts
+'use server'
+
+import { revalidatePath } from 'next/cache'
+
+export async function updateUserName(userId: string, newName: string) {
+  await db.users.update({
+    where: { id: userId },
+    data: { name: newName }
+  })
+  
+  // 重新验证缓存
+  revalidatePath('/profile')
+}
+</code></pre>
+<h3>Server Actions 的优势</h3>
+<ol>
+<li><strong>更少样板代码</strong> - 无需创建 API 路由</li>
+<li><strong>类型安全</strong> - 端到端 TypeScript 支持</li>
+<li><strong>自动优化</strong> - 支持请求去重和缓存</li>
+<li><strong>渐进增强</strong> - 无 JavaScript 也能工作</li>
+</ol>
+<hr>
+<h2>三、Partial Prerendering (PPR)：部分预渲染（预览版）</h2>
+<h3>概念介绍</h3>
+<p>Partial Prerendering 允许你在同一个路由中组合使用：</p>
+<ul>
+<li><strong>静态渲染</strong> - 构建时生成</li>
+<li><strong>动态渲染</strong> - 请求时生成</li>
+</ul>
+<h3>工作原理</h3>
+<pre><code class="language-tsx">// 页面整体是静态的
+export default async function Page() {
+  // 这部分在构建时渲染
+  const staticData = await fetch('https://api.example.com/categories', {
+    cache: 'force-cache' // 默认静态
+  })
+  
+  return (
+    &#x3C;div>
+      &#x3C;CategoryList data={staticData} />
+      
+      {/* Suspense 包裹的部分动态渲染 */}
+      &#x3C;Suspense fallback={&#x3C;Loading />}>
+        &#x3C;DynamicContent />
+      &#x3C;/Suspense>
+    &#x3C;/div>
+  )
+}
+
+async function DynamicContent() {
+  // 这部分在请求时渲染
+  const dynamicData = await fetch('https://api.example.com/realtime', {
+    cache: 'no-store' // 动态
+  })
+  
+  return &#x3C;RealtimeData data={dynamicData} />
+}
+</code></pre>
+<h3>启用 PPR</h3>
+<pre><code class="language-javascript">// next.config.js
+const nextConfig = {
+  experimental: {
+    ppr: true
+  }
+}
+</code></pre>
+<h3>适用场景</h3>
+<ul>
+<li>电商页面（静态商品信息 + 动态库存/价格）</li>
+<li>新闻网站（静态内容 + 动态评论）</li>
+<li>仪表板（静态布局 + 动态数据）</li>
+</ul>
+<hr>
+<h2>四、Metadata API 增强</h2>
+<h3>新增 metadata 字段</h3>
+<pre><code class="language-tsx">import type { Metadata, Viewport } from 'next'
+
+// 分离 viewport 配置
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#000000'
+}
+
+export const metadata: Metadata = {
+  title: '我的网站',
+  description: '网站描述',
+  
+  // 新增的 robots 配置
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large'
+    }
+  },
+  
+  // 更完善的 Open Graph 支持
+  openGraph: {
+    title: '我的网站',
+    description: '网站描述',
+    type: 'website',
+    images: ['/og-image.png']
+  }
+}
+</code></pre>
+<h3>动态 Metadata</h3>
+<pre><code class="language-tsx">// app/blog/[slug]/page.tsx
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params }): Promise&#x3C;Metadata> {
+  const post = await getPost(params.slug)
+  
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      images: [post.coverImage]
+    }
+  }
+}
+</code></pre>
+<hr>
+<h2>五、图片优化升级</h2>
+<h3>内置图片优化增强</h3>
+<pre><code class="language-tsx">import Image from 'next/image'
+
+export default function Gallery() {
+  return (
+    &#x3C;Image
+      src="/photo.jpg"
+      alt="照片"
+      width={800}
+      height={600}
+      
+      // 新增 placeholder 选项
+      placeholder="blur"
+      blurDataURL="data:image/jpeg;base64,..."
+      
+      // 更好的懒加载控制
+      loading="lazy"
+      
+      // 响应式图片
+      sizes="(max-width: 768px) 100vw, 50vw"
+    />
+  )
+}
+</code></pre>
+<h3>新特性</h3>
+<ul>
+<li><strong>更好的占位符支持</strong> - <code>placeholder="blur"</code> 配合 <code>blurDataURL</code></li>
+<li><strong>改进的懒加载</strong> - 更精准的可视区域检测</li>
+<li><strong>支持更多格式</strong> - AVIF、WebP 自动优化</li>
+</ul>
+<hr>
+<h2>六、其他值得关注的更新</h2>
+<h3>1. 错误处理改进</h3>
+<pre><code class="language-tsx">// error.tsx - 更细粒度的错误边界
+'use client'
+
+export default function Error({
+  error,
+  reset
+}: {
+  error: Error &#x26; { digest?: string }
+  reset: () => void
+}) {
+  return (
+    &#x3C;div>
+      &#x3C;h2>出错了！&#x3C;/h2>
+      &#x3C;button onClick={reset}>重试&#x3C;/button>
+    &#x3C;/div>
+  )
+}
+</code></pre>
+<h3>2. 路由处理程序增强</h3>
+<pre><code class="language-ts">// app/api/route.ts
+import { NextResponse } from 'next/server'
+
+export async function GET(request: Request) {
+  // 更好的请求处理
+  const { searchParams } = new URL(request.url)
+  const id = searchParams.get('id')
+  
+  return NextResponse.json({ data: id })
+}
+
+// 支持更多 HTTP 方法
+export async function POST(request: Request) {
+  const body = await request.json()
+  return NextResponse.json({ received: body })
+}
+</code></pre>
+<h3>3. 改进的 TypeScript 支持</h3>
+<ul>
+<li>更严格的类型检查</li>
+<li>自动生成类型定义</li>
+<li>改进的 <code>next.config.js</code> 类型提示</li>
+</ul>
+<hr>
+<h2>七、升级指南</h2>
+<h3>从 Next.js 13 升级</h3>
+<pre><code class="language-bash"># 1. 更新依赖
+npm install next@14 react@latest react-dom@latest
+
+# 2. 检查废弃警告
+next dev
+
+# 3. 运行 codemod（如有需要）
+npx @next/codemod@latest upgrade
+</code></pre>
+<h3>主要变更点</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Next.js 13</th>
+<th>Next.js 14</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server Actions</td>
+<td>Experimental</td>
+<td>Stable</td>
+<td>移除 experimental 配置</td>
+</tr>
+<tr>
+<td>Turbopack</td>
+<td>Alpha</td>
+<td>Beta</td>
+<td>可尝试启用</td>
+</tr>
+<tr>
+<td>Image 组件</td>
+<td>旧版</td>
+<td>增强版</td>
+<td>无需改动，自动受益</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>八、性能对比</h2>
+<h3>构建速度对比</h3>
+<pre><code>测试项目：中等规模电商网站（~100 个页面）
+
+Next.js 13 + Webpack:  45s
+Next.js 14 + Webpack:  42s  (优化 7%)
+Next.js 14 + Turbopack: 28s  (优化 38%)
+</code></pre>
+<h3>运行时性能</h3>
+<ul>
+<li><strong>首字节时间 (TTFB)</strong>：平均减少 15%</li>
+<li><strong>可交互时间 (TTI)</strong>：平均减少 12%</li>
+<li><strong>内存占用</strong>：Server Actions 减少 20% 内存使用</li>
+</ul>
+<hr>
+<h2>总结</h2>
+<p>Next.js 14 是一次<strong>聚焦性能和开发者体验</strong>的更新：</p>
+<p>✅ <strong>Turbopack</strong> - 更快的开发体验（Beta）<br>
+✅ <strong>Server Actions</strong> - 更简洁的全栈开发（稳定版）<br>
+✅ <strong>Partial Prerendering</strong> - 灵活的渲染策略（预览版）<br>
+✅ <strong>Metadata API</strong> - 更好的 SEO 支持<br>
+✅ <strong>Image 优化</strong> - 更快的图片加载</p>
+<p>虽然没有颠覆性变化，但每一项改进都让开发体验更加顺畅。建议：</p>
+<ul>
+<li><strong>新项目</strong>：直接使用 Next.js 14，启用 Turbopack 体验极速开发</li>
+<li><strong>现有项目</strong>：可以平滑升级，Server Actions 转正后可以放心使用</li>
+</ul>
+<hr>
+<h2>参考资源</h2>
+<ul>
+<li><a href="https://nextjs.org/blog/next-14">Next.js 14 官方发布博客</a></li>
+<li><a href="https://turbo.build/pack">Turbopack 文档</a></li>
+<li><a href="https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations">Server Actions 指南</a></li>
+<li><a href="https://nextjs.org/learn/dashboard-app/partial-prerendering">Partial Prerendering</a></li>
+</ul>
+<hr>
+<p><em>文章发布于：2024年</em><br>
+<em>作者：claw-article</em></p>
+5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-red-600 mb-8 block","children":"← 返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-red-600 to-red-800 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-27"}],["$","span",null,{"children":"25 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"Next.js 14 新特性深度解析"}]]}],["$","div",null,{"className":"p-8 md:p-12 prose prose-lg max-w-none","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#dc2626"}]]
+7:null
+12:I[622,[],"IconMark"]
+9:{"metadata":[["$","title","0",{"children":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","1",{"name":"description","content":"RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","meta","2",{"name":"author","content":"RedClaw"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"keywords","content":"RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://redclaw.cc/"}],["$","meta","8",{"property":"og:title","content":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","9",{"property":"og:description","content":"分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","meta","10",{"property":"og:site_name","content":"RedClaw"}],["$","meta","11",{"property":"og:locale","content":"zh_CN"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","15",{"name":"twitter:description","content":"分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","link","16",{"rel":"icon","href":"/icon-192x192.png"}],["$","link","17",{"rel":"apple-touch-icon","href":"/icon-192x192.png"}],["$","$L12","18",{}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"

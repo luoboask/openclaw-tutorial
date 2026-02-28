@@ -1,0 +1,335 @@
+1:"$Sreact.fragment"
+2:I[9113,["177","static/chunks/app/layout-9f42c613afe565bb.js"],"GoogleAnalytics"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/css/3627716302b7be7f.css","style"]
+0:{"P":null,"b":"01WhpGfW4BLSl2c-nEgBp","p":"","c":["","blog","openclaw-heartbeat-configuration-guide",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","openclaw-heartbeat-configuration-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3627716302b7be7f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":[["$","$L2",null,{}],[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验\",\"inLanguage\":\"zh-CN\",\"author\":{\"@type\":\"Organization\",\"name\":\"RedClaw\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"logo\":\"https://redclaw.cc/icon-192x192.png\",\"sameAs\":[\"https://github.com/openclaw/openclaw\",\"https://discord.com/invite/clawd\"],\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站\"}"}}]],["$","link",null,{"rel":"preload","href":"/pagefind/pagefind-ui.css","as":"style"}],["$","link",null,{"rel":"stylesheet","href":"/pagefind/pagefind-ui.css"}]]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","openclaw-heartbeat-configuration-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-9ebb3b868ebb3594.js"],""]
+11:T2239,<h1>OpenClaw Heartbeat 完全配置指南 - 让 AI 主动汇报工作</h1>
+<blockquote>
+<p><strong>发布日期</strong>: 2026-02-28<br>
+<strong>标签</strong>: #OpenClaw #Heartbeat #配置指南 #自动化<br>
+<strong>分类</strong>: 技术文档</p>
+</blockquote>
+<hr>
+<h2>📋 目录</h2>
+<ol>
+<li><a href="#heartbeat-%E6%98%AF%E4%BB%80%E4%B9%88">Heartbeat 是什么</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">配置方式</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%AD%97%E6%AE%B5%E8%AF%B4%E6%98%8E">配置字段说明</a></li>
+<li><a href="#heartbeatmd-%E6%96%87%E4%BB%B6">HEARTBEAT.md 文件</a></li>
+<li><a href="#%E5%AE%9E%E9%99%85%E6%A1%88%E4%BE%8B">实际案例</a></li>
+<li><a href="#heartbeat-vs-cron">Heartbeat vs Cron</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a></li>
+</ol>
+<hr>
+<h2>Heartbeat 是什么</h2>
+<p><strong>Heartbeat（心跳）</strong> 是 OpenClaw 的定期触发机制，让 AI Agent 主动检查后台任务并汇报。</p>
+<p><strong>工作原理：</strong></p>
+<pre><code>每 30 分钟 (可配置)
+    ↓
+Gateway 触发心跳
+    ↓
+Agent 读取 HEARTBEAT.md (如果存在)
+    ↓
+Agent 执行心跳任务 (检查邮箱、日历、待办等)
+    ↓
+如果有需要关注的 → 发送消息给用户
+如果一切正常 → 回复 HEARTBEAT_OK (自动丢弃，不发送)
+</code></pre>
+<p><strong>特点：</strong></p>
+<ul>
+<li>✅ 有事汇报，没事沉默</li>
+<li>✅ 避免打扰用户</li>
+<li>✅ 保持后台任务监控</li>
+</ul>
+<hr>
+<h2>配置方式</h2>
+<h3>方式 1：全局配置（所有 agent）</h3>
+<pre><code class="language-json5">// ~/.openclaw/openclaw.json
+{
+  "agents": {
+    "defaults": {
+      "heartbeat": {
+        "every": "30m",
+        "target": "none",
+        "directPolicy": "allow"
+      }
+    }
+  }
+}
+</code></pre>
+<h3>方式 2：针对特定 agent 配置</h3>
+<pre><code class="language-json5">{
+  "agents": {
+    "list": [
+      { "id": "main" },  // 不配置 heartbeat，不运行心跳
+      {
+        "id": "claw-admin",
+        "heartbeat": {
+          "every": "30m",
+          "target": "none",
+          "directPolicy": "allow"
+        }
+      }  // 运行心跳
+    ]
+  }
+}
+</code></pre>
+<p><strong>注意：</strong> 如果任何 <code>agents.list[]</code> 包含 <code>heartbeat</code> 块，<strong>只有这些 agent</strong> 会运行心跳。</p>
+<hr>
+<h2>配置字段说明</h2>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>every</code></td>
+<td><code>"30m"</code></td>
+<td>心跳间隔，<code>"0m"</code> 禁用</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td><code>"none"</code></td>
+<td><code>"none"</code> (不发送) | <code>"last"</code> (最后联系人) | 频道 ID</td>
+</tr>
+<tr>
+<td><code>directPolicy</code></td>
+<td><code>"allow"</code></td>
+<td><code>"allow"</code> 允许 DM | <code>"block"</code> 禁止 DM</td>
+</tr>
+<tr>
+<td><code>prompt</code></td>
+<td>(默认)</td>
+<td>自定义心跳提示词</td>
+</tr>
+<tr>
+<td><code>activeHours</code></td>
+<td>(无)</td>
+<td>活动时间窗口 <code>{start: "09:00", end: "22:00"}</code></td>
+</tr>
+<tr>
+<td><code>includeReasoning</code></td>
+<td><code>false</code></td>
+<td>是否发送推理过程</td>
+</tr>
+</tbody>
+</table>
+<h3>target 选项</h3>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"none"</code></td>
+<td>运行心跳但不发送消息（静默模式）</td>
+</tr>
+<tr>
+<td><code>"last"</code></td>
+<td>发送到最后使用的外部频道</td>
+</tr>
+<tr>
+<td><code>"whatsapp"</code></td>
+<td>发送到 WhatsApp</td>
+</tr>
+<tr>
+<td><code>"telegram"</code></td>
+<td>发送到 Telegram</td>
+</tr>
+<tr>
+<td><code>"discord"</code></td>
+<td>发送到 Discord</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>HEARTBEAT.md 文件</h2>
+<h3>位置</h3>
+<p>agent workspace 根目录（如 <code>~/.openclaw/workspace-claw-admin/HEARTBEAT.md</code>）</p>
+<h3>示例内容</h3>
+<pre><code class="language-markdown"># HEARTBEAT.md - claw-admin 心跳任务
+
+## 定期任务
+- [ ] 检查 `docs/` 目录中的新文章
+- [ ] 发布新文章到知识库服务器
+- [ ] 监控 OpenClaw 配置变更
+
+## 当前待办
+- 发布文章：`docs/openclaw-memory-search-ollama-guide.md`
+</code></pre>
+<h3>心跳提示词</h3>
+<p>默认提示词（不可修改）：</p>
+<pre><code>Read HEARTBEAT.md if it exists (workspace context).
+Follow it strictly.
+Do not infer or repeat old tasks from prior chats.
+If nothing needs attention, reply HEARTBEAT_OK.
+</code></pre>
+<hr>
+<h2>实际案例</h2>
+<h3>案例 1: claw-admin 配置</h3>
+<p><strong>位置</strong>: <code>~/.openclaw/workspace-claw-admin/</code></p>
+<p><strong>配置</strong>:</p>
+<pre><code class="language-json">{
+  "id": "claw-admin",
+  "workspace": "/Users/openmilo/clawall/claw-team/claw-admin",
+  "heartbeat": {
+    "every": "30m",
+    "target": "none",
+    "directPolicy": "allow"
+  }
+}
+</code></pre>
+<p><strong>HEARTBEAT.md</strong>:</p>
+<pre><code class="language-markdown"># HEARTBEAT.md - claw-admin 心跳任务
+
+## 定期任务
+- [ ] 检查 `docs/` 目录中的新文章
+- [ ] 发布新文章到知识库服务器
+- [ ] 监控 OpenClaw 配置变更
+
+## 当前待办
+- 发布文章：`docs/openclaw-memory-search-ollama-guide.md`
+</code></pre>
+<h3>案例 2: xhs-admin 配置</h3>
+<p><strong>位置</strong>: <code>~/.openclaw/workspace/xhs-admin/</code></p>
+<p><strong>配置</strong>:</p>
+<pre><code class="language-json">{
+  "id": "xhs-admin",
+  "heartbeat": {
+    "every": "30m",
+    "target": "none"
+  }
+}
+</code></pre>
+<p><strong>任务</strong>: 小红书账号监控、笔记发布检查</p>
+<hr>
+<h2>Heartbeat vs Cron</h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Heartbeat</th>
+<th>Cron</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>触发方式</strong></td>
+<td>定期（如每 30 分钟）</td>
+<td>定时（如每天 9:00）</td>
+</tr>
+<tr>
+<td><strong>适合场景</strong></td>
+<td>后台检查、主动汇报</td>
+<td>精确时间的任务</td>
+</tr>
+<tr>
+<td><strong>配置位置</strong></td>
+<td><code>agents.defaults.heartbeat</code></td>
+<td><code>cron.jobs[]</code></td>
+</tr>
+<tr>
+<td><strong>会话隔离</strong></td>
+<td>在主会话运行</td>
+<td>独立会话</td>
+</tr>
+<tr>
+<td><strong>提示词</strong></td>
+<td>读取 HEARTBEAT.md</td>
+<td>在 cron job 中定义</td>
+</tr>
+</tbody>
+</table>
+<p><strong>选择建议：</strong></p>
+<ul>
+<li>需要<strong>定期检查</strong> → 用 Heartbeat</li>
+<li>需要<strong>精确时间</strong> → 用 Cron</li>
+<li>需要<strong>会话隔离</strong> → 用 Cron</li>
+</ul>
+<hr>
+<h2>常见问题</h2>
+<h3>Q1: 如何禁用心跳？</h3>
+<pre><code class="language-json5">{
+  "agents": {
+    "defaults": {
+      "heartbeat": {
+        "every": "0m"  // 设为 0m 禁用
+      }
+    }
+  }
+}
+</code></pre>
+<h3>Q2: 如何让心跳发送消息给我？</h3>
+<pre><code class="language-json5">{
+  "heartbeat": {
+    "every": "30m",
+    "target": "last"  // 发送到最后的联系人
+  }
+}
+</code></pre>
+<h3>Q3: 如何只在白天运行心跳？</h3>
+<pre><code class="language-json5">{
+  "heartbeat": {
+    "every": "30m",
+    "activeHours": {
+      "start": "09:00",
+      "end": "22:00",
+      "timezone": "Asia/Shanghai"
+    }
+  }
+}
+</code></pre>
+<h3>Q4: 心跳回复 HEARTBEAT_OK 后会怎样？</h3>
+<ul>
+<li><code>HEARTBEAT_OK</code> 会被自动识别</li>
+<li>如果回复只有 <code>HEARTBEAT_OK</code> 或内容很短（≤300 字符），消息会被丢弃</li>
+<li>用户不会收到"一切正常"的汇报</li>
+</ul>
+<h3>Q5: 如何自定义心跳提示词？</h3>
+<pre><code class="language-json5">{
+  "heartbeat": {
+    "every": "30m",
+    "prompt": "检查系统状态，如果有异常立即汇报。"
+  }
+}
+</code></pre>
+<hr>
+<h2>相关资源</h2>
+<ul>
+<li><strong>OpenClaw 官方文档</strong>: <a href="https://docs.openclaw.ai/gateway/heartbeat">https://docs.openclaw.ai/gateway/heartbeat</a></li>
+<li><strong>Cron vs Heartbeat</strong>: <a href="https://docs.openclaw.ai/automation/cron-vs-heartbeat">https://docs.openclaw.ai/automation/cron-vs-heartbeat</a></li>
+<li><strong>配置参考</strong>: <a href="https://docs.openclaw.ai/gateway/configuration-reference">https://docs.openclaw.ai/gateway/configuration-reference</a></li>
+</ul>
+<hr>
+<h2>总结</h2>
+<p>Heartbeat 是 OpenClaw 的<strong>主动检查机制</strong>：</p>
+<ul>
+<li>✅ 定期触发（默认 30 分钟）</li>
+<li>✅ 读取 HEARTBEAT.md 任务清单</li>
+<li>✅ 有事汇报，没事沉默</li>
+<li>✅ 配置简单，效果显著</li>
+</ul>
+<p>通过合理配置 Heartbeat，你可以让 AI 助手成为真正的"主动型"助手，而不是被动等待指令。🎯</p>
+<hr>
+<p><em>最后更新：2026-02-28</em></p>
+5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-red-600 mb-8 block","children":"← 返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-red-600 to-red-800 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-28"}],["$","span",null,{"children":"15 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"OpenClaw Heartbeat 完全配置指南 - 让 AI 主动汇报工作"}]]}],["$","div",null,{"className":"p-8 md:p-12 prose prose-lg max-w-none","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#dc2626"}]]
+7:null
+12:I[622,[],"IconMark"]
+9:{"metadata":[["$","title","0",{"children":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","1",{"name":"description","content":"RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","meta","2",{"name":"author","content":"RedClaw"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"keywords","content":"RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://redclaw.cc/"}],["$","meta","8",{"property":"og:title","content":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","9",{"property":"og:description","content":"分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","meta","10",{"property":"og:site_name","content":"RedClaw"}],["$","meta","11",{"property":"og:locale","content":"zh_CN"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","15",{"name":"twitter:description","content":"分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","link","16",{"rel":"icon","href":"/icon-192x192.png"}],["$","link","17",{"rel":"apple-touch-icon","href":"/icon-192x192.png"}],["$","$L12","18",{}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"

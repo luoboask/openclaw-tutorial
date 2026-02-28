@@ -13,6 +13,25 @@ export interface ArticleMeta {
 
 export const articlesMeta: ArticleMeta[] = [
   {
+    id: "openclaw-multi-agent-architecture",
+    title: "OpenClaw 多 Agent 架构详解：从单 Agent 到团队协作",
+    date: "2026-02-28",
+    readTime: "20 分钟",
+    category: "架构设计",
+    featured: false,
+    excerpt: "深入理解 OpenClaw 的多 Agent 路由机制，构建真正的 AI 团队协作系统",
+  },
+  {
+    id: "openclaw-skill-system-guide",
+    title: "OpenClaw Skill 系统完全指南：打造你的专属工具集",
+    date: "2026-02-28",
+    readTime: "25 分钟",
+    category: "进阶教程",
+    featured: false,
+    excerpt: "从使用到开发，全面掌握 OpenClaw 的 Skill 系统，扩展 Agent 能力",
+  },
+
+  {
     id: "openclaw-memory-search-ollama-guide",
     title: "OpenClaw Memory Search 完全配置指南 - 使用 Ollama 实现本地向量搜索",
     date: "2026-02-28",
