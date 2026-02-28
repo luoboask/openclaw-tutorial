@@ -16,10 +16,20 @@ const sections = [
     ]
   },
   {
+    title: '核心概念',
+    items: [
+      { title: '多 Agent 架构', href: '/docs/concepts/multi-agent', desc: '多 Agent 路由、隔离与团队协作' },
+      { title: 'Memory 记忆系统', href: '/docs/concepts/memory', desc: '长期记忆、向量搜索与记忆管理' },
+      { title: 'Skill 系统', href: '/docs/concepts/skills', desc: '技能的加载、开发与共享' },
+    ]
+  },
+  {
     title: '配置',
     items: [
       { title: '配置文件详解', href: '/docs/config', desc: 'openclaw.json 完整配置参考' },
       { title: 'AI 提供商设置', href: '/docs/config/providers', desc: '配置 Claude、GPT 等模型' },
+      { title: 'Heartbeat 心跳', href: '/docs/config/heartbeat', desc: '定期任务与自动巡检配置' },
+      { title: 'Sandboxing 沙盒', href: '/docs/config/sandboxing', desc: 'Docker 沙盒与安全隔离' },
       { title: '会话管理', href: '/docs/config/sessions', desc: '会话隔离和持久化' },
     ]
   },
