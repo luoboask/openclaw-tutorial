@@ -24,6 +24,14 @@ const sections = [
     ]
   },
   {
+    title: '核心概念',
+    items: [
+      { title: '多 Agent 架构', href: '/docs/concepts/multi-agent', desc: '多 Agent 路由、隔离与团队协作' },
+      { title: 'Memory 记忆系统', href: '/docs/concepts/memory', desc: '长期记忆、向量搜索与记忆管理' },
+      { title: 'Skill 系统', href: '/docs/concepts/skills', desc: '技能的加载、开发与共享' },
+    ]
+  },
+  {
     title: '配置',
     items: [
       { title: '配置文件详解', href: '/docs/config', desc: 'openclaw.json 完整配置参考' },
