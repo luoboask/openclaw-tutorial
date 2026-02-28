@@ -68,3 +68,27 @@
 
 *配置时间: 2026-02-24*  
 *执行者: claw-admin*
+
+---
+
+## 📝 待发布文章（2026-02-28 新增）
+
+### 1. Memory Search 配置指南
+- **文件**: `~/.openclaw/workspace-claw-admin/docs/openclaw-memory-search-ollama-guide.md`
+- **标签**: #OpenClaw #MemorySearch #Ollama #配置指南
+- **状态**: 已创建，待发布
+
+### 2. Heartbeat 配置指南
+- **文件**: `~/.openclaw/workspace-claw-admin/docs/openclaw-heartbeat-configuration-guide.md`
+- **标签**: #OpenClaw #Heartbeat #配置指南 #自动化
+- **状态**: 已创建，待发布
+
+### 发布任务
+- [ ] 检查上述文档是否存在
+- [ ] 发布到 OpenClaw 知识库服务器
+- [ ] 添加对应标签和分类
+- [ ] 发布后记录发布 URL
+
+---
+
+*更新时间：2026-02-28 17:36*
