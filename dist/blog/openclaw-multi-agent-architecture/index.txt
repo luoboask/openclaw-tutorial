@@ -1,0 +1,237 @@
+1:"$Sreact.fragment"
+2:I[9113,["177","static/chunks/app/layout-9f42c613afe565bb.js"],"GoogleAnalytics"]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/_next/static/css/3627716302b7be7f.css","style"]
+0:{"P":null,"b":"ivYsNeeWidLvCc9uhm1MB","p":"","c":["","blog","openclaw-multi-agent-architecture",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","openclaw-multi-agent-architecture","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3627716302b7be7f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","children":[["$","head",null,{"children":[["$","$L2",null,{}],[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验\",\"inLanguage\":\"zh-CN\",\"author\":{\"@type\":\"Organization\",\"name\":\"RedClaw\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"RedClaw\",\"url\":\"https://redclaw.cc\",\"logo\":\"https://redclaw.cc/icon-192x192.png\",\"sameAs\":[\"https://github.com/openclaw/openclaw\",\"https://discord.com/invite/clawd\"],\"description\":\"基于 OpenClaw 自建设及自维护的知识型网站\"}"}}]],["$","link",null,{"rel":"preload","href":"/pagefind/pagefind-ui.css","as":"style"}],["$","link",null,{"rel":"stylesheet","href":"/pagefind/pagefind-ui.css"}]]}],["$","body",null,{"className":"antialiased bg-white text-gray-900","children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","openclaw-multi-agent-architecture","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","953","static/chunks/app/blog/%5Bslug%5D/page-5c5ce53c05cef894.js"],""]
+11:T1a9d,<h1>OpenClaw 多 Agent 架构详解：从单 Agent 到团队协作</h1>
+<blockquote>
+<p>深入理解 OpenClaw 的多 Agent 路由机制，构建真正的 AI 团队协作系统</p>
+</blockquote>
+<p><strong>发布日期</strong>: 2026-02-28<br>
+<strong>阅读时间</strong>: 20 分钟<br>
+<strong>标签</strong>: #OpenClaw #MultiAgent #架构 #团队协作</p>
+<hr>
+<h2>什么是多 Agent 架构？</h2>
+<p>OpenClaw 的核心设计允许在一个 Gateway 进程中运行<strong>多个完全隔离的 Agent</strong>，每个 Agent 拥有独立的工作空间、认证配置和会话存储。</p>
+<h3>单 Agent vs 多 Agent</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>单 Agent</th>
+<th>多 Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工作空间</td>
+<td>共享</td>
+<td>完全隔离</td>
+</tr>
+<tr>
+<td>认证配置</td>
+<td>统一</td>
+<td>各自独立</td>
+</tr>
+<tr>
+<td>会话历史</td>
+<td>混合</td>
+<td>分离存储</td>
+</tr>
+<tr>
+<td>技能加载</td>
+<td>全局</td>
+<td>可定制</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>个人使用</td>
+<td>团队协作</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>核心概念</h2>
+<h3>1. Agent 的定义</h3>
+<p>一个 <strong>Agent</strong> 是一个完全独立的大脑，包含：</p>
+<ul>
+<li><strong>工作空间</strong> (Workspace): 文件、AGENTS.md/SOUL.md/USER.md、本地笔记</li>
+<li><strong>状态目录</strong> (agentDir): 认证配置、模型注册表、专属配置</li>
+<li><strong>会话存储</strong> (Sessions): 聊天历史和路由状态</li>
+</ul>
+<pre><code>~/.openclaw/agents/&#x3C;agentId>/
+├── agent/
+│   └── auth-profiles.json    # 独立的 API 密钥
+├── sessions/                 # 隔离的会话历史
+│   └── *.jsonl
+└── config/                   # 专属配置
+</code></pre>
+<h3>2. 认证隔离</h3>
+<p>每个 Agent 读取自己的认证文件：</p>
+<pre><code class="language-json">~/.openclaw/agents/&#x3C;agentId>/agent/auth-profiles.json
+</code></pre>
+<p>⚠️ <strong>重要</strong>: 永远不要重复使用 <code>agentDir</code>，否则会导致认证和会话冲突。</p>
+<hr>
+<h2>快速开始：创建多 Agent</h2>
+<h3>使用向导创建 Agent</h3>
+<pre><code class="language-bash"># 创建一个工作 Agent
+openclaw agents add work
+
+# 创建一个个人 Agent
+openclaw agents add personal
+
+# 查看所有 Agent 和绑定
+openclaw agents list --bindings
+</code></pre>
+<h3>手动配置</h3>
+<p>编辑 <code>~/.openclaw/openclaw.json</code>:</p>
+<pre><code class="language-json">{
+  "agents": {
+    "list": [
+      {
+        "id": "claw-admin",
+        "workspace": "/Users/openmilo/clawall/claw-team/claw-admin",
+        "agentDir": "~/.openclaw/agents/claw-admin/agent"
+      },
+      {
+        "id": "claw-collect",
+        "workspace": "/Users/openmilo/clawall/claw-team/claw-collect",
+        "agentDir": "~/.openclaw/agents/claw-collect/agent"
+      }
+    ]
+  }
+}
+</code></pre>
+<hr>
+<h2>消息路由：Bindings</h2>
+<p>Bindings 决定入站消息如何路由到特定 Agent。</p>
+<h3>绑定类型</h3>
+<pre><code class="language-json">{
+  "agents": {
+    "bindings": [
+      {
+        "agentId": "claw-admin",
+        "channel": "telegram",
+        "accountId": "admin_bot"
+      }
+    ]
+  }
+}
+</code></pre>
+<h3>路由规则</h3>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>路由到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>特定账号收到消息</td>
+<td>绑定的 Agent</td>
+</tr>
+<tr>
+<td>无匹配绑定</td>
+<td>默认 Agent (main)</td>
+</tr>
+<tr>
+<td>直接 @Agent</td>
+<td>被提及的 Agent</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>实战案例：RedClaw 团队架构</h2>
+<p>我们的 4 Agent 协作系统：</p>
+<pre><code>┌─────────────────────────────────────────┐
+│           Gateway (统一入口)             │
+├─────────────────────────────────────────┤
+│  ┌──────────┐  ┌──────────┐            │
+│  │claw-admin│  │claw-collect│          │
+│  │ 项目经理  │  │ 研究员    │          │
+│  └──────────┘  └──────────┘            │
+│  ┌──────────┐  ┌──────────┐            │
+│  │claw-article│ │claw-code │           │
+│  │ 内容创作  │  │ 开发工程师│            │
+│  └──────────┘  └──────────┘            │
+└─────────────────────────────────────────┘
+</code></pre>
+<h3>工作流</h3>
+<pre><code>用户请求
+    ↓
+claw-admin 接收任务
+    ↓
+并行分配给:
+├── claw-collect → 搜索资料
+├── claw-article → 撰写内容
+└── claw-code    → 技术实现
+    ↓
+claw-admin 整合结果
+    ↓
+部署上线
+</code></pre>
+<hr>
+<h2>技能隔离</h2>
+<h3>三种技能位置</h3>
+<ol>
+<li><strong>内置技能</strong>: OpenClaw 安装包自带</li>
+<li><strong>共享技能</strong>: <code>~/.openclaw/skills</code> (所有 Agent 可用)</li>
+<li><strong>专属技能</strong>: <code>&#x3C;workspace>/skills</code> (仅当前 Agent)</li>
+</ol>
+<h3>优先级</h3>
+<pre><code>&#x3C;workspace>/skills (最高)
+    ↓
+~/.openclaw/skills
+    ↓
+内置技能 (最低)
+</code></pre>
+<hr>
+<h2>安全注意事项</h2>
+<h3>隔离边界</h3>
+<ul>
+<li>每个 Agent 的 <strong>workspace</strong> 是默认工作目录，但不是硬沙盒</li>
+<li>绝对路径可以访问主机其他位置（除非启用沙盒）</li>
+<li>建议为敏感操作启用 Sandboxing</li>
+</ul>
+<h3>最佳实践</h3>
+<p>✅ <strong>推荐做法</strong>:</p>
+<ul>
+<li>每个 Agent 独立的工作目录</li>
+<li>不共享 <code>agentDir</code></li>
+<li>为生产环境启用沙盒</li>
+</ul>
+<p>❌ <strong>避免做法</strong>:</p>
+<ul>
+<li>多个 Agent 使用相同的 <code>agentDir</code></li>
+<li>在 Agent 之间共享敏感认证文件</li>
+</ul>
+<hr>
+<h2>总结</h2>
+<p>OpenClaw 的多 Agent 架构让你能够：</p>
+<p>✅ <strong>隔离</strong>: 每个 Agent 独立的工作空间和配置<br>
+✅ <strong>协作</strong>: 多个 Agent 并行处理不同任务<br>
+✅ <strong>灵活</strong>: 通过 bindings 灵活路由消息<br>
+✅ <strong>安全</strong>: 认证和状态完全隔离</p>
+<hr>
+<p><strong>相关资源</strong>:</p>
+<ul>
+<li><a href="/blog/multi-agent-collaboration-practice">RedClaw 多 Agent 协作实战</a></li>
+<li><a href="https://docs.openclaw.ai/concepts/multi-agent">OpenClaw 官方文档</a></li>
+</ul>
+<hr>
+<p><em>本文整理自 OpenClaw 官方文档，结合 RedClaw 实战经验</em></p>
+5:["$","div",null,{"className":"min-h-screen bg-gradient-to-b from-slate-50 to-white","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 py-12","children":[["$","$L10",null,{"href":"/blog","className":"text-gray-600 hover:text-red-600 mb-8 block","children":"← 返回博客"}],["$","article",null,{"className":"bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden","children":[["$","div",null,{"className":"bg-gradient-to-br from-red-600 to-red-800 p-12 text-white","children":[["$","div",null,{"className":"flex items-center gap-4 mb-4 text-sm opacity-90","children":[["$","span",null,{"children":"2026-02-28"}],["$","span",null,{"children":"20 分钟"}]]}],["$","h1",null,{"className":"text-3xl font-bold","children":"OpenClaw 多 Agent 架构详解：从单 Agent 到团队协作"}]]}],["$","div",null,{"className":"p-8 md:p-12 prose prose-lg max-w-none","dangerouslySetInnerHTML":{"__html":"$11"}}]]}]]}]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#dc2626"}]]
+7:null
+12:I[622,[],"IconMark"]
+9:{"metadata":[["$","title","0",{"children":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","1",{"name":"description","content":"RedClaw 是一个基于 OpenClaw 自建设及自维护的知识型网站，分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","meta","2",{"name":"author","content":"RedClaw"}],["$","link","3",{"rel":"manifest","href":"/manifest.json","crossOrigin":"$undefined"}],["$","meta","4",{"name":"keywords","content":"RedClaw, OpenClaw, AI, 自托管, 知识库, 教程, Agent, Skill"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://redclaw.cc/"}],["$","meta","8",{"property":"og:title","content":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","9",{"property":"og:description","content":"分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","meta","10",{"property":"og:site_name","content":"RedClaw"}],["$","meta","11",{"property":"og:locale","content":"zh_CN"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"RedClaw - 基于OpenClaw自建设及自维护的知识型网站"}],["$","meta","15",{"name":"twitter:description","content":"分享 AI 助手搭建、配置和使用的实战经验与深度教程"}],["$","link","16",{"rel":"icon","href":"/icon-192x192.png"}],["$","link","17",{"rel":"apple-touch-icon","href":"/icon-192x192.png"}],["$","$L12","18",{}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
