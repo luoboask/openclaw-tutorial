@@ -88,7 +88,7 @@ fi
 # 步骤 5: 服务器构建
 echo ""
 echo "步骤 5/6: 服务器构建..."
-if ssh -i "$SSH_KEY" "$SERVER_USER@$SERVER_IP" "cd $SERVER_PATH && npm run build" > /tmp/server-build.log 2>&1; then
+if ssh -i "$SSH_KEY" "$SERVER_USER@$SERVER_IP" "cd $SERVER_PATH && npm install && npm run build" > /tmp/server-build.log 2>&1; then
     log_info "✅ 服务器构建成功"
 else
     log_error "❌ 服务器构建失败"

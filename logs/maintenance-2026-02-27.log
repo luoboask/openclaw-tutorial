@@ -788,3 +788,27 @@ To address all issues, run:
 [0;32m[INFO][0m 1. 检查本地网站构建状态...
 /Users/openmilo/clawall/claw-team/claw-admin/scripts/daily-maintenance.sh: line 56: npm: command not found
 [0;31m[ERROR][0m ❌ 本地构建失败
+========== OpenClaw 网站维护任务 ==========
+开始时间: Fri Feb 27 20:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+/Users/openmilo/clawall/claw-team/claw-admin/scripts/daily-maintenance.sh: line 56: npm: command not found
+[0;31m[ERROR][0m ❌ 本地构建失败
+========== OpenClaw 网站维护任务 ==========
+开始时间: Fri Feb 27 21:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+/Users/openmilo/clawall/claw-team/claw-admin/scripts/daily-maintenance.sh: line 56: npm: command not found
+[0;31m[ERROR][0m ❌ 本地构建失败
+========== OpenClaw 网站维护任务 ==========
+开始时间: Fri Feb 27 22:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+/Users/openmilo/clawall/claw-team/claw-admin/scripts/daily-maintenance.sh: line 56: npm: command not found
+[0;31m[ERROR][0m ❌ 本地构建失败
+========== OpenClaw 网站维护任务 ==========
+开始时间: Fri Feb 27 23:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+/Users/openmilo/clawall/claw-team/claw-admin/scripts/daily-maintenance.sh: line 56: npm: command not found
+[0;31m[ERROR][0m ❌ 本地构建失败

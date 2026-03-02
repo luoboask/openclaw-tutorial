@@ -4,6 +4,9 @@
 
 set -e
 
+# 设置 PATH 以确保能找到 npm/node（cron 环境变量不完整）
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+
 # 配置
 WEBSITE_DIR="/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
 LOG_DIR="/Users/openmilo/clawall/claw-team/claw-admin/logs"

@@ -1,0 +1,1174 @@
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 09:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+/Users/openmilo/clawall/claw-team/claw-admin/scripts/daily-maintenance.sh: line 56: npm: command not found
+[0;31m[ERROR][0m ❌ 本地构建失败
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 15:23:41 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.6s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.232 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main 62aa230d] auto: daily maintenance 2026-03-01
+ 288 files changed, 1619 insertions(+), 27215 deletions(-)
+ create mode 100644 app/blog/articles/.mdx
+ delete mode 100644 dist/_next/static/01WhpGfW4BLSl2c-nEgBp/_buildManifest.js
+ create mode 100644 dist/_next/static/chunks/app/blog/[slug]/page-5c5ce53c05cef894.js
+ delete mode 100644 dist/_next/static/chunks/app/blog/[slug]/page-9ebb3b868ebb3594.js
+ create mode 100644 dist/_next/static/chunks/app/blog/page-5c5ce53c05cef894.js
+ delete mode 100644 dist/_next/static/chunks/app/blog/page-9ebb3b868ebb3594.js
+ create mode 100644 dist/_next/static/chunks/app/docs/channels/page-5c5ce53c05cef894.js
+ delete mode 100644 dist/_next/static/chunks/app/docs/channels/page-9ebb3b868ebb3594.js
+ create mode 100644 dist/_next/static/chunks/app/docs/concepts/memory/page-5c5ce53c05cef894.js
+ create mode 100644 dist/_next/static/chunks/app/docs/concepts/multi-agent/page-5c5ce53c05cef894.js
+ create mode 100644 dist/_next/static/chunks/app/docs/concepts/skills/page-5c5ce53c05cef894.js
+ create mode 100644 dist/_next/static/chunks/app/docs/config/heartbeat/page-5c5ce53c05cef894.js
+ create mode 100644 dist/_next/static/chunks/app/docs/config/sandboxing/page-5c5ce53c05cef894.js
+ create mode 100644 dist/_next/static/chunks/app/docs/page-5c5ce53c05cef894.js
+ delete mode 100644 dist/_next/static/chunks/app/docs/page-9ebb3b868ebb3594.js
+ create mode 100644 dist/_next/static/chunks/app/docs/quickstart/page-5c5ce53c05cef894.js
+ delete mode 100644 dist/_next/static/chunks/app/docs/quickstart/page-9ebb3b868ebb3594.js
+ create mode 100644 dist/_next/static/ivYsNeeWidLvCc9uhm1MB/_buildManifest.js
+ rename dist/_next/static/{01WhpGfW4BLSl2c-nEgBp => ivYsNeeWidLvCc9uhm1MB}/_ssgManifest.js (100%)
+ delete mode 100644 dist/app-build-manifest.json
+ create mode 100644 dist/blog/openclaw-multi-agent-architecture/index.html
+ create mode 100644 dist/blog/openclaw-multi-agent-architecture/index.txt
+ create mode 100644 dist/blog/openclaw-skill-system-guide/index.html
+ create mode 100644 dist/blog/openclaw-skill-system-guide/index.txt
+ delete mode 100644 dist/build-manifest.json
+ delete mode 100644 dist/cache/webpack/client-development-fallback/0.pack.gz
+ delete mode 100644 dist/cache/webpack/client-development-fallback/index.pack.gz
+ delete mode 100644 dist/cache/webpack/client-development/0.pack.gz
+ delete mode 100644 dist/cache/webpack/client-development/1.pack.gz
+ delete mode 100644 dist/cache/webpack/client-development/3.pack.gz_
+ delete mode 100644 dist/cache/webpack/client-development/4.pack.gz_
+ delete mode 100644 dist/cache/webpack/client-development/index.pack.gz
+ delete mode 100644 dist/cache/webpack/client-development/index.pack.gz.old
+ delete mode 100644 dist/cache/webpack/server-development/0.pack.gz
+ delete mode 100644 dist/cache/webpack/server-development/1.pack.gz
+ delete mode 100644 dist/cache/webpack/server-development/2.pack.gz
+ delete mode 100644 dist/cache/webpack/server-development/3.pack.gz
+ delete mode 100644 dist/cache/webpack/server-development/index.pack.gz
+ delete mode 100644 dist/cache/webpack/server-development/index.pack.gz.old
+ create mode 100644 dist/docs/concepts/memory/index.html
+ create mode 100644 dist/docs/concepts/memory/index.txt
+ create mode 100644 dist/docs/concepts/multi-agent/index.html
+ create mode 100644 dist/docs/concepts/multi-agent/index.txt
+ create mode 100644 dist/docs/concepts/skills/index.html
+ create mode 100644 dist/docs/concepts/skills/index.txt
+ create mode 100644 dist/docs/config/heartbeat/index.html
+ create mode 100644 dist/docs/config/heartbeat/index.txt
+ create mode 100644 dist/docs/config/sandboxing/index.html
+ create mode 100644 dist/docs/config/sandboxing/index.txt
+ delete mode 100644 dist/fallback-build-manifest.json
+ create mode 100644 dist/pagefind/fragment/zh-cn_2a171f5.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_34ec3dd.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_3fd49e5.pf_fragment
+ delete mode 100644 dist/pagefind/fragment/zh-cn_60bc1e8.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_639941c.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_82f1b4f.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_8b85125.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_91baa83.pf_fragment
+ delete mode 100644 dist/pagefind/fragment/zh-cn_d2f6e34.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_e5e0526.pf_fragment
+ create mode 100644 dist/pagefind/fragment/zh-cn_f5d0f8b.pf_fragment
+ delete mode 100644 dist/pagefind/index/zh-cn_60975ae.pf_index
+ delete mode 100644 dist/pagefind/index/zh-cn_9d78119.pf_index
+ create mode 100644 dist/pagefind/index/zh-cn_9f65357.pf_index
+ delete mode 100644 dist/pagefind/index/zh-cn_b4776e1.pf_index
+ create mode 100644 dist/pagefind/index/zh-cn_f49ba6a.pf_index
+ create mode 100644 dist/pagefind/index/zh-cn_fbd5aa8.pf_index
+ create mode 100644 dist/pagefind/pagefind.zh-cn_159f41e16a90f.pf_meta
+ delete mode 100644 dist/pagefind/pagefind.zh-cn_6a245831461c4.pf_meta
+ delete mode 100644 dist/react-loadable-manifest.json
+ delete mode 100644 dist/server/_error.js
+ delete mode 100644 dist/server/app-paths-manifest.json
+ delete mode 100644 dist/server/app/blog/[slug]/page.js
+ delete mode 100644 dist/server/app/blog/[slug]/page_client-reference-manifest.js
+ delete mode 100644 dist/server/app/blog/page_client-reference-manifest.js
+ delete mode 100644 dist/server/app/page.js
+ delete mode 100644 dist/server/app/page_client-reference-manifest.js
+ delete mode 100644 dist/server/middleware-build-manifest.js
+ delete mode 100644 dist/server/middleware-react-loadable-manifest.js
+ delete mode 100644 dist/server/next-font-manifest.js
+ delete mode 100644 dist/server/next-font-manifest.json
+ delete mode 100644 dist/server/pages-manifest.json
+ delete mode 100644 dist/server/pages/_app.js
+ delete mode 100644 dist/server/pages/_document.js
+ delete mode 100644 dist/server/pages/_error.js
+ delete mode 100644 dist/server/server-reference-manifest.js
+ delete mode 100644 dist/server/server-reference-manifest.json
+ delete mode 100644 dist/server/vendor-chunks/@swc.js
+ delete mode 100644 dist/server/vendor-chunks/@ungap.js
+ delete mode 100644 dist/server/vendor-chunks/bail.js
+ delete mode 100644 dist/server/vendor-chunks/ccount.js
+ delete mode 100644 dist/server/vendor-chunks/character-entities-html4.js
+ delete mode 100644 dist/server/vendor-chunks/character-entities-legacy.js
+ delete mode 100644 dist/server/vendor-chunks/character-entities.js
+ delete mode 100644 dist/server/vendor-chunks/comma-separated-tokens.js
+ delete mode 100644 dist/server/vendor-chunks/debug.js
+ delete mode 100644 dist/server/vendor-chunks/decode-named-character-reference.js
+ delete mode 100644 dist/server/vendor-chunks/dequal.js
+ delete mode 100644 dist/server/vendor-chunks/devlop.js
+ delete mode 100644 dist/server/vendor-chunks/extend.js
+ delete mode 100644 dist/server/vendor-chunks/framer-motion.js
+ delete mode 100644 dist/server/vendor-chunks/has-flag.js
+ delete mode 100644 dist/server/vendor-chunks/hast-util-sanitize.js
+ delete mode 100644 dist/server/vendor-chunks/hast-util-to-html.js
+ delete mode 100644 dist/server/vendor-chunks/hast-util-whitespace.js
+ delete mode 100644 dist/server/vendor-chunks/html-void-elements.js
+ delete mode 100644 dist/server/vendor-chunks/is-plain-obj.js
+ delete mode 100644 dist/server/vendor-chunks/longest-streak.js
+ delete mode 100644 dist/server/vendor-chunks/lucide-react.js
+ delete mode 100644 dist/server/vendor-chunks/markdown-table.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-find-and-replace.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-from-markdown.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-gfm-autolink-literal.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-gfm-footnote.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-gfm-strikethrough.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-gfm-table.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-gfm-task-list-item.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-gfm.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-phrasing.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-to-hast.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-to-markdown.js
+ delete mode 100644 dist/server/vendor-chunks/mdast-util-to-string.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-core-commonmark.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-extension-gfm-autolink-literal.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-extension-gfm-footnote.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-extension-gfm-strikethrough.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-extension-gfm-table.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-extension-gfm-tagfilter.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-extension-gfm-task-list-item.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-extension-gfm.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-factory-destination.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-factory-label.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-factory-space.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-factory-title.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-factory-whitespace.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-character.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-chunked.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-classify-character.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-combine-extensions.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-decode-numeric-character-reference.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-decode-string.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-encode.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-html-tag-name.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-normalize-identifier.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-resolve-all.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-sanitize-uri.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-subtokenize.js
+ delete mode 100644 dist/server/vendor-chunks/micromark-util-symbol.js
+ delete mode 100644 dist/server/vendor-chunks/micromark.js
+ delete mode 100644 dist/server/vendor-chunks/motion-dom.js
+ delete mode 100644 dist/server/vendor-chunks/motion-utils.js
+ delete mode 100644 dist/server/vendor-chunks/ms.js
+ delete mode 100644 dist/server/vendor-chunks/next.js
+ delete mode 100644 dist/server/vendor-chunks/property-information.js
+ delete mode 100644 dist/server/vendor-chunks/remark-gfm.js
+ delete mode 100644 dist/server/vendor-chunks/remark-html.js
+ delete mode 100644 dist/server/vendor-chunks/remark-parse.js
+ delete mode 100644 dist/server/vendor-chunks/remark-stringify.js
+ delete mode 100644 dist/server/vendor-chunks/remark.js
+ delete mode 100644 dist/server/vendor-chunks/space-separated-tokens.js
+ delete mode 100644 dist/server/vendor-chunks/stringify-entities.js
+ delete mode 100644 dist/server/vendor-chunks/supports-color.js
+ delete mode 100644 dist/server/vendor-chunks/trim-lines.js
+ delete mode 100644 dist/server/vendor-chunks/trough.js
+ delete mode 100644 dist/server/vendor-chunks/unified.js
+ delete mode 100644 dist/server/vendor-chunks/unist-util-is.js
+ delete mode 100644 dist/server/vendor-chunks/unist-util-position.js
+ delete mode 100644 dist/server/vendor-chunks/unist-util-stringify-position.js
+ delete mode 100644 dist/server/vendor-chunks/unist-util-visit-parents.js
+ delete mode 100644 dist/server/vendor-chunks/unist-util-visit.js
+ delete mode 100644 dist/server/vendor-chunks/vfile-message.js
+ delete mode 100644 dist/server/vendor-chunks/vfile.js
+ delete mode 100644 dist/server/vendor-chunks/zwitch.js
+ delete mode 100644 dist/server/webpack-runtime.js
+ delete mode 100644 dist/static/chunks/_error.js
+ delete mode 100644 dist/static/chunks/app/layout.js
+ delete mode 100644 dist/static/chunks/app/page.js
+ delete mode 100644 dist/static/chunks/fallback/amp.js
+ delete mode 100644 dist/static/chunks/fallback/main-app.js
+ delete mode 100644 dist/static/chunks/fallback/main.js
+ delete mode 100644 dist/static/chunks/fallback/pages/_app.js
+ delete mode 100644 dist/static/chunks/fallback/pages/_error.js
+ delete mode 100644 dist/static/chunks/fallback/react-refresh.js
+ delete mode 100644 dist/static/chunks/fallback/webpack.js
+ delete mode 100644 dist/static/chunks/main.js
+ delete mode 100644 dist/static/chunks/pages/_app.js
+ delete mode 100644 dist/static/chunks/pages/_error.js
+ delete mode 100644 dist/static/chunks/polyfills.js
+ delete mode 100644 dist/static/chunks/react-refresh.js
+ delete mode 100644 dist/static/chunks/webpack.js
+ delete mode 100644 dist/static/development/_buildManifest.js
+ delete mode 100644 dist/static/development/_ssgManifest.js
+ delete mode 100644 dist/static/webpack/236bcecac0f3690a.webpack.hot-update.json
+ delete mode 100644 dist/static/webpack/2795a28c629edd30.webpack.hot-update.json
+ delete mode 100644 dist/static/webpack/74b5ebc74effd76a.webpack.hot-update.json
+ delete mode 100644 dist/static/webpack/app/layout.236bcecac0f3690a.hot-update.js
+ delete mode 100644 dist/static/webpack/app/layout.2795a28c629edd30.hot-update.js
+ delete mode 100644 dist/static/webpack/da55586fa744f043.webpack.hot-update.json
+ delete mode 100644 dist/static/webpack/e3e2cf68eea58ea2.webpack.hot-update.json
+ delete mode 100644 dist/static/webpack/webpack.236bcecac0f3690a.hot-update.js
+ delete mode 100644 dist/static/webpack/webpack.2795a28c629edd30.hot-update.js
+ delete mode 100644 dist/static/webpack/webpack.74b5ebc74effd76a.hot-update.js
+ delete mode 100644 dist/static/webpack/webpack.da55586fa744f043.hot-update.js
+ delete mode 100644 dist/static/webpack/webpack.e3e2cf68eea58ea2.hot-update.js
+ delete mode 100644 dist/types/app/blog/[slug]/page.ts
+ delete mode 100644 dist/types/app/layout.ts
+ delete mode 100644 dist/types/app/page.ts
+ delete mode 100644 dist/types/cache-life.d.ts
+ delete mode 100644 dist/types/package.json
+ delete mode 100644 dist/types/routes.d.ts
+ delete mode 100644 dist/types/validator.ts
+To github.com:luoboask/openclaw-tutorial.git
+   3dc1cf92..62aa230d  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+npm warn using --force Recommended protections disabled.
+[0;32m[INFO][0m ✅ 已清理 npm 缓存
+
+结束时间: Sun Mar  1 15:24:19 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-01.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-01.log
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 15:31:07 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.228 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main bb282f2d] auto: daily maintenance 2026-03-01
+ 92 files changed, 130 insertions(+), 130 deletions(-)
+ rename dist/_next/static/{ivYsNeeWidLvCc9uhm1MB => uQl47NLgAZzI6o5bZnQgr}/_buildManifest.js (100%)
+ rename dist/_next/static/{ivYsNeeWidLvCc9uhm1MB => uQl47NLgAZzI6o5bZnQgr}/_ssgManifest.js (100%)
+To github.com:luoboask/openclaw-tutorial.git
+   62aa230d..bb282f2d  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+npm warn using --force Recommended protections disabled.
+[0;32m[INFO][0m ✅ 已清理 npm 缓存
+
+结束时间: Sun Mar  1 15:31:41 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-01.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-01.log
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 18:00:08 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.6s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.297 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main 453c9be7] auto: daily maintenance 2026-03-01
+ 92 files changed, 130 insertions(+), 130 deletions(-)
+ rename dist/_next/static/{Ebcf6vEjocyu6F8q0OtcZ => -By2At9sGWU4Dg0RDgJDj}/_buildManifest.js (100%)
+ rename dist/_next/static/{Ebcf6vEjocyu6F8q0OtcZ => -By2At9sGWU4Dg0RDgJDj}/_ssgManifest.js (100%)
+To github.com:luoboask/openclaw-tutorial.git
+   996d154f..453c9be7  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+npm warn using --force Recommended protections disabled.
+[0;32m[INFO][0m ✅ 已清理 npm 缓存
+
+结束时间: Sun Mar  1 18:01:26 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-01.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-01.log
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 20:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.7s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.424 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main 41407721] auto: daily maintenance 2026-03-01
+ 92 files changed, 130 insertions(+), 130 deletions(-)
+ rename dist/_next/static/{-By2At9sGWU4Dg0RDgJDj => _U7oEM1aBrP4U3hXBIc3G}/_buildManifest.js (100%)
+ rename dist/_next/static/{-By2At9sGWU4Dg0RDgJDj => _U7oEM1aBrP4U3hXBIc3G}/_ssgManifest.js (100%)
+To github.com:luoboask/openclaw-tutorial.git
+   453c9be7..41407721  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+npm warn using --force Recommended protections disabled.
+[0;32m[INFO][0m ✅ 已清理 npm 缓存
+
+结束时间: Sun Mar  1 20:00:45 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-01.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-01.log
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 21:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 5.7s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.398 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main b2e9b00a] auto: daily maintenance 2026-03-01
+ 92 files changed, 130 insertions(+), 130 deletions(-)
+ rename dist/_next/static/{_U7oEM1aBrP4U3hXBIc3G => yRg7q7lOJXVvQWx6yIa14}/_buildManifest.js (100%)
+ rename dist/_next/static/{_U7oEM1aBrP4U3hXBIc3G => yRg7q7lOJXVvQWx6yIa14}/_ssgManifest.js (100%)
+To github.com:luoboask/openclaw-tutorial.git
+   41407721..b2e9b00a  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+npm warn using --force Recommended protections disabled.
+[0;32m[INFO][0m ✅ 已清理 npm 缓存
+
+结束时间: Sun Mar  1 21:01:19 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-01.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-01.log
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 22:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.7s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.371 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main 0f4e0fbc] auto: daily maintenance 2026-03-01
+ 92 files changed, 130 insertions(+), 130 deletions(-)
+ rename dist/_next/static/{yRg7q7lOJXVvQWx6yIa14 => GxDNeCPt-FbX1Fkd9QnKZ}/_buildManifest.js (100%)
+ rename dist/_next/static/{yRg7q7lOJXVvQWx6yIa14 => GxDNeCPt-FbX1Fkd9QnKZ}/_ssgManifest.js (100%)
+To github.com:luoboask/openclaw-tutorial.git
+   b2e9b00a..0f4e0fbc  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+npm warn using --force Recommended protections disabled.
+[0;32m[INFO][0m ✅ 已清理 npm 缓存
+
+结束时间: Sun Mar  1 22:00:46 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-01.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-01.log
+========== OpenClaw 网站维护任务 ==========
+开始时间: Sun Mar  1 23:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.402 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main 2e8283a2] auto: daily maintenance 2026-03-01
+ 92 files changed, 130 insertions(+), 130 deletions(-)
+ rename dist/_next/static/{GxDNeCPt-FbX1Fkd9QnKZ => Hj2p2fDN-Z4psiYdANLpL}/_buildManifest.js (100%)
+ rename dist/_next/static/{GxDNeCPt-FbX1Fkd9QnKZ => Hj2p2fDN-Z4psiYdANLpL}/_ssgManifest.js (100%)
+To github.com:luoboask/openclaw-tutorial.git
+   0f4e0fbc..2e8283a2  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+npm warn using --force Recommended protections disabled.
+[0;32m[INFO][0m ✅ 已清理 npm 缓存
+
+结束时间: Sun Mar  1 23:00:48 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-01.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-01.log
