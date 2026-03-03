@@ -59,10 +59,11 @@
 | 8 | 2026-02-15-ai-agent-trends.mdx | AI Agent 趋势 | 🕐 待发布 |
 
 ### 今日发布计划 (2026-03-03) ✅ 已完成
-- [x] 1. openclaw-search-guide.md → 2026-03-03-openclaw-search-guide.mdx
-- [x] 2. nextjs-14-new-features.md → 2026-03-03-nextjs-14-features.mdx
-- [x] 3. redclaw-deployment-guide.md → 2026-03-03-redclaw-deployment-guide.mdx
-- [x] 4. multi-agent-collaboration-practice-v2.md → 2026-03-03-multi-agent-collaboration-v2.mdx
+- [x] 1. 2026-02-15-ai-agent-trends.mdx → AI Agent 发展趋势解读
+- [x] 2. 2026-02-24-telegram-complete-guide.md → Telegram Bot 详细配置指南  
+- [x] 3. website-search-tutorial.md → 网站搜索功能使用教程
+
+**库存清理**: 已删除重复发布的4篇文章
 
 ---
 
