@@ -1,0 +1,243 @@
+---
+title: "OpenClaw Skill 系统完全指南"
+description: "掌握 Skill 开发，扩展 OpenClaw 的无限可能"
+date: "2026-03-03"
+author: "claw-article"
+tags: ["OpenClaw", "Skill", "开发", "扩展", "教程"]
+---
+
+# OpenClaw Skill 系统完全指南
+
+> 掌握 Skill 开发，扩展 OpenClaw 的无限可能
+
+---
+
+## 什么是 Skill？
+
+**Skill** 是 OpenClaw 的扩展插件系统，让你可以：
+- 🛠️ 添加自定义工具功能
+- 🔌 集成第三方服务
+- 📝 定义专属指令
+- 🤖 扩展 AI 能力边界
+
+---
+
+## 一、Skill 基础结构
+
+### 目录结构
+
+```
+my-skill/
+├── SKILL.md          # Skill 定义文档
+├── package.json      # 依赖配置
+├── src/
+│   └── index.ts      # 主入口
+└── templates/        # 模板文件
+```
+
+### SKILL.md 示例
+
+```markdown
+# My Skill
+
+## 描述
+这是我的自定义 Skill
+
+## 命令
+- `hello` - 打招呼
+- `weather [城市]` - 查询天气
+
+## 安装
+npm install my-skill
+```
+
+---
+
+## 二、创建第一个 Skill
+
+### 步骤 1：初始化项目
+
+```bash
+# 创建目录
+mkdir my-first-skill
+cd my-first-skill
+
+# 初始化
+npm init -y
+
+# 安装依赖
+npm install @openclaw/sdk typescript
+```
+
+### 步骤 2：编写代码
+
+```typescript
+// src/index.ts
+import { Skill, Tool } from '@openclaw/sdk';
+
+const skill: Skill = {
+  name: 'greeting',
+  version: '1.0.0',
+  
+  tools: [
+    {
+      name: 'hello',
+      description: 'Say hello to someone',
+      parameters: {
+        name: {
+          type: 'string',
+          description: 'Name to greet',
+          required: true
+        }
+      },
+      handler: async ({ name }) => {
+        return `Hello, ${name}! Welcome to OpenClaw! 👋`;
+      }
+    }
+  ]
+};
+
+export default skill;
+```
+
+### 步骤 3：编译配置
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+```
+
+### 步骤 4：构建
+
+```bash
+npx tsc
+```
+
+---
+
+## 三、Skill 进阶开发
+
+### 添加外部 API 调用
+
+```typescript
+import { Skill, Tool } from '@openclaw/sdk';
+import axios from 'axios';
+
+const weatherSkill: Skill = {
+  name: 'weather',
+  version: '1.0.0',
+  
+  tools: [
+    {
+      name: 'getWeather',
+      description: 'Get weather for a city',
+      parameters: {
+        city: {
+          type: 'string',
+          description: 'City name',
+          required: true
+        }
+      },
+      handler: async ({ city }) => {
+        const response = await axios.get(
+          `https://api.weather.com/v1/current?city=${city}`
+        );
+        return response.data;
+      }
+    }
+  ]
+};
+
+export default weatherSkill;
+```
+
+---
+
+## 四、Skill 安装与使用
+
+### 本地安装
+
+```bash
+# 链接到全局
+npm link
+
+# 在 OpenClaw 中启用
+openclaw skill link my-first-skill
+```
+
+### 从 npm 安装
+
+```bash
+openclaw skill install my-awesome-skill
+```
+
+---
+
+## 五、Skill 管理
+
+### 常用命令
+
+```bash
+# 列出已安装 Skills
+openclaw skill list
+
+# 启用/禁用
+openclaw skill enable my-skill
+openclaw skill disable my-skill
+
+# 更新
+openclaw skill update my-skill
+
+# 卸载
+openclaw skill uninstall my-skill
+```
+
+---
+
+## 六、最佳实践
+
+### ✅ 推荐做法
+
+1. **清晰的描述** - 让用户知道 Skill 能做什么
+2. **参数验证** - 检查输入有效性
+3. **错误处理** - 提供友好的错误信息
+4. **文档完善** - 写清楚 SKILL.md
+
+### ❌ 避免做法
+
+1. **过度授权** - 不要请求不必要的权限
+2. **阻塞操作** - 异步操作不要阻塞太久
+3. **硬编码密钥** - 使用配置系统
+
+---
+
+## 七、发布 Skill
+
+### 发布到 npm
+
+```bash
+# 登录
+npm login
+
+# 发布
+npm publish
+```
+
+---
+
+## 总结
+
+Skill 系统是 OpenClaw 最强大的扩展机制。通过 Skill，你可以：
+- 连接任何 API
+- 操作本地资源
+- 创建自定义工作流
+
+**开始你的第一个 Skill 吧！**
