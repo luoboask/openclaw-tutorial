@@ -30,15 +30,39 @@
 - [ ] 运行 npm audit 检查安全漏洞
 - [ ] 检查磁盘空间使用率
 
-### 6. 内容更新检查
-- [ ] 检查 claw-article/workspace/articles/ 是否有新文章
-- [ ] 如有新内容，发布到网站
-- [ ] 更新博客列表
+### 6. 内容更新检查 ✅ **每日至少4篇**
+- [ ] 检查 claw-article/workspace/articles/ 待发布文章
+- [ ] 选择4篇文章转换为 MDX 格式
+- [ ] 添加 Frontmatter 元数据
+- [ ] 发布到 content/articles/published/
+- [ ] 更新已发布文章列表
 
 ### 7. 生成报告
 - [ ] 生成巡检报告
-- [ ] 生成摘要
+- [ ] 生成文章发布摘要
 - [ ] 如有异常，记录到 alerts.log
+
+---
+
+## 📋 文章发布管理
+
+### 待发布文章池 (claw-article/workspace/articles/)
+| # | 文件名 | 标题 | 状态 |
+|---|--------|------|------|
+| 1 | openclaw-search-guide.md | OpenClaw 搜索功能完全使用指南 | 🕐 待发布 |
+| 2 | nextjs-14-new-features.md | Next.js 14 新特性深度解析 | 🕐 待发布 |
+| 3 | redclaw-deployment-guide.md | RedClaw 部署完全指南 | 🕐 待发布 |
+| 4 | multi-agent-collaboration-practice-v2.md | 多 Agent 协作实战 V2 | 🕐 待发布 |
+| 5 | website-search-tutorial.md | 网站搜索教程 | 🕐 待发布 |
+| 6 | multi-agent-collaboration-practice.md | 多 Agent 协作实战 | 🕐 待发布 |
+| 7 | 2026-02-24-telegram-complete-guide.md | Telegram 完整指南 | 🕐 待发布 |
+| 8 | 2026-02-15-ai-agent-trends.mdx | AI Agent 趋势 | 🕐 待发布 |
+
+### 今日发布计划 (2026-03-03) ✅ 已完成
+- [x] 1. openclaw-search-guide.md → 2026-03-03-openclaw-search-guide.mdx
+- [x] 2. nextjs-14-new-features.md → 2026-03-03-nextjs-14-features.mdx
+- [x] 3. redclaw-deployment-guide.md → 2026-03-03-redclaw-deployment-guide.mdx
+- [x] 4. multi-agent-collaboration-practice-v2.md → 2026-03-03-multi-agent-collaboration-v2.mdx
 
 ---
 
@@ -60,22 +84,11 @@
 | 6 | Git 同步 | claw-admin |
 | 7 | 生成报告 | claw-admin |
 
-### 自动化发布流程
-
-1. **检查** `content/articles/` 目录中的新文章
-2. **转换** Markdown 为 MDX 格式
-3. **添加** Frontmatter 元数据
-4. **构建** Next.js 网站
-5. **部署** 到服务器 31.220.53.241
-6. **验证** HTTP 200 状态
-7. **提交** Git 更改
-8. **生成** 日报报告
-
 ---
 
 ## 响应规则
 
-1. **如果一切正常**: 回复 HEARTBEAT_OK **并主动告知用户巡检完成**
+1. **如果一切正常**: 回复 HEARTBEAT_OK **并主动告知用户巡检完成和文章发布情况**
 2. **如果发现异常**: 执行修复并报告问题
 3. **如果无法自动修复**: 发送告警通知用户
 
@@ -84,41 +97,28 @@
 ## 📢 用户偏好
 
 - ✅ 每日任务执行后 **主动汇报结果**（2026-03-03 更新）
+- ✅ **每日至少发布4篇文章**（2026-03-03 更新）
 
 ---
 
 *配置时间: 2026-02-24*
 *执行者: claw-admin*
-*更新时间: 2026-03-01 - 新增完整工作流*
+*更新时间: 2026-03-03 - 新增每日4篇文章发布任务*
 
 ---
 
-## ✅ 已发布文章（2026-02-28）
+## ✅ 已发布文章清单
 
-### 1. Memory Search 配置指南 ✅
-- **文件**: openclaw-memory-search-ollama-guide.md
-- **标签**: #OpenClaw #MemorySearch #Ollama #配置指南
-- **状态**: ✅ 已发布到网站
-- **URL**: /blog/openclaw-memory-search-ollama-guide
+### 已发布 (2026-02-28)
+1. Memory Search 配置指南 ✅
+2. Heartbeat 配置指南 ✅
+3. OpenClaw 搜索功能完全使用指南 ✅
+4. Next.js 14 新特性深度解析 ✅
+5. 多 Agent 协作实战 V2 ✅
 
-### 2. Heartbeat 配置指南 ✅
-- **文件**: openclaw-heartbeat-configuration-guide.md
-- **标签**: #OpenClaw #Heartbeat #配置指南 #自动化
-- **状态**: ✅ 已发布到网站
-- **URL**: /blog/openclaw-heartbeat-configuration-guide
-
-### 3. OpenClaw 搜索功能完全使用指南 ✅
-- **文件**: openclaw-search-guide.md
-- **状态**: ✅ 已发布
-
-### 4. Next.js 14 新特性深度解析 ✅
-- **文件**: nextjs-14-new-features.md
-- **状态**: ✅ 已发布
-
-### 5. 多 Agent 协作实战 V2 ✅
-- **文件**: multi-agent-collaboration-practice-v2.md
-- **状态**: ✅ 已发布
+### 2026-02-25
+- Telegram 完整指南 ✅
 
 ---
 
-*更新时间：2026-02-28 17:40*
+*更新时间：2026-03-03 13:10*
