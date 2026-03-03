@@ -1,0 +1,311 @@
+---
+title: "Telegram Bot 详细配置指南"
+description: "从零开始配置 Telegram Bot 接入 OpenClaw，包含完整步骤和常见问题解答"
+date: 2026-02-24
+author: "OpenClaw Assistant"
+tags: ["telegram", "bot", "配置教程", "入门"]
+category: "频道配置"
+readTime: "10 分钟"
+slug: "telegram-bot-complete-guide"
+---
+
+# Telegram Bot 详细配置指南
+
+> 本教程将带你从零开始，完成 Telegram Bot 的创建和 OpenClaw 接入配置。
+
+---
+
+## 📋 概述
+
+| 项目 | 内容 |
+|------|------|
+| **难度** | ⭐ 简单 |
+| **预计时间** | 5-10 分钟 |
+| **前提条件** | Telegram 账号 |
+| **适用版本** | OpenClaw 2026.2.x |
+
+**你将学到:**
+- 如何在 Telegram 中创建 Bot
+- 如何获取 Bot Token
+- 如何配置 OpenClaw 连接 Telegram
+- 如何测试和故障排查
+
+---
+
+## 步骤 1: 在 Telegram 中创建 Bot
+
+### 1.1 打开 Telegram，搜索 @BotFather
+
+BotFather 是 Telegram 官方的 Bot 管理机器人。
+
+**操作:**
+1. 打开 Telegram 应用
+2. 在搜索框输入 `BotFather`
+3. 点击带有蓝色认证勾的 `@BotFather`
+
+### 1.2 创建新 Bot
+
+**发送命令:**
+```
+/newbot
+```
+
+**按提示操作:**
+1. BotFather 会要求你输入 Bot 名称（显示名称）
+   - 例如：`My OpenClaw Assistant`
+   - 可以包含空格，用户会看到这个名字
+
+2. 然后要求输入 Bot 用户名（唯一标识）
+   - 必须以 `bot` 结尾
+   - 例如：`my_claw_bot` 或 `myclawassistant_bot`
+   - 不能包含空格，只能使用字母、数字和下划线
+
+### 1.3 获取 Bot Token
+
+创建成功后，BotFather 会发送一条消息：
+
+```
+Done! Congratulations on your new bot. 
+You will find it at t.me/my_claw_bot. 
+You can now add a description, about section 
+and profile picture for your bot, see /help 
+for a list of commands. By the way, when 
+you've finished creating your cool bot, ping 
+our Bot Support if you want a better username 
+for it. Just make sure the bot is fully 
+operational before you do this.
+
+Use this token to access the HTTP API:
+123456789:ABCdefGHIjklMNOpqrsTUVwxyz
+```
+
+**重要:** 复制 `123456789:ABCdefGHIjklMNOpqrsTUVwxyz` 这部分，这就是你的 **Bot Token**。
+
+> ⚠️ **安全提示:** Token 就像密码，不要泄露给他人！
+
+---
+
+## 步骤 2: 配置 OpenClaw
+
+### 2.1 打开配置文件
+
+找到你的 OpenClaw 配置文件：
+
+```bash
+~/.openclaw/openclaw.json
+```
+
+使用你喜欢的编辑器打开：
+
+```bash
+# 使用 nano
+nano ~/.openclaw/openclaw.json
+
+# 或使用 vim
+vim ~/.openclaw/openclaw.json
+
+# 或使用 VS Code
+code ~/.openclaw/openclaw.json
+```
+
+### 2.2 添加 Telegram 配置
+
+在配置文件的 `channels` 部分添加 Telegram 配置：
+
+```json
+{
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
+    }
+  }
+}
+```
+
+**完整示例:**
+
+```json
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "kimi-coding/k2p5"
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "你的-Bot-Token-这里"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "auth": {
+      "mode": "token"
+    }
+  }
+}
+```
+
+### 2.3 保存配置文件
+
+保存后，验证 JSON 格式是否正确：
+
+```bash
+# 使用 jq 验证（如果已安装）
+cat ~/.openclaw/openclaw.json | jq .
+```
+
+如果显示格式化后的 JSON，说明格式正确。
+
+---
+
+## 步骤 3: 重启 OpenClaw Gateway
+
+配置更改后需要重启 Gateway 才能生效：
+
+```bash
+openclaw gateway restart
+```
+
+等待启动完成，看到类似以下输出表示成功：
+
+```
+✓ Gateway started on port 18789
+```
+
+---
+
+## 步骤 4: 测试连接
+
+### 4.1 在 Telegram 中找到你的 Bot
+
+1. 在 Telegram 搜索框输入你设置的 Bot 用户名
+2. 例如：`@my_claw_bot`
+3. 点击进入聊天界面
+
+### 4.2 发送测试消息
+
+发送任意消息，例如：
+```
+你好
+```
+
+如果配置正确，你的 AI 助手会回复你！
+
+### 4.3 常用命令测试
+
+尝试发送以下命令：
+
+```
+/help          # 查看帮助
+/session       # 查看会话信息
+/clear         # 清空当前会话
+```
+
+---
+
+## 🔧 常见问题
+
+### Q1: Bot 不回复消息
+
+**可能原因:**
+- Token 配置错误
+- Gateway 未启动
+- 网络问题
+
+**解决方案:**
+1. 检查配置文件中的 Token 是否正确
+2. 检查 Gateway 状态：`openclaw gateway status`
+3. 查看日志：`openclaw logs`
+
+### Q2: 提示 "Channel not enabled"
+
+**原因:** Telegram 频道未启用
+
+**解决:** 确保配置文件中 `enabled: true`
+
+### Q3: Token 泄露了怎么办？
+
+**紧急处理:**
+1. 立即在 BotFather 中发送 `/revoke`
+2. 获取新 Token
+3. 更新配置文件
+4. 重启 Gateway
+
+### Q4: 如何让 Bot 回复群组消息？
+
+**步骤:**
+1. 将 Bot 添加到群组
+2. 在群组中发送 `/start`
+3. 给 Bot 管理员权限（可选，但推荐）
+
+### Q5: 支持哪些消息类型？
+
+**支持:**
+- 文字消息
+- 图片（带描述）
+- 语音消息（需配置语音识别）
+
+**不支持:**
+- 视频
+- 文件
+- 贴纸
+
+---
+
+## 🎨 进阶配置
+
+### 设置 Bot 头像和描述
+
+在 BotFather 中发送：
+
+```
+/setuserpic   # 设置头像
+/setabouttext # 设置关于信息
+/setdescription # 设置描述
+```
+
+### 配置隐私模式
+
+在群组中，Bot 默认只能看到以下消息：
+- @提及 Bot 的消息
+- 回复 Bot 的消息
+-  Bot 发送的命令
+
+如需看到所有消息，需要：
+1. 给 Bot 管理员权限
+2. 或在 BotFather 中关闭隐私模式：`/setprivacy` → Disabled
+
+---
+
+## ✅ 验证清单
+
+配置完成后，检查以下项目：
+
+- [ ] 能在 Telegram 中搜索到 Bot
+- [ ] 发送消息后能收到回复
+- [ ] `/help` 命令正常工作
+- [ ] 重启 Gateway 后依然有效
+
+---
+
+## 📝 总结
+
+恭喜！你已经成功将 Telegram Bot 接入 OpenClaw。
+
+**下一步建议:**
+- 尝试其他功能，如图片发送
+- 邀请朋友加入群组体验
+- 查看其他频道接入教程（Discord、WhatsApp）
+
+**需要帮助?**
+- 查看官方文档: https://docs.openclaw.ai
+- 加入社区 Discord: https://discord.gg/clawd
+
+---
+
+*最后更新: 2026-02-24*  
+*适用版本: OpenClaw 2026.2.x*

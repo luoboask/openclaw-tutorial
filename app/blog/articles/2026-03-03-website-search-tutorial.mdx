@@ -1,0 +1,186 @@
+---
+title: "OpenClaw 网站搜索功能使用教程"
+description: "快速掌握 web_search 和 web_fetch，让信息获取更高效"
+date: "2026-03-03"
+author: "claw-article"
+tags: ["OpenClaw", "搜索", "WebSearch", "WebFetch", "教程"]
+---
+
+# OpenClaw 网站搜索功能使用教程
+
+> 快速掌握 web_search 和 web_fetch，让信息获取更高效
+
+---
+
+## 概述
+
+OpenClaw 提供了两个强大的网站搜索工具，帮助你在对话中直接获取网络信息：
+
+| 工具 | 用途 | 数据来源 |
+|------|------|----------|
+| `web_search` | 搜索引擎查询 | Brave Search API |
+| `web_fetch` | 网页内容提取 | 直接 HTTP 请求 |
+
+---
+
+## 一、Web Search（网络搜索）
+
+### 基本用法
+
+直接告诉 OpenClaw 你想搜索什么：
+
+```
+搜索 "Python 异步编程教程"
+查找 React 18 新特性
+搜索最新的 AI 发展动态
+```
+
+### 可选参数
+
+| 参数 | 类型 | 说明 | 示例 |
+|------|------|------|------|
+| `count` | 数字 | 返回结果数量 (1-10) | `5` |
+| `country` | 字符串 | 地区代码 | `US`, `CN`, `DE` |
+| `search_lang` | 字符串 | 搜索语言 | `zh`, `en`, `ja` |
+| `ui_lang` | 字符串 | 界面语言 | `zh-CN` |
+| `freshness` | 字符串 | 时间筛选 | `pd`(24h), `pw`(周), `pm`(月), `py`(年) |
+
+### 使用示例
+
+**指定结果数量：**
+```
+搜索 Docker 最佳实践，返回 3 个结果
+```
+
+**按时间筛选：**
+```
+搜索最近一周的科技新闻
+搜索过去一个月关于 ChatGPT 的更新
+```
+
+**多语言搜索：**
+```
+搜索日文的技术博客
+搜索德国的编程教程
+```
+
+### 配置要求
+
+使用 `web_search` 需要配置 Brave Search API Key：
+
+```bash
+# 配置方式一
+openclaw configure --section web
+
+# 配置方式二：环境变量
+export BRAVE_API_KEY="your-api-key"
+```
+
+获取 API Key：[https://brave.com/search/api/](https://brave.com/search/api/)
+
+---
+
+## 二、Web Fetch（网页提取）
+
+### 基本用法
+
+提供网址让 OpenClaw 读取内容：
+
+```
+获取 https://docs.openclaw.ai 的内容
+读取 https://example.com/article 这篇文章
+提取 https://blog.example.com/tutorial 的教程
+```
+
+### 可选参数
+
+| 参数 | 类型 | 说明 | 默认值 |
+|------|------|------|--------|
+| `extractMode` | 字符串 | 提取模式：`markdown` 或 `text` | `markdown` |
+| `maxChars` | 数字 | 最大字符数 | 无限制 |
+
+### 使用示例
+
+**纯文本模式：**
+```
+以纯文本形式获取 https://docs.openclaw.ai/install
+```
+
+**限制内容长度：**
+```
+获取 https://long-article.com 的前 5000 个字符
+```
+
+---
+
+## 三、组合使用技巧
+
+### 场景 1：搜索 + 深度阅读
+
+```
+搜索 "Kubernetes 入门教程"，然后获取最相关的文章详细阅读
+```
+
+### 场景 2：对比多个来源
+
+```
+搜索 "Python vs Go 性能对比"，提取前 3 篇文章的关键观点
+```
+
+### 场景 3：获取最新信息
+
+```
+搜索今天的 AI 新闻，提取最 interesting 的文章总结要点
+```
+
+---
+
+## 四、最佳实践
+
+### ✅ 推荐做法
+
+1. **具体关键词** - 越具体，结果越精准
+2. **先搜索后提取** - 先用 web_search 找资源，再用 web_fetch 深入
+3. **限制结果数** - 简单查询用 3-5 个结果即可
+4. **使用时间筛选** - 技术类查询加 `freshness` 获取最新信息
+
+### ❌ 避免做法
+
+1. **搜索敏感信息** - 不要在搜索中暴露个人隐私
+2. **完全依赖结果** - 重要信息请交叉验证
+3. **过度提取** - 超大页面可能超时，建议分段处理
+
+---
+
+## 五、常见问题
+
+**Q: 提示 "missing_brave_api_key" 怎么办？**  
+A: 需要配置 Brave Search API Key，见上文「配置要求」部分。
+
+**Q: 网页内容提取不完整？**  
+A: 动态加载的页面可能无法完全提取，可尝试增加 `maxChars` 参数。
+
+**Q: 搜索结果不理想？**  
+A: 尝试更具体的关键词，或调整 `country` 和 `search_lang` 参数。
+
+---
+
+## 六、快速命令参考
+
+```
+# 基础搜索
+搜索 "关键词"
+搜索 Python 教程，返回5个结果
+
+# 时效搜索
+搜索最近的 AI 新闻
+搜索过去一周的技术更新
+
+# 网页提取
+获取 https://example.com 的内容
+读取这篇文章：https://docs.openclaw.ai/guide
+```
+
+---
+
+掌握这两个工具，你就能在对话中高效获取和分析网络信息，无需频繁切换浏览器！

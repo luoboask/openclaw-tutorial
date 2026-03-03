@@ -1,0 +1,195 @@
+---
+title: "Discord 频道接入 OpenClaw 完整指南"
+description: "将 OpenClaw 接入 Discord，打造智能服务器助手"
+date: "2026-03-03"
+author: "claw-article"
+tags: ["OpenClaw", "Discord", "频道配置", "教程", "集成"]
+---
+
+# Discord 频道接入 OpenClaw 完整指南
+
+> 将 OpenClaw 接入 Discord，打造智能服务器助手
+
+---
+
+## 概述
+
+Discord 是全球最大的游戏和开发者社区平台。将 OpenClaw 接入 Discord，可以为你的服务器提供：
+
+- 🤖 24/7 在线的智能助手
+- 💬 多频道支持，不同频道不同角色
+- 🎮 游戏化交互体验
+- 🔧 服务器管理自动化
+
+---
+
+## 一、创建 Discord Bot
+
+### 步骤 1：进入 Discord Developer Portal
+
+1. 访问 [Discord Developer Portal](https://discord.com/developers/applications)
+2. 登录你的 Discord 账号
+3. 点击 "New Application"
+
+### 步骤 2：配置 Bot
+
+1. 输入应用名称（例如：OpenClaw Assistant）
+2. 点击左侧 "Bot" 菜单
+3. 点击 "Add Bot"
+4. 保存 **Token**（后续配置需要）
+
+### 步骤 3：设置权限
+
+在 "Bot" 页面：
+
+```
+Privileged Gateway Intents:
+☑️ MESSAGE CONTENT INTENT  [必须勾选]
+☑️ SERVER MEMBERS INTENT  [推荐勾选]
+☑️ PRESENCE INTENT        [可选]
+```
+
+### 步骤 4：OAuth2 URL 生成
+
+1. 点击左侧 "OAuth2" → "URL Generator"
+2. **Scopes** 勾选:
+   - `bot`
+   - `applications.commands`
+3. **Bot Permissions** 勾选:
+   - `Send Messages`
+   - `Read Message History`
+   - `Embed Links`
+   - `Attach Files`
+   - `Use Slash Commands`
+
+4. 复制生成的 URL，在浏览器中打开邀请 Bot 加入服务器
+
+---
+
+## 二、配置 OpenClaw
+
+### 编辑配置文件
+
+```bash
+nano ~/.openclaw/openclaw.json
+```
+
+添加 Discord 配置：
+
+```json
+{
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "botToken": "YOUR_DISCORD_BOT_TOKEN",
+      "clientId": "YOUR_APPLICATION_ID",
+      "guildId": "YOUR_SERVER_ID",
+      "options": {
+        "replyInThread": true,
+        "typingIndicator": true
+      }
+    }
+  }
+}
+```
+
+### 获取配置值
+
+| 配置项 | 获取位置 |
+|--------|----------|
+| `botToken` | Discord Developer Portal → Bot → Token |
+| `clientId` | Discord Developer Portal → General Information → Application ID |
+| `guildId` | Discord 中右键服务器名称 → 复制服务器 ID |
+
+---
+
+## 三、高级配置
+
+### 多频道不同角色
+
+```json
+{
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "botToken": "YOUR_TOKEN",
+      "channelConfigs": {
+        "general": {
+          "agentId": "claw-admin",
+          "personality": "friendly"
+        },
+        "tech-support": {
+          "agentId": "claw-code",
+          "personality": "technical"
+        }
+      }
+    }
+  }
+}
+```
+
+---
+
+## 四、启动与测试
+
+### 启动 Gateway
+
+```bash
+# 重启 Gateway 加载新配置
+openclaw gateway restart
+
+# 查看日志
+openclaw logs -f
+```
+
+### 测试连接
+
+在 Discord 中：
+
+```
+@OpenClawAssistant 你好
+```
+
+或使用 Slash Command:
+```
+/ask question: 什么是 OpenClaw?
+```
+
+---
+
+## 五、常见问题
+
+### Q1: Bot 不响应消息
+
+**检查清单:**
+- [ ] Token 是否正确
+- [ ] MESSAGE CONTENT INTENT 是否开启
+- [ ] Bot 是否有频道权限
+- [ ] Gateway 是否正常运行
+
+### Q2: Slash Commands 不显示
+
+**解决:**
+```bash
+# 重新注册命令
+openclaw discord sync-commands
+```
+
+---
+
+## 六、最佳实践
+
+### 服务器管理自动化
+
+配置 OpenClaw 帮你管理服务器：
+
+```
+用户: @OpenClaw 总结一下今天的讨论
+AI: [生成频道消息摘要]
+```
+
+---
+
+**需要帮助？**
+- Discord 社区: https://discord.gg/clawd
+- 官方文档: https://docs.openclaw.ai/discord
