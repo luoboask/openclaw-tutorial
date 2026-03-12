@@ -90,6 +90,7 @@
 
 **执行脚本:** `scripts/daily-workflow.sh`
 **执行时间:** 每天 09:00
+**Cron 任务:** `daily-maintenance` (ID: ca65eadb-6e91-42ba-85fd-04fc2af55ade) ✅ 已配置
 **功能:** 资料整理 → 任务安排 → 内容创作 → 自动发布
 
 ### 工作流7个阶段
