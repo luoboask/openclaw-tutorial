@@ -1,0 +1,135 @@
+========== OpenClaw 网站维护任务 ==========
+开始时间: Fri Mar  6 09:00:00 CST 2026
+
+[0;32m[INFO][0m 1. 检查本地网站构建状态...
+
+> openclaw-docs@1.0.0 build
+> next build && npm run pagefind
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/openmilo/clawall/claw-team/claw-code/workspace/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/openmilo/clawall/claw-team/claw-code/workspace/website/package-lock.json
+
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.6s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/47) ...
+   Generating static pages (11/47) 
+   Generating static pages (23/47) 
+   Generating static pages (35/47) 
+ ✓ Generating static pages (47/47)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            48.8 kB         154 kB
+├ ○ /_not-found                                    997 B         103 kB
+├ ○ /about                                         163 B         102 kB
+├ ○ /blog                                          185 B         106 kB
+├ ● /blog/[slug]                                   185 B         106 kB
+├   ├ /blog/openclaw-multi-agent-architecture
+├   ├ /blog/openclaw-skill-system-guide
+├   ├ /blog/openclaw-memory-search-ollama-guide
+├   └ [+13 more paths]
+├ ○ /changelog                                     163 B         102 kB
+├ ○ /docs                                          185 B         106 kB
+├ ○ /docs/advanced                                 163 B         102 kB
+├ ○ /docs/channels                                 185 B         106 kB
+├ ○ /docs/channels/discord                         163 B         102 kB
+├ ○ /docs/channels/imessage                        163 B         102 kB
+├ ○ /docs/channels/signal                          163 B         102 kB
+├ ○ /docs/channels/slack                           163 B         102 kB
+├ ○ /docs/channels/telegram                        163 B         102 kB
+├ ○ /docs/channels/whatsapp                        163 B         102 kB
+├ ○ /docs/concepts/memory                          185 B         106 kB
+├ ○ /docs/concepts/multi-agent                     185 B         106 kB
+├ ○ /docs/concepts/skills                          185 B         106 kB
+├ ○ /docs/config                                   163 B         102 kB
+├ ○ /docs/config/heartbeat                         185 B         106 kB
+├ ○ /docs/config/providers                         163 B         102 kB
+├ ○ /docs/config/sandboxing                        185 B         106 kB
+├ ○ /docs/config/sessions                          163 B         102 kB
+├ ○ /docs/install                                  163 B         102 kB
+├ ○ /docs/intro                                    163 B         102 kB
+├ ○ /docs/quickstart                               185 B         106 kB
+├ ○ /docs/security                                 163 B         102 kB
+├ ○ /docs/tools                                    163 B         102 kB
+├ ○ /docs/troubleshooting                          163 B         102 kB
+└ ○ /search                                      2.91 kB         109 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/255-102f2e5b2e3dc2ef.js               46.1 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js          54.2 kB
+  └ other shared chunks (total)                  1.92 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> openclaw-docs@1.0.0 pagefind
+> npx pagefind --site dist
+
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/openmilo/clawall/claw-team/claw-code/workspace/website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 46 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: zh-cn
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 46 pages
+  Indexed 2809 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh-cn. 
+Search will still work, but will not match across root words.
+
+Finished in 0.308 seconds
+[0;32m[INFO][0m ✅ 本地构建成功
+[0;32m[INFO][0m 2. 部署到生产服务器...
+[0;32m[INFO][0m ✅ 部署成功
+[0;32m[INFO][0m 3. 检查服务器网站状态...
+[0;32m[INFO][0m ✅ 网站访问正常 (HTTP 200)
+[0;32m[INFO][0m 4. 检查并同步 Git...
+[main 38f2308b] auto: daily maintenance 2026-03-06
+ 92 files changed, 130 insertions(+), 130 deletions(-)
+ rename dist/_next/static/{oPQKSnnR_UZtvStoDSDn5 => FT-YgdrIpbFlnSyhDL0wj}/_buildManifest.js (100%)
+ rename dist/_next/static/{oPQKSnnR_UZtvStoDSDn5 => FT-YgdrIpbFlnSyhDL0wj}/_ssgManifest.js (100%)
+To github.com:luoboask/openclaw-tutorial.git
+   8ab7970e..38f2308b  main -> main
+[0;32m[INFO][0m ✅ Git 推送成功
+[0;32m[INFO][0m 5. 运行安全检查...
+found 0 vulnerabilities
+[0;32m[INFO][0m ✅ 无高危安全漏洞
+[0;32m[INFO][0m 6. 检查磁盘空间...
+[0;32m[INFO][0m ✅ 磁盘空间充足: 2%
+[0;32m[INFO][0m 7. 清理旧日志...
+[0;32m[INFO][0m ✅ 已清理 30 天前的日志
+
+结束时间: Fri Mar  6 09:00:39 CST 2026
+==========================================
+
+[0;32m[INFO][0m 维护任务完成！
+[0;32m[INFO][0m 摘要: /Users/openmilo/clawall/claw-team/claw-admin/logs/summary-2026-03-06.md
+[0;32m[INFO][0m 日志: /Users/openmilo/clawall/claw-team/claw-admin/logs/maintenance-2026-03-06.log
