@@ -37,7 +37,14 @@
 - [ ] 发布到 content/articles/published/
 - [ ] 更新已发布文章列表
 
-### 7. 生成报告
+### 7. 服务器部署检查
+- [ ] 检查服务器版本是否与本地一致 (31.220.53.241)
+- [ ] 如不一致，执行部署同步
+- [ ] 部署方式: 本地构建 → rsync 到服务器
+- [ ] 服务器路径: /var/www/openclaw-tutorial/
+- [ ] ⚠️ 需要配置 SSH key 登录服务器
+
+### 8. 生成报告
 - [ ] 生成巡检报告
 - [ ] 生成文章发布摘要
 - [ ] 如有异常，记录到 alerts.log
@@ -159,4 +166,27 @@
 
 ---
 
-*更新时间：2026-03-03 13:20*
+## 🔧 环境配置信息
+
+### Git 配置
+- **仓库**: https://github.com/luoboask/openclaw-tutorial.git
+- **SSH Key**: ~/.ssh/id_ed25519
+- **远程 URL**: git@github.com:luoboask/openclaw-tutorial.git
+
+### 服务器配置
+- **IP**: 31.220.53.241
+- **部署路径**: /var/www/openclaw-tutorial/
+- **Web 服务器**: Nginx
+- **进程管理**: PM2
+- **SSH 用户**: root
+- **⚠️ 待配置**: SSH 免密登录
+
+### 本地项目路径
+- **claw-admin**: /Users/openmilo/clawall/claw-team/claw-admin
+- **claw-code**: /Users/openmilo/clawall/claw-team/claw-code
+- **claw-article**: /Users/openmilo/clawall/claw-team/claw-article
+- **网站源码**: /Users/openmilo/clawall/claw-team/claw-code/workspace/website
+- **构建输出**: /Users/openmilo/clawall/claw-team/claw-code/workspace/website/dist
+
+---
+*更新时间：2026-03-16 23:56 - 新增服务器部署检查和环境配置信息*
